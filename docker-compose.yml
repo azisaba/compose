@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  # データベース
+  database:
+    image: mariadb:latest
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 'yes'
+    volumes:
+      - './conf/my.cnf:/etc/mysql/conf.d/azisaba.cnf'
+      - '/srv/mysql:/var/lib/mysql'
+  # ウェブ
+  web:
+    image: nginx:latest
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - './conf/nginx.conf:/etc/nginx/conf.d/azisaba.conf'
+      - '/srv/letsencrypt:/etc/letsencrypt'
+      - '/srv/azisaba.net:/var/www/html/azisaba.net'
+      - '/srv/maps.azisaba.net:/var/www/html/maps.azisaba.net'
+      - '/srv/packs.azisaba.net:/var/www/html/packs.azisaba.net'
+      - '/opt/repo:/opt/repo'
+      - '/opt/buildtools:/opt/buildtools'
+    depends_on:
+      - php-fpm
+  # PHP-FPM
+  php-fpm:
+    image: php:7-fpm
+    restart: always
+    ports:
+      - 9000:9000
