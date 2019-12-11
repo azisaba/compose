@@ -14,7 +14,7 @@ services:
       - '/srv/mysql:/var/lib/mysql'
   # ウェブ
   web:
-    image: nginx:latest
+    image: nginx:mainline-alpine
     restart: always
     ports:
       - 80:80
