@@ -22,11 +22,7 @@ services:
     volumes:
       - './conf/nginx.conf:/etc/nginx/conf.d/azisaba.conf'
       - '/srv/letsencrypt:/etc/letsencrypt'
-      - '/srv/azisaba.net:/var/www/html/azisaba.net'
-      - '/srv/maps.azisaba.net:/var/www/html/maps.azisaba.net'
-      - '/srv/packs.azisaba.net:/var/www/html/packs.azisaba.net'
-      - '/opt/repo:/opt/repo'
-      - '/opt/buildtools:/opt/buildtools'
+      - '/srv/html:/var/www/html'
     depends_on:
       - wordpress
   # ホームページ
@@ -39,6 +35,6 @@ services:
       WORDPRESS_DB_PASSWORD: '${WP_DB_PASSWORD}'
       WORDPRESS_DB_NAME: '${WP_DB_NAME}'
     volumes:
-      - '/srv/azisaba.net:/var/www/html/azisaba.net'
+      - '/srv/html/azisaba.net:/var/www/html/azisaba.net'
     depends_on:
       - database
