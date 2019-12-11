@@ -28,10 +28,17 @@ services:
       - '/opt/repo:/opt/repo'
       - '/opt/buildtools:/opt/buildtools'
     depends_on:
-      - php-fpm
-  # PHP-FPM
-  php-fpm:
-    image: php:7-fpm
+      - wordpress
+  # ホームページ
+  wordpress:
+    image: wordpress:php7.4-fpm-alpine
     restart: always
-    ports:
-      - 9000:9000
+    environment:
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_USER: '${WP_DB_USER}'
+      WORDPRESS_DB_PASSWORD: '${WP_DB_PASSWORD}'
+      WORDPRESS_DB_NAME: '${WP_DB_NAME}'
+    volumes:
+      - '/srv/azisaba.net:/var/www/html/azisaba.net'
+    depends_on:
+      - database
