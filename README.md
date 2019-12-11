@@ -22,3 +22,20 @@ curl -L https://github.com/docker/compose/releases/latest/download/docker-compos
 # 実行可能にする
 chmod -c +x /usr/local/bin/docker-compose
 ```
+
+## 使い方
+
+### 起動とリロード
+```bash
+docker-compose up -d --remove-orphans
+```
+
+### 再起動
+```bash
+docker-compose up -d --remove-orphans --force-recreate
+```
+
+### シャットダウン
+```bash
+docker-compose down --remove-orphans
+```
