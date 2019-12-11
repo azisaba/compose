@@ -1,8 +1,11 @@
 # アジ鯖Docker
+
 アジ鯖の環境構築が毎回めんどすぎるのでDockerで自動化しようという試み  
 最新CentOSを推奨します
 
-## CentOS8にDockerを導入する
+## 下準備
+
+### CentOS8にDockerを導入する
 ```bash
 # repo追加
 dnf -y config-manager --add-repo=https://download.docker.com/linux/centos/docker-ce.repo
@@ -12,7 +15,7 @@ dnf -y install https://download.docker.com/linux/centos/7/x86_64/stable/Packages
 dnf -y install docker-ce
 ```
 
-## Docker Composeを導入する
+### Docker Composeを導入する
 ```bash
 # 最新のdocker-composeを/usr/local/binにダウンロード
 curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
