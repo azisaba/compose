@@ -23,6 +23,8 @@ services:
       - './conf/nginx.conf:/etc/nginx/conf.d/azisaba.conf'
       - '/srv/letsencrypt:/etc/letsencrypt'
       - '/srv/html:/var/www/html'
+      - '/opt/repo:/opt/repo'
+      - '/opt/buildtools:/opt/buildtools'
     depends_on:
       - wordpress
   # ホームページ
