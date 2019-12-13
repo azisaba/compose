@@ -41,6 +41,7 @@ services:
       WORDPRESS_DB_PASSWORD: '${WP_DB_PASSWORD}'
       WORDPRESS_DB_NAME: '${WP_DB_NAME}'
     volumes:
+      - './conf/php.ini:/usr/local/etc/php/php.ini'
       - '/srv/html/azisaba.net:/var/www/html/azisaba.net'
     depends_on:
       - database
