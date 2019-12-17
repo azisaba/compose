@@ -2,7 +2,7 @@
 
 アジ鯖の環境構築が毎回めんどすぎるのでDockerで自動化しようという試み  
 
-## Dockerを導入する🐋
+## 🐋 Dockerを導入する
 
 - ### CentOS 8
 ```bash
@@ -14,7 +14,7 @@ dnf -y install https://download.docker.com/linux/centos/7/x86_64/stable/Packages
 dnf -y install docker-ce
 ```
 
-## Docker Composeを導入する⚙
+## ⚙ Docker Composeを導入する
 ```bash
 # 最新のdocker-composeをダウンロード
 curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o docker-compose
@@ -24,7 +24,7 @@ chmod -c +x docker-compose
 mv -v docker-compose /usr/local/bin/docker-compose
 ```
 
-## 使い方❔
+## ❔ 使い方
 
 ### 起動とリロード
 ```bash
@@ -41,7 +41,7 @@ docker-compose up -d --remove-orphans --force-recreate
 docker-compose down --remove-orphans
 ```
 
-## 助かる👍
+## 👍 助かる
 
 - ### Docker
     - https://qiita.com/gold-kou/items/44860fbda1a34a001fc1
