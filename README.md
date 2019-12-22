@@ -14,6 +14,18 @@ dnf -y install https://download.docker.com/linux/centos/7/x86_64/stable/Packages
 dnf -y install docker-ce
 ```
 
+- ### Debian 9
+```bash
+# 前提パッケージを追加
+apt -y install curl apt-transport-https software-properties-common
+# repo追加
+curl https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | apt-key add -
+add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")"$'\n'"$(lsb_release -cs)"$'\n'"stable"
+apt -y update
+# docker-ceをインストール
+apt -y install docker-ce
+```
+
 ## ⚙ Docker Composeを導入する
 ```bash
 # 最新のdocker-composeをダウンロード
