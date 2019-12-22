@@ -28,6 +28,8 @@ services:
     depends_on:
       - wordpress
       - metabase
+    extra_hosts:
+      - 'minecraft:${MC_HOST}'
   # ホームページ
   wordpress:
     image: wordpress:php7.4-fpm-alpine
