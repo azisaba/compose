@@ -29,6 +29,7 @@ services:
       - '/opt/buildtools:/opt/buildtools'
     depends_on:
       - wordpress
+      - metabase
   # ホームページ
   wordpress:
     image: wordpress:php7.4-fpm-alpine
@@ -45,3 +46,12 @@ services:
       - '/srv/html/azisaba.net:/var/www/html/azisaba.net'
     depends_on:
       - database
+  # データ可視化
+  metabase:
+    image: metabase/metabase:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      MB_DB_FILE: /opt/metabase/metabase.db
+    volumes:
+      - './data/metabase:/opt/metabase'
