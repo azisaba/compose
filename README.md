@@ -12,6 +12,15 @@ dnf -y config-manager --add-repo=https://download.docker.com/linux/centos/docker
 dnf -y install https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
 # docker-ceをインストール
 dnf -y install docker-ce
+# サービス起動
+systemctl enable docker
+systemctl start docker
+# 最新のdocker-composeをダウンロード
+curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o docker-compose
+# 実行可能にする
+chmod -c +x docker-compose
+# /usr/local/binに移動する
+mv -v docker-compose /usr/local/bin/docker-compose
 ```
 
 - ### Debian 9
@@ -24,16 +33,29 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/$(. /etc/
 apt -y update
 # docker-ceをインストール
 apt -y install docker-ce
-```
-
-## ⚙ Docker Composeを導入する
-```bash
+# サービス起動
+systemctl enable docker
+systemctl start docker
 # 最新のdocker-composeをダウンロード
 curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o docker-compose
 # 実行可能にする
 chmod -c +x docker-compose
 # /usr/local/binに移動する
 mv -v docker-compose /usr/local/bin/docker-compose
+```
+
+- ### Alpine Linux 3.11
+```ash
+# repo追加
+sed -i 's,^#\(.*://\),\1,g' /etc/apk/repositories
+apk update
+# dockerとdocker-composeをインストール
+apk add docker docker-compose
+# サービス起動
+rc-update add docker boot
+service docker start
+# 動作を高速化
+echo $'nameserver 1.1.1.1\nnameserver 1.0.0.1' > /etc/resolv.conf
 ```
 
 ## ❔ 使い方
