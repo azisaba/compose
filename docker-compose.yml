@@ -54,4 +54,4 @@ services:
       TZ: Asia/Tokyo
       MB_DB_FILE: /opt/metabase/metabase.db
     volumes:
-      - './data/metabase:/opt/metabase'
+      - '/srv/metabase:/opt/metabase'
