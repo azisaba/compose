@@ -65,4 +65,12 @@ services:
     volumes:
       - '/srv/discord/logger:/app/logger'
     working_dir: '/app/logger'
-    command: sh -c 'apk add --no-cache python3 py3-multidict py3-yarl && python3 -m pip install -U discord.py && python3 AzisabaLogger.py'
+    command:
+      - sh
+      - -c
+      - |
+        set -eux
+        apk add --no-cache tzdata python3 py3-multidict py3-yarl
+        cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+        python3 -m pip install -U discord.py
+        python3 AzisabaLogger.py
