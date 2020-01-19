@@ -65,7 +65,7 @@ services:
     volumes:
       - '/srv/discord/logger:/app/logger'
     working_dir: '/app/logger'
-    command: sh -c 'apk add --no-cache tzdata python3 py3-multidict py3-yarl && python3 -m pip install -U discord.py && python3 AzisabaLogger.py'
+    command: sh -c 'set -x && apk add --no-cache tzdata python3 py3-multidict py3-yarl && python3 -m pip install -U discord.py && python3 AzisabaLogger.py'
   # アジ鯖サポート
   support:
     image: alpine:latest
@@ -75,4 +75,4 @@ services:
     volumes:
       - '/srv/discord/support:/app/support'
     working_dir: '/app/support'
-    command: sh -c 'apk add --no-cache tzdata python3 py3-multidict py3-yarl && python3 -m pip install -U discord.py && python3 support.py'
+    command: sh -c 'set -x && apk add --no-cache tzdata python3 py3-multidict py3-yarl && python3 -m pip install -U discord.py && python3 support.py'
