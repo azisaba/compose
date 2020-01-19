@@ -76,3 +76,15 @@ services:
       - '/srv/discord/support:/app/support'
     working_dir: '/app/support'
     command: sh -c 'set -x && apk add --no-cache tzdata python3 py3-multidict py3-yarl && python3 -m pip install -U discord.py && python3 support.py'
+  # Minecraft - main
+  main:
+    image: alpine:latest
+    restart: always
+    ports:
+      - 25567:25567
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - '/opt/minecraft/main:/app/minecraft'
+    working_dir: '/app/minecraft'
+    command: sh -c 'set -x && echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && apk add --no-cache tzdata tmux openjdk12-jre@testing && close() { tmux send -t minecraft ENTER minecraft:stop ENTER; } && trap "close" TERM && tmux new -d -s minecraft java -Xms6G -Xmx6G -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -jar *.jar && set +x && while true; do sleep 0.05; done'
