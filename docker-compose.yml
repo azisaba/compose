@@ -56,3 +56,12 @@ services:
       MB_DB_FILE: /opt/metabase/metabase.db
     volumes:
       - '/srv/metabase:/opt/metabase'
+  # アジ鯖ロガー
+  logger:
+    image: python:3-alpine
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - '/srv/discord/logger:/app/logger'
+    command: sh -c 'apk add --no-cache gcc musl-dev && python3 -m pip install -U discord.py && cd /app/logger && python3 AzisabaLogger.py'
