@@ -2,15 +2,17 @@
 
 ## ❔ 使い方
 ### 起動とリロード
-```bash
+```sh
+docker-compose pull
+docker system prune -f --volumes
 docker-compose up -d --remove-orphans
 ```
 ### 再起動
-```bash
+```sh
 docker-compose up -d --remove-orphans --force-recreate
 ```
 ### シャットダウン
-```bash
+```sh
 docker-compose down --remove-orphans
 ```
 
