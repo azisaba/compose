@@ -56,24 +56,26 @@ services:
       - '/srv/metabase:/opt/metabase'
   # アジ鯖ロガー
   logger:
-    image: alpine:latest
+    build:
+      context: ./images/discord.py/python3
     restart: always
     environment:
       TZ: Asia/Tokyo
+      SCRIPT_PATH: 'AzisabaLogger.py'
     volumes:
       - '/srv/discord/logger:/app/logger'
     working_dir: '/app/logger'
-    command: sh -c 'set -x && apk add --no-cache tzdata python3 py3-multidict py3-yarl && python3 -m pip install -U discord.py && python3 AzisabaLogger.py'
   # アジ鯖サポート
   support:
-    image: alpine:latest
+    build:
+      context: ./images/discord.py/python3
     restart: always
     environment:
       TZ: Asia/Tokyo
+      SCRIPT_PATH: 'support.py'
     volumes:
       - '/srv/discord/support:/app/support'
     working_dir: '/app/support'
-    command: sh -c 'set -x && apk add --no-cache tzdata python3 py3-multidict py3-yarl && python3 -m pip install -U discord.py && python3 support.py'
   # Minecraft - main
   main:
     image: alpine:latest
