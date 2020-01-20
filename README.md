@@ -3,6 +3,7 @@
 ## ❔ 使い方
 ### 起動とリロード
 ```sh
+docker-compose build --pull
 docker-compose pull
 docker system prune -f --volumes
 docker-compose up -d --remove-orphans
