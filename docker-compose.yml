@@ -76,13 +76,38 @@ services:
     volumes:
       - '/srv/discord/support:/app/support'
     working_dir: '/app/support'
+  # Minecraft - bungee (バンジーサーバー)
+  bungee:
+    build:
+      context: ./images/minecraft
+    restart: always
+    ports:
+      - 8192:8192
+      - 25565:25565
+    environment:
+      TZ: Asia/Tokyo
+      STOP_CMD: 'end'
+      JAR_PATH: 'Waterfall.jar'
+    volumes:
+      - '/opt/minecraft/bungee:/app/bungee'
+    working_dir: '/app/bungee'
+  # Minecraft - lobby (ロビーサーバー)
+  lobby:
+    build:
+      context: ./images/minecraft
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      STOP_CMD: 'minecraft:stop'
+      JAR_PATH: 'spigot-1.8.8.jar'
+    volumes:
+      - '/opt/minecraft/lobby:/app/lobby'
+    working_dir: '/app/lobby'
   # Minecraft - main (生活サーバー)
   main:
     build:
       context: ./images/minecraft
     restart: always
-    ports: # デバッグ
-      - 25567:25567 # デバッグ
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
@@ -95,8 +120,6 @@ services:
     build:
       context: ./images/minecraft
     restart: always
-    ports: # デバッグ
-      - 25569:25569 # デバッグ
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
@@ -109,8 +132,6 @@ services:
     build:
       context: ./images/minecraft
     restart: always
-    ports: # デバッグ
-      - 25570:25570 # デバッグ
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
@@ -118,3 +139,39 @@ services:
     volumes:
       - '/opt/minecraft/p:/app/p'
     working_dir: '/app/p'
+  # Minecraft - lgw (銃サーバー)
+  lgw:
+    build:
+      context: ./images/minecraft
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      STOP_CMD: 'minecraft:stop'
+      JAR_PATH: 'paper-1.12.2.jar'
+    volumes:
+      - '/opt/minecraft/lgw:/app/lgw'
+    working_dir: '/app/lgw'
+  # Minecraft - pvp (PvPサーバー)
+  pvp:
+    build:
+      context: ./images/minecraft
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      STOP_CMD: 'minecraft:stop'
+      JAR_PATH: 'spigot-1.8.8.jar'
+    volumes:
+      - '/opt/minecraft/pvp:/app/pvp'
+    working_dir: '/app/pvp'
+  # Minecraft - pata (ぱたサーバー)
+  pata:
+    build:
+      context: ./images/minecraft
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      STOP_CMD: 'minecraft:stop'
+      JAR_PATH: 'spigot-1.8.8.jar'
+    volumes:
+      - '/opt/minecraft/pata:/app/pata'
+    working_dir: '/app/pata'
