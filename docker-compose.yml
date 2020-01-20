@@ -90,6 +90,20 @@ services:
     volumes:
       - '/opt/minecraft/main:/app/main'
     working_dir: '/app/main'
+  # Minecraft - parkour (パルクールサーバー)
+  parkour:
+    build:
+      context: ./images/minecraft
+    restart: always
+    ports: # デバッグ
+      - 25569:25569 # デバッグ
+    environment:
+      TZ: Asia/Tokyo
+      STOP_CMD: 'minecraft:stop'
+      JAR_PATH: 'paper-1.13.2.jar'
+    volumes:
+      - '/opt/minecraft/parkour:/app/parkour'
+    working_dir: '/app/parkour'
   # Minecraft - p (観光サーバー)
   p:
     build:
