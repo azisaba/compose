@@ -6,8 +6,8 @@
 ```sh
 docker-compose build --pull
 docker-compose pull
-docker system prune -f --volumes
 docker-compose up -d --remove-orphans
+docker system prune -f --volumes
 ```
 ### 再起動
 ```sh
