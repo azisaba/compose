@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8-openj9:alpine
+FROM adoptopenjdk/openjdk8:alpine-jre
 
 RUN apk add --no-cache tzdata
 RUN set -ex \
