@@ -88,8 +88,8 @@ services:
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
     volumes:
-      - '/opt/minecraft/main:/app/minecraft'
-    working_dir: '/app/minecraft'
+      - '/opt/minecraft/main:/app/main'
+    working_dir: '/app/main'
   # Minecraft - p (観光サーバー)
   p:
     build:
@@ -102,5 +102,5 @@ services:
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
     volumes:
-      - '/opt/minecraft/p:/app/minecraft'
-    working_dir: '/app/minecraft'
+      - '/opt/minecraft/p:/app/p'
+    working_dir: '/app/p'
