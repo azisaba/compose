@@ -76,15 +76,31 @@ services:
     volumes:
       - '/srv/discord/support:/app/support'
     working_dir: '/app/support'
-  # Minecraft - main
+  # Minecraft - main (生活サーバー)
   main:
-    image: alpine:latest
+    build:
+      context: ./images/minecraft
     restart: always
-    ports:
-      - 25567:25567
+    ports: # デバッグ
+      - 25567:25567 # デバッグ
     environment:
       TZ: Asia/Tokyo
+      STOP_CMD: 'minecraft:stop'
+      JAR_PATH: 'paper-1.13.2.jar'
     volumes:
       - '/opt/minecraft/main:/app/minecraft'
     working_dir: '/app/minecraft'
-    command: sh -c 'set -x && echo "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && apk add --no-cache tzdata tmux openjdk12-jre@testing && close() { tmux send -t minecraft ENTER minecraft:stop ENTER; } && trap "close" TERM && tmux new -d -s minecraft java -Xms6G -Xmx6G -XX:+UnlockExperimentalVMOptions -XX:+UseShenandoahGC -jar *.jar && set +x && while true; do sleep 0.05; done'
+  # Minecraft - p (観光サーバー)
+  p:
+    build:
+      context: ./images/minecraft
+    restart: always
+    ports: # デバッグ
+      - 25570:25570 # デバッグ
+    environment:
+      TZ: Asia/Tokyo
+      STOP_CMD: 'minecraft:stop'
+      JAR_PATH: 'paper-1.13.2.jar'
+    volumes:
+      - '/opt/minecraft/p:/app/minecraft'
+    working_dir: '/app/minecraft'
