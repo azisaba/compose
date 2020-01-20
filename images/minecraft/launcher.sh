@@ -5,7 +5,7 @@ close() {
 }
 trap 'close' SIGTERM
 
-tmux new -d -s minecraft java -jar "$JAR_PATH"
+tmux new -d -s minecraft java -Dminecraft@`basename $PWD` -jar "$JAR_PATH"
 
 while true
 do
