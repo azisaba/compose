@@ -15,7 +15,7 @@ docker-compose up -d --remove-orphans --force-recreate
 ```
 ### シャットダウン
 ```sh
-docker-compose down --remove-orphans
+docker-compose down --remove-orphans --timeout 30
 ```
 
 ## 👍 助かる
