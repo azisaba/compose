@@ -5,6 +5,7 @@ RUN set -ex \
 	\
 	&& apk add --no-cache \
 		tmux \
+		coreutils \
 	\
 	&& tmux -V \
 	&& java -version
