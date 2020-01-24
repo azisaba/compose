@@ -2,12 +2,15 @@
 🐋
 
 ## 📕 使い方
-### 起動とリロード
+### ビルド
 ```sh
 docker-compose pull
-docker-compose build --parallel
-docker-compose up -d --remove-orphans
+docker-compose build
 docker system prune -f --volumes
+```
+### 起動とリロード
+```sh
+docker-compose up -d --remove-orphans
 ```
 ### 再起動
 ```sh
