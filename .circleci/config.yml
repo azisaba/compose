@@ -9,7 +9,7 @@ executors:
       TZ: Asia/Tokyo
   docker:
     docker:
-      - image: alpine:latest
+      - image: docker:latest
     working_directory: ~/work
     environment:
       TZ: Asia/Tokyo
@@ -25,14 +25,12 @@ jobs:
     executor: docker
     steps:
       - checkout
-      - run: apk update
-      - run: apk --no-progress add openrc docker docker-compose
       - setup_remote_docker
-      - run: docker info
-      - run: docker-compose --version
+      - run: apk --no-progress add docker-compose
+      - run: docker version
+      - run: docker-compose version
       - run: docker-compose --no-ansi pull
       - run: docker-compose --no-ansi build
-      - run: docker system prune -f --volumes
       - run: docker system df
       - run: docker system df --verbose
 
