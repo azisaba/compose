@@ -7,14 +7,32 @@ executors:
     working_directory: ~/work
     environment:
       TZ: Asia/Tokyo
+  docker:
+    docker:
+      - image: alpine:latest
+    working_directory: ~/work
+    environment:
+      TZ: Asia/Tokyo
 
 jobs:
   lint:
     executor: hadolint
     steps:
       - checkout
+      - run: hadolint --version
       - run: find . -type f -name 'Dockerfile' -print0 | xargs -0 hadolint
+  build:
+    executor: docker
+    steps:
+      - checkout
+      - run: apk update
+      - run: apk --no-progress add openrc docker docker-compose
+      - setup_remote_docker
+      - run: docker info
+      - run: docker-compose --version
+      - run: docker-compose pull
+      - run: docker-compose build --parallel
 
 workflows:
   version: 2
-  commit: { jobs: [lint] }
+  commit: { jobs: [lint, build] }
