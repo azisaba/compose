@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run: apk update
       - run: apk add --no-progress openrc docker docker-compose
-      - run: sleep 10
+      - run: docker info
       - run: docker-compose pull
       - run: docker-compose build --parallel
       - run: docker system df --verbose
