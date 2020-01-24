@@ -27,8 +27,7 @@ jobs:
       - checkout
       - run: apk update
       - run: apk --no-progress add openrc docker docker-compose
-      - setup_remote_docker:
-          docker_layer_caching: true
+      - setup_remote_docker
       - run: docker info
       - run: docker-compose --version
       - run: docker-compose pull
