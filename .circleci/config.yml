@@ -15,6 +15,7 @@ jobs:
       - checkout
       - run: apk update
       - run: apk add --no-progress openrc docker docker-compose
+      - run: service docker restart
       - run: docker info
       - run: docker-compose pull
       - run: docker-compose build --parallel
