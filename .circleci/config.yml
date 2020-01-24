@@ -3,7 +3,7 @@ version: 2.1
 executors:
   alpine:
     docker:
-      - image: alpine:latest
+      - image: circleci/classic:latest
     working_directory: ~/work
     environment:
       TZ: Asia/Tokyo
@@ -13,10 +13,9 @@ jobs:
     executor: alpine
     steps:
       - checkout
-      - run: apk update
-      - run: apk add --no-progress openrc docker docker-compose
-      - run: service docker restart
-      - run: docker info
+      - run: curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+      - run: chmod +x ~/docker-compose
+      - run: sudo mv ~/docker-compose /usr/local/bin/docker-compose
       - run: docker-compose pull
       - run: docker-compose build --parallel
       - run: docker system df --verbose
