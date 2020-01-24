@@ -14,11 +14,12 @@ jobs:
     steps:
       - checkout
       - run: apk update
-      - run: apk add docker
-      - run: apk add docker-compose
+      - run: apk add --quiet docker
+      - run: apk add --quiet docker-compose
+      - run: service docker start
       - run: docker-compose pull
       - run: docker-compose build --parallel
-      - run: docker system df -v
+      - run: docker system df --verbose
 
 workflows:
   version: 2
