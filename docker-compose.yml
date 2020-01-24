@@ -177,7 +177,3 @@ services:
     volumes:
       - '/opt/minecraft/pata:/app/pata'
     working_dir: '/app/pata'
-
-secrets:
-  wordpress:
-    file: ./secrets/wordpress.txt
