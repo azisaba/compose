@@ -28,8 +28,6 @@ jobs:
       - run: apk update
       - run: apk --no-progress add openrc docker docker-compose
       - setup_remote_docker
-      - run: docker swarm init
-      - run: echo '' | docker secret create wordpress -
       - run: docker info
       - run: docker-compose --version
       - run: docker-compose --no-ansi pull
