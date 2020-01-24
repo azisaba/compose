@@ -14,9 +14,9 @@ jobs:
     steps:
       - checkout
       - run: apk update
-      - run: apk add --no-progress openrc docker docker-compose
-      - run: docker-compose pull
-      - run: docker-compose build --parallel
+      - run: apk add --no-progress sudo openrc docker docker-compose
+      - run: sudo docker-compose pull
+      - run: sudo docker-compose build --parallel
       - run: docker system df --verbose
 
 workflows:
