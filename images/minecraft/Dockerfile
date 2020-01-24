@@ -1,14 +1,15 @@
-FROM adoptopenjdk/openjdk8:alpine-jre
+FROM alpine:latest
 
-RUN apk add --no-cache tzdata
 RUN set -ex \
 	\
 	&& apk add --no-cache \
+		tzdata \
 		tmux \
 		coreutils \
+		openjdk8-jre \
 	\
 	&& tmux -V \
 	&& java -version
-
 COPY launcher.sh /
+
 CMD ["sh", "/launcher.sh"]
