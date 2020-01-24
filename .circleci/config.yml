@@ -3,7 +3,7 @@ version: 2.1
 executors:
   alpine:
     docker:
-      - image: circleci/classic:latest
+      - image: circleci/classic:edge
     working_directory: ~/work
     environment:
       TZ: Asia/Tokyo
