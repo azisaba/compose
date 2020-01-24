@@ -14,8 +14,7 @@ jobs:
     steps:
       - checkout
       - run: apk update
-      - run: apk add --quiet docker
-      - run: apk add --quiet docker-compose
+      - run: apk add --no-progress openrc docker docker-compose
       - run: service docker start
       - run: docker-compose pull
       - run: docker-compose build --parallel
