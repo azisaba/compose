@@ -30,8 +30,8 @@ jobs:
       - setup_remote_docker
       - run: docker info
       - run: docker-compose --version
-      - run: docker-compose pull
-      - run: docker-compose build
+      - run: docker-compose --no-ansi pull
+      - run: docker-compose --no-ansi build
       - run: docker system prune -f --volumes
       - run: docker system df --verbose
 
