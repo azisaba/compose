@@ -180,4 +180,4 @@ services:
 
 secrets:
   wordpress:
-    file: /srv/html/azisaba.net/secret.txt
+    file: /srv/secrets/wordpress.txt
