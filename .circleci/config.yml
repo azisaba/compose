@@ -33,6 +33,7 @@ jobs:
       - run: docker-compose --no-ansi pull
       - run: docker-compose --no-ansi build
       - run: docker system prune -f --volumes
+      - run: docker system df
       - run: docker system df --verbose
 
 workflows:
