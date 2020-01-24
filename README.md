@@ -4,10 +4,10 @@
 ## 📕 使い方
 ### 起動とリロード
 ```sh
-docker system prune -f --volumes
 docker-compose pull
 docker-compose build --parallel
 docker-compose up -d --remove-orphans
+docker system prune -f --volumes
 ```
 ### 再起動
 ```sh
