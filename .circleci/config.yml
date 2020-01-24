@@ -13,12 +13,12 @@ jobs:
     executor: alpine
     steps:
       - checkout
-      - run: sudo apk update
-      - run: sudo apk add docker
-      - run: sudo apk add docker-compose
-      - run: sudo docker-compose pull
-      - run: sudo docker-compose build --parallel
-      - run: sudo docker system df -v
+      - run: apk update
+      - run: apk add docker
+      - run: apk add docker-compose
+      - run: docker-compose pull
+      - run: docker-compose build --parallel
+      - run: docker system df -v
 
 workflows:
   version: 2
