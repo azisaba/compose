@@ -9,7 +9,7 @@ executors:
       TZ: Asia/Tokyo
 
 jobs:
-  build:
+  lint:
     executor: hadolint
     steps:
       - checkout
@@ -17,4 +17,4 @@ jobs:
 
 workflows:
   version: 2
-  commit: { jobs: [build] }
+  commit: { jobs: [lint] }
