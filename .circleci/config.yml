@@ -1,24 +1,19 @@
 version: 2.1
 
 executors:
-  alpine:
+  hadolint:
     docker:
-      - image: circleci/buildpack-deps:latest
+      - image: hadolint/hadolint:latest
     working_directory: ~/work
     environment:
       TZ: Asia/Tokyo
 
 jobs:
   build:
-    executor: alpine
+    executor: hadolint
     steps:
       - checkout
-      - run: curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-      - run: chmod +x ~/docker-compose
-      - run: sudo mv ~/docker-compose /usr/local/bin/docker-compose
-      - run: docker-compose pull
-      - run: docker-compose build --parallel
-      - run: docker system df --verbose
+      - run: find . -type f -name 'Dockerfile' -print0 | xargs -0 hadolint
 
 workflows:
   version: 2
