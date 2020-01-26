@@ -90,6 +90,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'end'
       JAR_PATH: 'Waterfall.jar'
+      JVM_ARGS: '-Dminecraft@bungee -Xms2G -Xmx2G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+UseFastAccessorMethods -XX:+AggressiveOpts -XX:+UseLargePages -XX:-UseGCOverheadLimit -XX:-UseAdaptiveSizePolicy -XX:+UseStringDeduplication -XX:UseSSE=3 -Xloggc:./gc.log -XX:+PrintGCDateStamps -Dfile.encoding=UTF-8 -Dcom.mojang.eula.agree=true -Dusing.aikars.flags=mcflags.emc.gs'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
@@ -102,6 +103,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
+      JVM_ARGS: '-Dminecraft@lobby'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
     working_dir: '/app/lobby'
@@ -114,6 +116,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
+      JVM_ARGS: '-Dminecraft@main'
     volumes:
       - '/opt/minecraft/main:/app/main'
     working_dir: '/app/main'
@@ -126,6 +129,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
+      JVM_ARGS: '-Dminecraft@parkour -Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+UseFastAccessorMethods -XX:+AggressiveOpts -XX:+UseLargePages -XX:-UseGCOverheadLimit -XX:-UseAdaptiveSizePolicy -XX:+UseStringDeduplication -XX:UseSSE=3 -Xloggc:./gc.log -XX:+PrintGCDateStamps -Dfile.encoding=UTF-8 -Dcom.mojang.eula.agree=true -Dusing.aikars.flags=mcflags.emc.gs'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
     working_dir: '/app/parkour'
@@ -138,6 +142,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
+      JVM_ARGS: '-Dminecraft@p -Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -XX:+UseFastAccessorMethods -XX:+AggressiveOpts -XX:+UseLargePages -XX:-UseGCOverheadLimit -XX:-UseAdaptiveSizePolicy -XX:+UseStringDeduplication -XX:UseSSE=3 -Xloggc:./gc.log -XX:+PrintGCDateStamps -Dfile.encoding=UTF-8 -Dcom.mojang.eula.agree=true -Dusing.aikars.flags=mcflags.emc.gs'
     volumes:
       - '/opt/minecraft/p:/app/p'
     working_dir: '/app/p'
@@ -150,6 +155,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
+      JVM_ARGS: '-Dminecraft@lgw'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
     working_dir: '/app/lgw'
@@ -162,6 +168,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
+      JVM_ARGS: '-Dminecraft@pvp'
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
@@ -174,6 +181,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
+      JVM_ARGS: '-Dminecraft@pata'
     volumes:
       - '/opt/minecraft/pata:/app/pata'
     working_dir: '/app/pata'
