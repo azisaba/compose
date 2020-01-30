@@ -1,8 +1,10 @@
 - https://discordpy.readthedocs.io/ja/latest/intro.html
+- https://docs.oracle.com/javase/jp/8/docs/technotes/guides/vm/gctuning/g1_gc_tuning.html
 - https://gist.github.com/denji/8359866
 - https://guides.wp-bullet.com/adjusting-php-fpm-performance-low-memory/
 - https://hacknote.jp/archives/21820/
 - https://kinsta.com/jp/knowledgebase/enable-gzip-compression/
+- https://mcflags.emc.gs
 - https://nginxconfig.io
 - https://qiita.com/dtan4/items/8359e389b95cbc60952d
 - https://qiita.com/gold-kou/items/44860fbda1a34a001fc1
@@ -16,5 +18,6 @@
 - https://qiita.com/UNKCHAN/items/6ec98432faef6d55ef29
 - https://serverfault.com/a/331603
 - https://stackoverflow.com/a/40454758
+- https://wiki.openjdk.java.net/display/shenandoah/Main
 - https://www.atmarkit.co.jp/ait/articles/1602/25/news017_2.html
 - https://www.atmarkit.co.jp/ait/articles/1605/16/news003.html
