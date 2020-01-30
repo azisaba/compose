@@ -15,8 +15,9 @@ jwait() {
 
 trap 'close' SIGTERM
 
-tmux new -d -s minecraft sh -c 'java $JVM_ARGS -jar $JAR_PATH | tee /tmux.log'
-tail -F /tmux.log &
+tmux new -d -s minecraft java $JVM_ARGS -jar $JAR_PATH
+tail -F ./proxy.log.0 &
+tail -F ./logs/latest.log &
 tail -F ./gc.log &
 
 {
