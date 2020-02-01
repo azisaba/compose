@@ -90,7 +90,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'end'
       JAR_PATH: 'Waterfall.jar'
-      JVM_ARGS: '-Dminecraft@bungee -Xms3G -Xmx3G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
+      JVM_ARGS: '-Dminecraft@bungee -Xms3G -Xmx3G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
@@ -103,7 +103,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@lobby -Xms4G -Xmx4G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
+      JVM_ARGS: '-Dminecraft@lobby -Xms4G -Xmx4G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
     working_dir: '/app/lobby'
@@ -116,7 +116,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Dminecraft@main -Xms10G -Xmx10G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
+      JVM_ARGS: '-Dminecraft@main -Xms10G -Xmx10G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/main:/app/main'
     working_dir: '/app/main'
@@ -129,7 +129,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Dminecraft@parkour -Xms6G -Xmx6G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
+      JVM_ARGS: '-Dminecraft@parkour -Xms6G -Xmx6G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
     working_dir: '/app/parkour'
@@ -142,7 +142,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Dminecraft@p -Xms6G -Xmx6G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
+      JVM_ARGS: '-Dminecraft@p -Xms6G -Xmx6G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/p:/app/p'
     working_dir: '/app/p'
@@ -155,7 +155,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
-      JVM_ARGS: '-Dminecraft@lgw -Xms10G -Xmx10G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
+      JVM_ARGS: '-Dminecraft@lgw -Xms10G -Xmx10G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
     working_dir: '/app/lgw'
@@ -168,7 +168,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@pvp -Xms6G -Xmx6G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
+      JVM_ARGS: '-Dminecraft@pvp -Xms6G -Xmx6G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
@@ -181,7 +181,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@pata -Xms6G -Xmx6G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
+      JVM_ARGS: '-Dminecraft@pata -Xms6G -Xmx6G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/pata:/app/pata'
     working_dir: '/app/pata'
