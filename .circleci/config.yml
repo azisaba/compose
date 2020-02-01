@@ -20,7 +20,7 @@ jobs:
     steps:
       - checkout
       - run: hadolint --version
-      - run: find . -type f -name 'Dockerfile' -print0 | xargs -0 hadolint
+      - run: find . -type f -name 'Dockerfile' -print0 | xargs -0 hadolint --ignore DL3018
   build:
     executor: docker
     steps:
