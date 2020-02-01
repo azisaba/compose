@@ -3,10 +3,10 @@ FROM alpine:3.11
 RUN set -ex \
 	\
 	&& apk --no-cache add \
-		tzdata=2019c-r0 \
-		python3=3.8.1-r0 \
-		py3-multidict=4.7.1-r0 \
-		py3-yarl=1.4.2-r0 \
+		tzdata \
+		python3 \
+		py3-multidict \
+		py3-yarl \
 	\
 	&& pip3 install --upgrade \
 		pip==20.0.2 \
