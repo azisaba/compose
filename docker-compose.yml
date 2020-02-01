@@ -90,7 +90,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'end'
       JAR_PATH: 'Waterfall.jar'
-      JVM_ARGS: '-Dminecraft@bungee -Xms2G -Xmx2G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
+      JVM_ARGS: '-Dminecraft@bungee -Xms3G -Xmx3G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
@@ -116,7 +116,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Dminecraft@main -Xms8G -Xmx8G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
+      JVM_ARGS: '-Dminecraft@main -Xms10G -Xmx10G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
     volumes:
       - '/opt/minecraft/main:/app/main'
     working_dir: '/app/main'
@@ -155,7 +155,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
-      JVM_ARGS: '-Dminecraft@lgw -Xms8G -Xmx8G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
+      JVM_ARGS: '-Dminecraft@lgw -Xms10G -Xmx10G -XX:+UseG1GC -XX:+UseStringDeduplication -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDateStamps'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
     working_dir: '/app/lgw'
