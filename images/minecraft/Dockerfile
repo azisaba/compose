@@ -7,7 +7,7 @@ RUN set -ex \
 		tmux=3.0a-r0 \
 		coreutils=8.31-r0 \
 		openjdk8-jre=8.242.08-r0 \
-		sudo=1.8.29-r0 \
+		sudo=1.8.29-r1 \
 		iptables=1.8.3-r1 \
 		ipset=7.4-r0 \
 	\
