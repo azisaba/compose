@@ -1,5 +1,6 @@
 FROM alpine:3.11.3
 
+COPY requirements.txt .
 RUN set -ex \
 	\
 	&& apk --no-cache add \
@@ -8,9 +9,7 @@ RUN set -ex \
 		py3-multidict \
 		py3-yarl \
 	\
-	&& pip3 install --upgrade \
-		pip==20.0.2 \
-		discord.py==1.3.1 \
+	&& pip3 install --upgrade --requirement requirements.txt \
 	\
 	&& python3 --version \
 	&& pip3 list \
