@@ -13,7 +13,7 @@ jwait() {
 trap 'close' SIGTERM
 
 tmux new -d -s minecraft java $JVM_ARGS -jar $JAR_PATH
-tail -F ./proxy.log.0 ./logs/latest.log ./gc.log &
+tail -n 0 -F ./proxy.log.0 ./logs/latest.log ./gc.log &
 
 until pgrep java > /dev/null; do
   sleep 1
