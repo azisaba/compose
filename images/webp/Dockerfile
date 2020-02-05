@@ -6,7 +6,8 @@ RUN set -ex \
 		tzdata \
 		libwebp-tools \
 	\
-	&& cwebp -version
+	&& cwebp -version \
+	&& gif2webp -version
 COPY convert.sh /
 
 CMD ["sh", "/convert.sh"]
