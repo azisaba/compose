@@ -47,7 +47,7 @@ services:
     depends_on:
       - database
   # WebP作成
-  webp:
+  wordpress-webp:
     build:
       context: ./images/webp
     environment:
