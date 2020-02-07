@@ -1,6 +1,6 @@
-[![](https://badgen.net/circleci/github/AzisabaNetwork/azifry)](https://circleci.com/gh/AzisabaNetwork/azifry)
+[![](https://badgen.net/circleci/github/AzisabaNetwork/azifry/?icon=circleci)](https://circleci.com/gh/AzisabaNetwork/azifry)
 [![](https://badgen.net/dependabot/AzisabaNetwork/azifry/?icon=dependabot)](https://github.com/AzisabaNetwork/azifry/pulls/app/dependabot-preview)
-[![](https://badgen.net/twitter/follow/AzisabaNetwork)](https://twitter.com/AzisabaNetwork)
+[![](https://badgen.net/twitter/follow/AzisabaNetwork/?icon=twitter)](https://twitter.com/AzisabaNetwork)
 [![](https://discordapp.com/api/guilds/357134045328572418/widget.png)](https://discord.gg/seheC2W)
 
 # アジ鯖Docker
