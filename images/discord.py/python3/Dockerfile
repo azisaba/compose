@@ -1,6 +1,7 @@
 FROM alpine:3.11.3
 
 COPY requirements.txt .
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN set -ex \
 	\
 	&& apk --no-cache add \

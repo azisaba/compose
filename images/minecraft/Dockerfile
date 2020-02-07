@@ -3,6 +3,7 @@ FROM frolvlad/alpine-glibc:alpine-3.11_glibc-2.30
 ENV JAVA_HOME /opt/jdk
 ENV PATH $JAVA_HOME/bin:$PATH
 
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN set -ex \
 	\
 	&& ln -sfv /lib64/ld-linux-x86-64.so.2 /usr/glibc-compat/lib/ld-linux-x86-64.so.2 \
