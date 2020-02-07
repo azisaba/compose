@@ -5,15 +5,14 @@ ENV PATH $JAVA_HOME/bin:$PATH
 
 RUN set -ex \
 	\
-	&& apk --no-cache --virtual .builddeps add \
-		ca-certificates \
-		wget \
+	&& ln -sfv /lib64/ld-linux-x86-64.so.2 /usr/glibc-compat/lib/ld-linux-x86-64.so.2 \
 	\
-	&& wget -O openjdk-shenandoah-jdk8.tar.xz https://builds.shipilev.net/openjdk-shenandoah-jdk8/openjdk-shenandoah-jdk8-latest-linux-x86_64-release.tar.xz \
+	&& apk --no-cache --virtual .builddeps add \
+		curl \
+	\
+	&& curl -fsS -o openjdk-shenandoah-jdk8.tar.xz https://builds.shipilev.net/openjdk-shenandoah-jdk8/openjdk-shenandoah-jdk8-latest-linux-x86_64-release.tar.xz \
 	&& mkdir -p /opt/jdk \
 	&& tar -xJv -f openjdk-shenandoah-jdk8.tar.xz -C /opt/jdk --strip-components 1 \
-	&& rm -f openjdk-shenandoah-jdk8.tar.xz \
-	&& find /opt/jdk -type f -iname '*.log' -delete \
 	\
 	&& apk --no-cache del \
 		.builddeps \
@@ -26,8 +25,10 @@ RUN set -ex \
 		iptables \
 		ipset \
 	\
-	&& tmux -V \
-	&& java -version
+	&& java -version \
+	\
+	&& rm -fv openjdk-shenandoah-jdk8.tar.xz \
+	&& find /opt/jdk -type f -iname '*.log' -print0 | xargs -0 rm -fv
 COPY launcher.sh /
 
 CMD ["sh", "/launcher.sh"]
