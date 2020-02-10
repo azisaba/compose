@@ -97,7 +97,7 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'end'
-      JAR_PATH: 'Waterfall.jar'
+      JAR_PATH: 'BungeeCord.jar'
       JVM_ARGS: '-Dminecraft@bungee -Xms3G -Xmx3G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
