@@ -183,7 +183,7 @@ services:
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
       JVM_ARGS: '-Dminecraft@pvp -Xms6G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
-      JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
+      JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:CompileCommand=exclude,java.io.PrintStream::write'
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
