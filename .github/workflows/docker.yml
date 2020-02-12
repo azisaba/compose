@@ -3,7 +3,7 @@ name: Docker
 on: [push]
 
 jobs:
-  build:
+  lint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
@@ -14,3 +14,15 @@ jobs:
           sudo chmod -c +x hadolint
       - run: hadolint --version
       - run: find . -type f -name "Dockerfile" -print0 | xargs -0 hadolint --ignore DL3018
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker version
+      - run: docker-compose version
+      - run: |
+          docker-compose pull
+          docker-compose build
+      - run: docker system df
+      - run: docker system df --verbose
