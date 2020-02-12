@@ -9,7 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          curl -L -o hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
-          chmod -c +x hadolint
+          cd /usr/local/bin
+          sudo curl -L -o hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
+          sudo chmod -c +x hadolint
       - run: hadolint --version
       - run: find . -type f -name "Dockerfile" -print0 | xargs -0 hadolint --ignore DL3018
