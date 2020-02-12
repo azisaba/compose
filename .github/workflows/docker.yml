@@ -1,0 +1,13 @@
+name: Docker
+
+on: [push]
+
+jobs:
+  build:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: docker://hadolint/hadolint
+      - run: hadolint --version
+      - run: find . -type f -name 'Dockerfile' -print0 | xargs -0 hadolint --ignore DL3018
