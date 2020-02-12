@@ -8,6 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: docker://hadolint/hadolint
+      - run: |
+          cd /usr/local/bin
+          curl -L -o hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
+          chmod -c +x hadolint
       - run: hadolint --version
-      - run: find . -type f -name 'Dockerfile' -print0 | xargs -0 hadolint --ignore DL3018
+      - run: find . -type f -name "Dockerfile" -print0 | xargs -0 hadolint --ignore DL3018
