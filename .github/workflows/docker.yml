@@ -9,7 +9,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          cd /usr/local/bin
           curl -L -o hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
           chmod -c +x hadolint
       - run: hadolint --version
