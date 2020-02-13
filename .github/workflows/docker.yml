@@ -9,11 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: |
-          cd /usr/local/bin
-          sudo curl -L -o hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
+          sudo wget -O hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
           sudo chmod -c +x hadolint
+        working-directory: /usr/local/bin
       - run: hadolint --version
-      - run: find . -type f -name "Dockerfile" -print0 | xargs -0 hadolint --ignore DL3018
+      - run: find . -type f -name "Dockerfile" -print0 | xargs -0t hadolint
+
   build:
     name: Build
     runs-on: ubuntu-latest
@@ -21,8 +22,5 @@ jobs:
       - uses: actions/checkout@v2
       - run: docker version
       - run: docker-compose version
-      - run: |
-          docker-compose pull
-          docker-compose build
-      - run: docker system df
-      - run: docker system df --verbose
+      - run: docker-compose pull
+      - run: docker-compose build
