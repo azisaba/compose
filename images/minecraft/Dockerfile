@@ -12,7 +12,7 @@ RUN set -ex \
 		curl \
 	\
 	&& curl -fsS -o openjdk-shenandoah-jdk8.tar.xz https://builds.shipilev.net/openjdk-shenandoah-jdk8/openjdk-shenandoah-jdk8-latest-linux-x86_64-release.tar.xz \
-	&& mkdir -p /opt/jdk \
+	&& mkdir -pv /opt/jdk \
 	&& tar -xJv -f openjdk-shenandoah-jdk8.tar.xz -C /opt/jdk --strip-components 1 \
 	\
 	&& apk --no-cache del \
@@ -22,6 +22,7 @@ RUN set -ex \
 		tzdata \
 		tmux \
 		coreutils \
+		\
 		sudo \
 		iptables \
 		ipset \
