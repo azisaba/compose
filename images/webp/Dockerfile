@@ -10,4 +10,4 @@ RUN set -ex \
 	&& gif2webp -version
 COPY convert.sh /
 
-CMD ["sh", "/convert.sh"]
+CMD ["ash", "/convert.sh"]

@@ -21,4 +21,4 @@ RUN set -ex \
 	&& find /usr/lib/python* -type f -iname '*.py[co]' -print0 | xargs -0 rm -fv \
 	&& find /usr/lib/python* -type d -iname '__pycache__' -print0 | xargs -0 rm -rfv
 
-CMD ["sh", "-c", "python3 -u $SCRIPT_PATH"]
+CMD ["ash", "-c", "python3 -u $SCRIPT_PATH"]

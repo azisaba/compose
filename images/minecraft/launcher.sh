@@ -1,13 +1,13 @@
-#!/bin/sh
+#!/bin/ash
 
 close() {
-  tmux send -t minecraft ENTER `echo $STOP_CMD | fold -w 1 | paste -s -d ' '` ENTER
+  tmux send -t minecraft ENTER $(echo $STOP_CMD | fold -w 1 | paste -s -d ' ') ENTER
   jwait
   exit 0
 }
 
 jwait() {
-  tail --pid=`pgrep java` -f /dev/null
+  tail --pid=$(pgrep java) -f /dev/null
 }
 
 trap 'close' SIGTERM

@@ -27,4 +27,4 @@ RUN set -ex \
 	&& find /opt/jdk -type f -iname '*.log' -print0 | xargs -0 rm -fv
 COPY launcher.sh /
 
-CMD ["sh", "/launcher.sh"]
+CMD ["ash", "/launcher.sh"]
