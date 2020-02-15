@@ -8,15 +8,9 @@ RUN set -ex \
 	\
 	&& ln -sfv /lib64/ld-linux-x86-64.so.2 /usr/glibc-compat/lib/ld-linux-x86-64.so.2 \
 	\
-	&& apk --no-cache --virtual .builddeps add \
-		curl \
-	\
-	&& curl -fsS -o openjdk-shenandoah-jdk8.tar.xz https://builds.shipilev.net/openjdk-shenandoah-jdk8/openjdk-shenandoah-jdk8-latest-linux-x86_64-release.tar.xz \
+	&& wget -O openjdk-shenandoah-jdk8.tar.xz https://builds.shipilev.net/openjdk-shenandoah-jdk8/openjdk-shenandoah-jdk8-latest-linux-x86_64-release.tar.xz \
 	&& mkdir -pv /opt/jdk \
 	&& tar -xJv -f openjdk-shenandoah-jdk8.tar.xz -C /opt/jdk --strip-components 1 \
-	\
-	&& apk --no-cache del \
-		.builddeps \
 	\
 	&& apk --no-cache add \
 		tzdata \
