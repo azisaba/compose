@@ -1,4 +1,4 @@
-[![](https://badgen.net/github/status/AzisabaNetwork/azifry/?icon=github)](https://github.com/AzisabaNetwork/azifry/actions)
+[![](https://github.com/AzisabaNetwork/azifry/workflows/Docker/badge.svg)](https://github.com/AzisabaNetwork/azifry/actions)
 [![](https://badgen.net/dependabot/AzisabaNetwork/azifry/?icon=dependabot)](https://github.com/AzisabaNetwork/azifry/pulls/app/dependabot-preview)
 [![](https://badgen.net/twitter/follow/AzisabaNetwork/?icon=twitter)](https://twitter.com/AzisabaNetwork)
 [![](https://discordapp.com/api/guilds/357134045328572418/widget.png)](https://discord.gg/seheC2W)
