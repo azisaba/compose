@@ -15,15 +15,15 @@ docker system prune -f --volumes
 ```
 ### 起動とリロード
 ```sh
-docker-compose up -d --remove-orphans
+docker-compose up -d
 ```
 ### 再起動
 ```sh
-docker-compose up -d --remove-orphans --force-recreate
+docker-compose up -d --force-recreate
 ```
 ### シャットダウン
 ```sh
-docker-compose down --remove-orphans --timeout 30
+docker-compose down --timeout 30
 ```
 
 ## 👍 助かる
