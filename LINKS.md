@@ -2,8 +2,8 @@
 - https://discordpy.readthedocs.io/ja/latest/intro.html
 - https://docs.oracle.com/javase/jp/8/docs/technotes/guides/vm/gctuning/g1_gc_tuning.html
 - https://gist.github.com/denji/8359866
-- https://guides.wp-bullet.com/adjusting-php-fpm-performance-low-memory/
 - https://hacknote.jp/archives/21820/
+- https://haydenjames.io/php-fpm-tuning-using-pm-static-max-performance/
 - https://kinsta.com/jp/knowledgebase/enable-gzip-compression/
 - https://mcflags.emc.gs
 - https://nginxconfig.io

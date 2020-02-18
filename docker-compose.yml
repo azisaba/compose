@@ -42,7 +42,7 @@ services:
       WORDPRESS_DB_NAME: 'azisaba_wordpress'
     volumes:
       - './conf/php.ini:/usr/local/etc/php/php.ini'
-      - './conf/php-fpm.conf:/usr/local/etc/php-fpm.d/www.conf'
+      - './conf/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-www.conf'
       - '/srv/html/azisaba.net:/var/www/html/azisaba.net'
     depends_on:
       - database
