@@ -68,7 +68,7 @@ services:
   # アジ鯖ロガー
   logger:
     build:
-      context: ./images/discord.py/python3
+      context: ./images/discord.py
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -79,7 +79,7 @@ services:
   # アジ鯖サポート
   support:
     build:
-      context: ./images/discord.py/python3
+      context: ./images/discord.py
     restart: always
     environment:
       TZ: Asia/Tokyo
