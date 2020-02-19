@@ -50,7 +50,6 @@ services:
   wordpress-webp:
     build:
       context: ./images/webp
-    restart: always
     environment:
       TZ: Asia/Tokyo
     volumes:
