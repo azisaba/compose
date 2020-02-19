@@ -12,6 +12,18 @@ services:
     volumes:
       - './conf/my.cnf:/etc/my.cnf.d/azisaba.cnf'
       - '/srv/mysql:/var/lib/mysql'
+  # 証明書
+  letsencrypt:
+    build:
+      context: ./images/letsencrypt
+    secrets:
+      - dns-cloudflare
+    environment:
+      TZ: Asia/Tokyo
+      DOMAINS: 'azisaba.net,*.azisaba.net'
+      DNS_CLOUDFLARE_CREDENTIALS: '/run/secrets/dns-cloudflare'
+    volumes:
+      - '/srv/letsencrypt:/etc/letsencrypt'
   # ウェブ
   web:
     image: nginx:mainline-alpine
@@ -219,3 +231,5 @@ services:
 secrets:
   wordpress:
     file: /srv/secrets/wordpress.txt
+  dns-cloudflare:
+    file: /srv/secrets/dns-cloudflare.txt

@@ -1,0 +1,2 @@
+pip==20.0.2
+certbot-dns-cloudflare==1.2.0
