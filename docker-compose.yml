@@ -10,7 +10,7 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - './conf/my.cnf:/etc/my.cnf.d/azisaba.cnf'
+      - './conf/my.cnf:/etc/my.cnf.d/azi.cnf'
       - '/srv/mysql:/var/lib/mysql'
   # 証明書
   letsencrypt:
@@ -33,10 +33,11 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - './conf/nginx.conf:/etc/nginx/conf.d/azisaba.conf'
-      - '/srv/letsencrypt:/etc/letsencrypt'
-      - '/srv/html:/var/www/html'
-      - '/opt/resourcepacks:/opt/resourcepacks'
+      - './conf/nginx.conf:/etc/nginx/conf.d/azi.conf'
+      - '/srv/letsencrypt:/app/letsencrypt'
+      - '/srv/html/azisaba.net:/app/html/azisaba.net'
+      - '/srv/html/maps.azisaba.net:/app/html/maps.azisaba.net'
+      - '/opt/resourcepacks:/app/resourcepacks'
     depends_on:
       - wordpress
       - metabase
@@ -55,7 +56,7 @@ services:
     volumes:
       - './conf/php.ini:/usr/local/etc/php/php.ini'
       - './conf/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-www.conf'
-      - '/srv/html/azisaba.net:/var/www/html/azisaba.net'
+      - '/srv/html/azisaba.net:/app/html/azisaba.net'
     depends_on:
       - database
   # WebP作成
@@ -65,17 +66,17 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - '/srv/html/azisaba.net/wp-content/uploads:/var/www/html/azisaba.net/wp-content/uploads'
-    working_dir: '/var/www/html/azisaba.net/wp-content/uploads'
+      - '/srv/html/azisaba.net/wp-content/uploads:/app/wordpress-webp'
+    working_dir: '/app/wordpress-webp'
   # データ可視化
   metabase:
     image: metabase/metabase:latest
     restart: always
     environment:
       TZ: Asia/Tokyo
-      MB_DB_FILE: /opt/metabase/metabase.db
+      MB_DB_FILE: /app/metabase/metabase.db
     volumes:
-      - '/srv/metabase:/opt/metabase'
+      - '/srv/metabase:/app/metabase'
   # アジ鯖ロガー
   logger:
     build:
