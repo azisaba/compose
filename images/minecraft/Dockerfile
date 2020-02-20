@@ -25,6 +25,7 @@ RUN set -ex \
 	\
 	&& rm -fv openjdk-shenandoah-jdk8.tar.xz \
 	&& find /opt/jdk -type f -iname '*.log' -print0 | xargs -0 rm -fv
+
 COPY launcher.sh /
 
 CMD ["ash", "/launcher.sh"]

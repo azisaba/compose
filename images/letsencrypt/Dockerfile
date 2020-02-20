@@ -1,6 +1,7 @@
 FROM alpine:3.11.3
 
 COPY requirements.txt .
+
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN set -ex \
 	\
@@ -22,6 +23,7 @@ RUN set -ex \
 	&& find /usr/lib/python* -type f -iname '*.py[co]' -print0 | xargs -0 rm -fv \
 	&& find /usr/lib/python* -type d -iname '__pycache__' -print0 | xargs -0 rm -rfv \
 	&& rm -rfv /var/log/letsencrypt
+
 COPY renew.sh /
 
 CMD ["ash", "/renew.sh"]
