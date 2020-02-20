@@ -43,7 +43,8 @@ services:
       - metabase
   # ホームページ
   wordpress:
-    image: wordpress:php7.4-fpm-alpine
+    build:
+      context: ./images/wordpress
     restart: always
     secrets:
       - wordpress
