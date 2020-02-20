@@ -27,12 +27,13 @@ docker-compose down --timeout 30
 ```
 
 ## 🔎 ファイルと権限
-ファイルの構造は[こちら](STRUCTURE.md)から確認
+ファイルの構造は[こちら](docs/STRUCTURE.md)から確認
 
 ファイル権限を修正するには以下のコマンドを実行
 ```sh
+cd scripts
 ./perms.sh
 ```
 
 ## 👍 助かる
-[参考にさせて頂いたリンク一覧](LINKS.md)
+[参考にさせて頂いたリンク一覧](docs/LINKS.md)
