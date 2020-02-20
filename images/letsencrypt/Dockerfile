@@ -20,7 +20,8 @@ RUN set -ex \
 	&& rm -fv requirements.txt \
 	&& rm -rfv /root/.cache/pip \
 	&& find /usr/lib/python* -type f -iname '*.py[co]' -print0 | xargs -0 rm -fv \
-	&& find /usr/lib/python* -type d -iname '__pycache__' -print0 | xargs -0 rm -rfv
+	&& find /usr/lib/python* -type d -iname '__pycache__' -print0 | xargs -0 rm -rfv \
+	&& rm -rfv /var/log/letsencrypt
 COPY renew.sh /
 
 CMD ["ash", "/renew.sh"]
