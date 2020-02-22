@@ -26,7 +26,7 @@ docker-compose up -d --force-recreate
 docker-compose down --timeout 30
 ```
 
-## 🔎 ファイルと権限
+## 🔎 ファイル構成
 ファイルの構造は[こちら](docs/STRUCTURE.md)から確認
 
 ## 👍 助かる
