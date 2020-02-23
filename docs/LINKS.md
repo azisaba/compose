@@ -18,7 +18,6 @@
 - https://qiita.com/rukurx/items/03f14b0a52cf0d5acdf8
 - https://qiita.com/suin/items/a87b4cdccbc5fa05a358
 - https://qiita.com/UNKCHAN/items/6ec98432faef6d55ef29
-- https://qiita.com/yoichiwo7/items/0a9550b11ac726f79485
 - https://serverfault.com/a/331603
 - https://stackoverflow.com/a/40454758
 - https://wiki.openjdk.java.net/display/shenandoah/Main

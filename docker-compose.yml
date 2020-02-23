@@ -113,7 +113,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'end'
       JAR_PATH: 'BungeeCord.jar'
-      JVM_ARGS: '-Dminecraft@bungee -Xms3G -Xmx3G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:ActiveProcessorCount=4'
+      JVM_ARGS: '-Dminecraft@bungee -XX:+UseShenandoahGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
@@ -127,7 +127,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@lobby -Xms6G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:ActiveProcessorCount=4'
+      JVM_ARGS: '-Dminecraft@lobby -XX:+UseShenandoahGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
@@ -141,7 +141,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.15.2.jar'
-      JVM_ARGS: '-Dminecraft@main -Xms6G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:ActiveProcessorCount=4'
+      JVM_ARGS: '-Dminecraft@main -XX:+UseShenandoahGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/main:/app/main'
@@ -155,7 +155,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Dminecraft@parkour -Xms6G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:ActiveProcessorCount=4'
+      JVM_ARGS: '-Dminecraft@parkour -XX:+UseShenandoahGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
@@ -169,7 +169,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Dminecraft@p -Xms6G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:ActiveProcessorCount=4'
+      JVM_ARGS: '-Dminecraft@p -XX:+UseShenandoahGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/p:/app/p'
@@ -183,7 +183,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
-      JVM_ARGS: '-Dminecraft@lgw -Xms6G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:ActiveProcessorCount=4'
+      JVM_ARGS: '-Dminecraft@lgw -XX:+UseShenandoahGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
@@ -197,7 +197,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@pvp -Xms6G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:ActiveProcessorCount=4'
+      JVM_ARGS: '-Dminecraft@pvp -XX:+UseShenandoahGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -XX:CompileCommand=exclude,java.io.PrintStream::write'
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
@@ -211,7 +211,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@pata -Xms6G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:ActiveProcessorCount=4'
+      JVM_ARGS: '-Dminecraft@pata -XX:+UseShenandoahGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/pata:/app/pata'
@@ -225,7 +225,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@silo-pvp -Xms6G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:ActiveProcessorCount=4'
+      JVM_ARGS: '-Dminecraft@silo-pvp -XX:+UseShenandoahGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/silo-pvp:/app/silo-pvp'
