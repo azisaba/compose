@@ -16,10 +16,6 @@ RUN set -ex \
 		tzdata \
 		tmux \
 		coreutils \
-		\
-		sudo \
-		iptables \
-		ipset \
 	\
 	&& java -version \
 	\
