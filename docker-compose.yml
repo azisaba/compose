@@ -140,7 +140,7 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
-      JAR_PATH: 'paper-1.13.2.jar'
+      JAR_PATH: 'paper-1.15.2.jar'
       JVM_ARGS: '-Dminecraft@main -Xms6G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking -XX:ActiveProcessorCount=4'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
