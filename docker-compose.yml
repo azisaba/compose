@@ -230,6 +230,20 @@ services:
     volumes:
       - '/opt/minecraft/silo-pvp:/app/silo-pvp'
     working_dir: '/app/silo-pvp'
+  # Minecraft - wave (WavePvEサーバー)
+  wave:
+    build:
+      context: ./images/minecraft
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      STOP_CMD: 'minecraft:stop'
+      JAR_PATH: 'paper-1.12.2.jar'
+      JVM_ARGS: '-Dminecraft@wave -XX:+UseShenandoahGC'
+      JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
+    volumes:
+      - '/opt/minecraft/wave:/app/wave'
+    working_dir: '/app/wave'
 
 secrets:
   wordpress:
