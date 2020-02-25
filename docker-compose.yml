@@ -101,23 +101,23 @@ services:
     volumes:
       - '/srv/discord/support:/app/support'
     working_dir: '/app/support'
-  # Minecraft - bungee (バンジーサーバー)
-  bungee:
+  # Minecraft - velocity (プロキシサーバー)
+  velocity:
     build:
       context: ./images/minecraft
     restart: always
     ports:
       - 8192:8192
-      - 25565:25565
+      - 25565:25577
     environment:
       TZ: Asia/Tokyo
-      STOP_CMD: 'end'
-      JAR_PATH: 'BungeeCord.jar'
-      JVM_ARGS: '-Dminecraft@bungee -XX:+UseShenandoahGC'
+      STOP_CMD: 'shutdown'
+      JAR_PATH: 'velocity.jar'
+      JVM_ARGS: '-Dminecraft@velocity -XX:+UseShenandoahGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
-      - '/opt/minecraft/bungee:/app/bungee'
-    working_dir: '/app/bungee'
+      - '/opt/minecraft/velocity:/app/velocity'
+    working_dir: '/app/velocity'
   # Minecraft - lobby (ロビーサーバー)
   lobby:
     build:
