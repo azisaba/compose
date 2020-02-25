@@ -15,19 +15,15 @@ docker system prune -f --volumes
 ```
 ### 起動とリロード
 ```sh
-docker-compose up -d
-```
-### 再起動
-```sh
-docker-compose up -d --force-recreate
+docker-compose up -d --remove-orphans
 ```
 ### シャットダウン
 ```sh
-docker-compose down --timeout 30
+docker-compose down --timeout 30 --remove-orphans
 ```
 
 ## 🔎 ファイル構成
-ファイルの構造は[こちら](docs/STRUCTURE.md)から確認
+ファイルの構造は[こちら](STRUCTURE.md)から確認
 
 ## 👍 助かる
-[参考にさせて頂いたリンク一覧](docs/LINKS.md)
+[参考にさせて頂いたリンク一覧](LINKS.md)
