@@ -113,12 +113,14 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'shutdown'
       JAR_PATH: 'velocity.jar'
-      JVM_ARGS: '-Dminecraft@velocity -XX:+UseConcMarkSweepGC'
+      JVM_ARGS: '-Dminecraft@velocity -Xms1G -Xmx3G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/velocity:/app/velocity'
     working_dir: '/app/velocity'
     stop_grace_period: 15s
+    ulimits:
+      core: 0
   # Minecraft - lobby (ロビーサーバー)
   lobby:
     build:
@@ -128,12 +130,14 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@lobby -XX:+UseConcMarkSweepGC'
+      JVM_ARGS: '-Dminecraft@lobby -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
     working_dir: '/app/lobby'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - main (生活サーバー)
   main:
     build:
@@ -143,12 +147,14 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.15.2.jar'
-      JVM_ARGS: '-Dminecraft@main -XX:+UseConcMarkSweepGC'
+      JVM_ARGS: '-Dminecraft@main -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/main:/app/main'
     working_dir: '/app/main'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - parkour (パルクールサーバー)
   parkour:
     build:
@@ -158,12 +164,14 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Dminecraft@parkour -XX:+UseConcMarkSweepGC'
+      JVM_ARGS: '-Dminecraft@parkour -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
     working_dir: '/app/parkour'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - p (観光サーバー)
   p:
     build:
@@ -173,12 +181,14 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Dminecraft@p -XX:+UseConcMarkSweepGC'
+      JVM_ARGS: '-Dminecraft@p -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/p:/app/p'
     working_dir: '/app/p'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - lgw (銃サーバー)
   lgw:
     build:
@@ -188,12 +198,14 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
-      JVM_ARGS: '-Dminecraft@lgw -XX:+UseConcMarkSweepGC'
+      JVM_ARGS: '-Dminecraft@lgw -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
     working_dir: '/app/lgw'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - pvp (PvPサーバー)
   pvp:
     build:
@@ -203,12 +215,14 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@pvp -XX:+UseConcMarkSweepGC'
+      JVM_ARGS: '-Dminecraft@pvp -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - pata (ぱたサーバー)
   pata:
     build:
@@ -218,12 +232,14 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@pata -XX:+UseConcMarkSweepGC'
+      JVM_ARGS: '-Dminecraft@pata -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/pata:/app/pata'
     working_dir: '/app/pata'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - silo-pvp (白猫サーバー)
   silo-pvp:
     build:
@@ -233,12 +249,14 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@silo-pvp -XX:+UseConcMarkSweepGC'
+      JVM_ARGS: '-Dminecraft@silo-pvp -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/silo-pvp:/app/silo-pvp'
     working_dir: '/app/silo-pvp'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - wave (WavePvEサーバー)
   wave:
     build:
@@ -248,12 +266,14 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
-      JVM_ARGS: '-Dminecraft@wave -XX:+UseConcMarkSweepGC'
+      JVM_ARGS: '-Dminecraft@wave -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/wave:/app/wave'
     working_dir: '/app/wave'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
 
 secrets:
   wordpress:
