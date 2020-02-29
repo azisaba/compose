@@ -19,7 +19,7 @@ docker-compose up -d --remove-orphans
 ```
 ### シャットダウン
 ```sh
-docker-compose down --timeout 30 --remove-orphans
+docker-compose down --remove-orphans
 ```
 
 ## 🔎 ファイル構成
