@@ -113,7 +113,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'shutdown'
       JAR_PATH: 'velocity.jar'
-      JVM_ARGS: '-Dminecraft@velocity -Xms1G -Xmx3G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
+      JVM_ARGS: '-Dminecraft@velocity -Xmx10G -XX:+UseShenandoahGC -XX:+DisableExplicitGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/velocity:/app/velocity'
@@ -130,7 +130,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@lobby -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
+      JVM_ARGS: '-Dminecraft@lobby -Xmx10G -XX:+UseShenandoahGC -XX:+DisableExplicitGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
@@ -147,7 +147,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.15.2.jar'
-      JVM_ARGS: '-Dminecraft@main -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
+      JVM_ARGS: '-Dminecraft@main -Xmx10G -XX:+UseShenandoahGC -XX:+DisableExplicitGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/main:/app/main'
@@ -164,7 +164,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Dminecraft@parkour -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
+      JVM_ARGS: '-Dminecraft@parkour -Xmx10G -XX:+UseShenandoahGC -XX:+DisableExplicitGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
@@ -181,7 +181,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Dminecraft@p -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
+      JVM_ARGS: '-Dminecraft@p -Xmx10G -XX:+UseShenandoahGC -XX:+DisableExplicitGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/p:/app/p'
@@ -198,7 +198,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
-      JVM_ARGS: '-Dminecraft@lgw -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
+      JVM_ARGS: '-Dminecraft@lgw -Xmx10G -XX:+UseShenandoahGC -XX:+DisableExplicitGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
@@ -215,7 +215,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@pvp -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
+      JVM_ARGS: '-Dminecraft@pvp -Xmx10G -XX:+UseShenandoahGC -XX:+DisableExplicitGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
@@ -232,7 +232,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@pata -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
+      JVM_ARGS: '-Dminecraft@pata -Xmx10G -XX:+UseShenandoahGC -XX:+DisableExplicitGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/pata:/app/pata'
@@ -249,7 +249,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Dminecraft@silo-pvp -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
+      JVM_ARGS: '-Dminecraft@silo-pvp -Xmx10G -XX:+UseShenandoahGC -XX:+DisableExplicitGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/silo-pvp:/app/silo-pvp'
@@ -266,7 +266,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
-      JVM_ARGS: '-Dminecraft@wave -Xms2G -Xmx6G -XX:+AlwaysPreTouch -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:-UseBiasedLocking'
+      JVM_ARGS: '-Dminecraft@wave -Xmx10G -XX:+UseShenandoahGC -XX:+DisableExplicitGC'
       JAVA_TOOL_OPTIONS: '-Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails'
     volumes:
       - '/opt/minecraft/wave:/app/wave'
