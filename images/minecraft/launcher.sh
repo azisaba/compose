@@ -12,6 +12,14 @@ jwait() {
 
 trap 'close' SIGTERM
 
+if [ $(echo "$(cat /proc/uptime | cut -d ' ' -f 1)/1" | bc) -lt $((5 * 60)) ]; then
+  sleep $(shuf -n 1 -i 30-$((2 * 60)))
+fi
+
+if [ $(echo "$(cat /proc/loadavg | cut -d ' ' -f 1)/1" | bc) -ge $(($(nproc --all) / 4)) ]; then
+  sleep $(shuf -n 1 -i 30-$((2 * 60)))
+fi
+
 tmux new -d -s minecraft java $JVM_ARGS -jar $JAR_PATH
 tail -n 0 -F ./proxy.log.0 ./logs/latest.log ./gc.log 2> /dev/null &
 
