@@ -113,7 +113,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'shutdown'
       JAR_PATH: 'velocity.jar'
-      JVM_ARGS: '-Xms6G -Xmx6G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:-UseBiasedLocking -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@velocity'
+      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@velocity'
     volumes:
       - '/opt/minecraft/velocity:/app/velocity'
     working_dir: '/app/velocity'
@@ -129,7 +129,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Xms6G -Xmx6G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:-UseBiasedLocking -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@lobby'
+      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@lobby'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
     working_dir: '/app/lobby'
@@ -145,7 +145,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.15.2.jar'
-      JVM_ARGS: '-Xms6G -Xmx6G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:-UseBiasedLocking -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@main'
+      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@main'
     volumes:
       - '/opt/minecraft/main:/app/main'
     working_dir: '/app/main'
@@ -161,7 +161,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Xms6G -Xmx6G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:-UseBiasedLocking -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@parkour'
+      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@parkour'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
     working_dir: '/app/parkour'
@@ -177,7 +177,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-Xms6G -Xmx6G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:-UseBiasedLocking -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@p'
+      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@p'
     volumes:
       - '/opt/minecraft/p:/app/p'
     working_dir: '/app/p'
@@ -193,7 +193,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
-      JVM_ARGS: '-Xms6G -Xmx6G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:-UseBiasedLocking -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@lgw'
+      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@lgw'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
     working_dir: '/app/lgw'
@@ -209,7 +209,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Xms6G -Xmx6G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:-UseBiasedLocking -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@pvp'
+      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@pvp'
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
@@ -225,7 +225,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Xms6G -Xmx6G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:-UseBiasedLocking -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@pata'
+      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@pata'
     volumes:
       - '/opt/minecraft/pata:/app/pata'
     working_dir: '/app/pata'
@@ -241,7 +241,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-Xms6G -Xmx6G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:-UseBiasedLocking -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@silo-pvp'
+      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@silo-pvp'
     volumes:
       - '/opt/minecraft/silo-pvp:/app/silo-pvp'
     working_dir: '/app/silo-pvp'
@@ -257,7 +257,7 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
-      JVM_ARGS: '-Xms6G -Xmx6G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -XX:+AlwaysPreTouch -XX:+DisableExplicitGC -XX:-UseBiasedLocking -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@wave'
+      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@wave'
     volumes:
       - '/opt/minecraft/wave:/app/wave'
     working_dir: '/app/wave'
