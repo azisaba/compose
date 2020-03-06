@@ -113,7 +113,8 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'end'
       JAR_PATH: 'BungeeCord.jar'
-      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@bungee'
+      JVM_ARGS: '-Dminecraft@bungee'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
@@ -129,7 +130,8 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@lobby'
+      JVM_ARGS: '-Dminecraft@lobby'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
     working_dir: '/app/lobby'
@@ -145,7 +147,8 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.15.2.jar'
-      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@main'
+      JVM_ARGS: '-Dminecraft@main'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/main:/app/main'
     working_dir: '/app/main'
@@ -161,7 +164,8 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@parkour'
+      JVM_ARGS: '-Dminecraft@parkour'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
     working_dir: '/app/parkour'
@@ -177,7 +181,8 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.13.2.jar'
-      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@p'
+      JVM_ARGS: '-Dminecraft@p'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/p:/app/p'
     working_dir: '/app/p'
@@ -193,7 +198,8 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
-      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@lgw'
+      JVM_ARGS: '-Dminecraft@lgw'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
     working_dir: '/app/lgw'
@@ -209,7 +215,8 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@pvp'
+      JVM_ARGS: '-Dminecraft@pvp'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
@@ -225,7 +232,8 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@pata'
+      JVM_ARGS: '-Dminecraft@pata'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/pata:/app/pata'
     working_dir: '/app/pata'
@@ -241,7 +249,8 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'spigot-1.8.8.jar'
-      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@silo-pvp'
+      JVM_ARGS: '-Dminecraft@silo-pvp'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/silo-pvp:/app/silo-pvp'
     working_dir: '/app/silo-pvp'
@@ -257,7 +266,8 @@ services:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
       JAR_PATH: 'paper-1.12.2.jar'
-      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@wave'
+      JVM_ARGS: '-Dminecraft@wave'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/wave:/app/wave'
     working_dir: '/app/wave'

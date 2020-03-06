@@ -12,11 +12,11 @@ jwait() {
 
 trap 'close' SIGTERM
 
-if [ $(echo "$(cat /proc/uptime | cut -d ' ' -f 1)/1" | bc) -lt $((5 * 60)) ]; then
+if [ $(echo $(cat /proc/uptime | cut -d ' ' -f 1) / 1 | bc) -lt $((5 * 60)) ]; then
   sleep $(shuf -n 1 -i 30-$((2 * 60)))
 fi
 
-if [ $(echo "$(cat /proc/loadavg | cut -d ' ' -f 1)/1" | bc) -ge $(($(nproc --all) / 4)) ]; then
+if [ $(echo $(cat /proc/loadavg | cut -d ' ' -f 1) / 1 | bc) -ge $(($(nproc --all) / 4)) ]; then
   sleep $(shuf -n 1 -i 30-$((2 * 60)))
 fi
 
