@@ -101,8 +101,8 @@ services:
     volumes:
       - '/srv/discord/support:/app/support'
     working_dir: '/app/support'
-  # Minecraft - velocity (プロキシサーバー)
-  velocity:
+  # Minecraft - bungee (プロキシサーバー)
+  bungee:
     build:
       context: ./images/minecraft
     restart: always
@@ -111,12 +111,12 @@ services:
       - 25565:25577
     environment:
       TZ: Asia/Tokyo
-      STOP_CMD: 'shutdown'
-      JAR_PATH: 'velocity.jar'
-      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@velocity'
+      STOP_CMD: 'end'
+      JAR_PATH: 'BungeeCord.jar'
+      JVM_ARGS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=30000 -XX:ShenandoahUncommitDelay=10000 -Xloggc:./gc.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -Dminecraft@bungee'
     volumes:
-      - '/opt/minecraft/velocity:/app/velocity'
-    working_dir: '/app/velocity'
+      - '/opt/minecraft/bungee:/app/bungee'
+    working_dir: '/app/bungee'
     stop_grace_period: 15s
     ulimits:
       core: 0
