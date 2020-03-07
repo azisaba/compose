@@ -16,6 +16,7 @@ RUN set -ex \
 		tzdata \
 		tmux \
 		coreutils \
+		curl \
 	\
 	&& java -version \
 	\

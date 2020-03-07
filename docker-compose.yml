@@ -129,7 +129,8 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
-      JAR_PATH: 'spigot-1.8.8.jar'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
+      JAR_PATH: 'paper-1.8.8.jar'
       JVM_ARGS: '-Dminecraft@lobby'
       JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
@@ -146,6 +147,7 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.15.2/latest/download'
       JAR_PATH: 'paper-1.15.2.jar'
       JVM_ARGS: '-Dminecraft@main'
       JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
@@ -163,6 +165,7 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
       JAR_PATH: 'paper-1.13.2.jar'
       JVM_ARGS: '-Dminecraft@parkour'
       JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
@@ -180,6 +183,7 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
       JAR_PATH: 'paper-1.13.2.jar'
       JVM_ARGS: '-Dminecraft@p'
       JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
@@ -197,6 +201,7 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
       JAR_PATH: 'paper-1.12.2.jar'
       JVM_ARGS: '-Dminecraft@lgw'
       JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
@@ -214,7 +219,8 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
-      JAR_PATH: 'spigot-1.8.8.jar'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
+      JAR_PATH: 'paper-1.8.8.jar'
       JVM_ARGS: '-Dminecraft@pvp'
       JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
@@ -231,7 +237,8 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
-      JAR_PATH: 'spigot-1.8.8.jar'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
+      JAR_PATH: 'paper-1.8.8.jar'
       JVM_ARGS: '-Dminecraft@pata'
       JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
@@ -248,7 +255,8 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
-      JAR_PATH: 'spigot-1.8.8.jar'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
+      JAR_PATH: 'paper-1.8.8.jar'
       JVM_ARGS: '-Dminecraft@silo-pvp'
       JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
@@ -265,6 +273,7 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'minecraft:stop'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
       JAR_PATH: 'paper-1.12.2.jar'
       JVM_ARGS: '-Dminecraft@wave'
       JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'

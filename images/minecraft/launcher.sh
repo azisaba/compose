@@ -12,6 +12,14 @@ jwait() {
 
 trap 'close' SIGTERM
 
+if [ ! -z $JAR_DOWNLOAD_URL ]; then
+  SIZE=$(curl -fsSI $JAR_DOWNLOAD_URL | grep -i Content-Length | awk '{ print $2 }')
+
+  if [ ! -f $JAR_PATH ] || [[ $SIZE != $(stat -c %s $JAR_PATH) ]]; then
+    wget -O $JAR_PATH $JAR_DOWNLOAD_URL
+  fi
+fi
+
 if [ $(echo $(cat /proc/uptime | cut -d ' ' -f 1) / 1 | bc) -lt $((5 * 60)) ]; then
   sleep $(shuf -n 1 -i 30-$((2 * 60)))
 fi
