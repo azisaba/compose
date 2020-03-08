@@ -114,7 +114,7 @@ services:
       STOP_CMD: 'end'
       JAR_PATH: 'BungeeCord.jar'
       JVM_ARGS: '-Dminecraft@bungee'
-      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
@@ -132,7 +132,7 @@ services:
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
       JAR_PATH: 'paper-1.8.8.jar'
       JVM_ARGS: '-Dminecraft@lobby'
-      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
     working_dir: '/app/lobby'
@@ -150,7 +150,7 @@ services:
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.15.2/latest/download'
       JAR_PATH: 'paper-1.15.2.jar'
       JVM_ARGS: '-Dminecraft@main'
-      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/main:/app/main'
     working_dir: '/app/main'
@@ -168,7 +168,7 @@ services:
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
       JAR_PATH: 'paper-1.13.2.jar'
       JVM_ARGS: '-Dminecraft@parkour'
-      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
     working_dir: '/app/parkour'
@@ -186,7 +186,7 @@ services:
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
       JAR_PATH: 'paper-1.13.2.jar'
       JVM_ARGS: '-Dminecraft@p'
-      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/p:/app/p'
     working_dir: '/app/p'
@@ -204,7 +204,7 @@ services:
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
       JAR_PATH: 'paper-1.12.2.jar'
       JVM_ARGS: '-Dminecraft@lgw'
-      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
     working_dir: '/app/lgw'
@@ -222,7 +222,7 @@ services:
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
       JAR_PATH: 'paper-1.8.8.jar'
       JVM_ARGS: '-Dminecraft@pvp'
-      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
@@ -240,7 +240,7 @@ services:
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
       JAR_PATH: 'paper-1.8.8.jar'
       JVM_ARGS: '-Dminecraft@pata'
-      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/pata:/app/pata'
     working_dir: '/app/pata'
@@ -258,7 +258,7 @@ services:
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
       JAR_PATH: 'paper-1.8.8.jar'
       JVM_ARGS: '-Dminecraft@silo-pvp'
-      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/silo-pvp:/app/silo-pvp'
     working_dir: '/app/silo-pvp'
@@ -276,7 +276,7 @@ services:
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
       JAR_PATH: 'paper-1.12.2.jar'
       JVM_ARGS: '-Dminecraft@wave'
-      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahGuaranteedGCInterval=80000 -XX:ShenandoahUncommitDelay=20000 -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/wave:/app/wave'
     working_dir: '/app/wave'
