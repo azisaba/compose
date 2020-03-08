@@ -112,6 +112,7 @@ services:
     environment:
       TZ: Asia/Tokyo
       STOP_CMD: 'end'
+      JAR_DOWNLOAD_URL: 'https://ci.md-5.net/job/BungeeCord/lastSuccessfulBuild/artifact/bootstrap/target/BungeeCord.jar'
       JAR_PATH: 'BungeeCord.jar'
       JVM_ARGS: '-Dminecraft@bungee'
       JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -Xloggc:./gc.log'
