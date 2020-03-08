@@ -114,7 +114,7 @@ services:
       STOP_CMD: 'end'
       JAR_PATH: 'BungeeCord.jar'
       JVM_ARGS: '-Dminecraft@bungee'
-      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ActiveProcessorCount=4 -Xloggc:./gc.log'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -XX:+DisableExplicitGC -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
