@@ -123,7 +123,7 @@ services:
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
-    stop_signal: 'SIGINT'
+    stop_signal: 'SIGHUP'
     stop_grace_period: 15s
     ulimits:
       core: 0
@@ -140,7 +140,7 @@ services:
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
     working_dir: '/app/lobby'
-    stop_signal: 'SIGINT'
+    stop_signal: 'SIGHUP'
     stop_grace_period: 30s
     ulimits:
       core: 0
@@ -157,7 +157,7 @@ services:
     volumes:
       - '/opt/minecraft/main:/app/main'
     working_dir: '/app/main'
-    stop_signal: 'SIGINT'
+    stop_signal: 'SIGHUP'
     stop_grace_period: 30s
     ulimits:
       core: 0
@@ -174,7 +174,7 @@ services:
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
     working_dir: '/app/parkour'
-    stop_signal: 'SIGINT'
+    stop_signal: 'SIGHUP'
     stop_grace_period: 30s
     ulimits:
       core: 0
@@ -191,7 +191,7 @@ services:
     volumes:
       - '/opt/minecraft/p:/app/p'
     working_dir: '/app/p'
-    stop_signal: 'SIGINT'
+    stop_signal: 'SIGHUP'
     stop_grace_period: 30s
     ulimits:
       core: 0
@@ -208,7 +208,7 @@ services:
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
     working_dir: '/app/lgw'
-    stop_signal: 'SIGINT'
+    stop_signal: 'SIGHUP'
     stop_grace_period: 30s
     ulimits:
       core: 0
@@ -225,7 +225,7 @@ services:
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
-    stop_signal: 'SIGINT'
+    stop_signal: 'SIGHUP'
     stop_grace_period: 30s
     ulimits:
       core: 0
@@ -242,7 +242,7 @@ services:
     volumes:
       - '/opt/minecraft/pata:/app/pata'
     working_dir: '/app/pata'
-    stop_signal: 'SIGINT'
+    stop_signal: 'SIGHUP'
     stop_grace_period: 30s
     ulimits:
       core: 0
@@ -259,7 +259,7 @@ services:
     volumes:
       - '/opt/minecraft/silo-pvp:/app/silo-pvp'
     working_dir: '/app/silo-pvp'
-    stop_signal: 'SIGINT'
+    stop_signal: 'SIGHUP'
     stop_grace_period: 30s
     ulimits:
       core: 0
@@ -276,7 +276,7 @@ services:
     volumes:
       - '/opt/minecraft/wave:/app/wave'
     working_dir: '/app/wave'
-    stop_signal: 'SIGINT'
+    stop_signal: 'SIGHUP'
     stop_grace_period: 30s
     ulimits:
       core: 0

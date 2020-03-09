@@ -1,10 +1,22 @@
 #!/bin/ash
 
-if [ ! -z $JAR_DOWNLOAD_URL ]; then
-  SIZE=$(wget -qS --spider $JAR_DOWNLOAD_URL 2> /dev/stdout | grep -i Content-Length | awk '{ print $2 }')
+close() {
+  kill -2 $(pgrep java)
+  while pgrep java > /dev/null; do
+    sleep 1
+  done
+  exit 0
+}
 
-  if [ ! -f $JAR_PATH ] || [[ $SIZE != $(stat -c %s $JAR_PATH) ]]; then
-    wget -O $JAR_PATH $JAR_DOWNLOAD_URL
+trap 'close' SIGHUP
+
+if [ ! -z $JAR_DOWNLOAD_URL ]; then
+  SIZE=$(curl -fsSI $JAR_DOWNLOAD_URL | grep -i Content-Length | awk '{ print $2 }')
+
+  if [ ! -z $SIZE ]; then
+    if [ ! -f $JAR_PATH ] || [[ $SIZE != $(stat -c %s $JAR_PATH) ]]; then
+      wget -O $JAR_PATH $JAR_DOWNLOAD_URL
+    fi
   fi
 fi
 
@@ -16,7 +28,7 @@ if [ $(echo $(cat /proc/loadavg | cut -d ' ' -f 1) / 1 | bc) -ge $(( $(nproc --a
   sleep $(shuf -n 1 -i 30-$(( 2 * 60 )))
 fi
 
-rm -f screenlog.*
-tail -F screenlog.0 2> /dev/null &
+tail -n 0 -F ./proxy.log.0 ./logs/latest.log 2> /dev/null &
 
-exec screen -ADmSL minecraft java $JVM_ARGS -jar $JAR_PATH
+screen -ADmS minecraft java $JVM_ARGS -jar $JAR_PATH &
+wait $!
