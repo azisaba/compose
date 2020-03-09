@@ -5,6 +5,7 @@ RUN set -ex \
 	\
 	&& apk --no-cache add \
 		tzdata \
+		curl \
 		screen \
 		openjdk8-jre \
 	\
