@@ -1,6 +1,11 @@
 version: '3.1'
 
 services:
+  # リアルタイムサーバー監視
+  netdata:
+    image: netdata/netdata:latest
+    environment:
+      TZ: Asia/Tokyo
   # データベース
   database:
     build:
@@ -42,6 +47,7 @@ services:
     depends_on:
       - wordpress
       - metabase
+      - netdata
   # ホームページ
   wordpress:
     build:
