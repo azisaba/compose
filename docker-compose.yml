@@ -82,6 +82,8 @@ services:
       MB_DB_FILE: /app/metabase/metabase.db
     volumes:
       - '/srv/metabase:/app/metabase'
+    depends_on:
+      - database
   # アジ鯖ロガー
   logger:
     build: ./image/discord.py
