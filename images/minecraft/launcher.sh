@@ -1,7 +1,7 @@
 #!/bin/ash
 
 close() {
-  kill -2 $(pgrep java)
+  kill -SIGINT $(pgrep java)
   while pgrep java > /dev/null; do
     sleep 1
   done
