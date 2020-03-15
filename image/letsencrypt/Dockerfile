@@ -16,11 +16,11 @@ RUN set -ex \
 	&& certbot --version \
 	&& certbot plugins \
 	\
-	&& rm -fv requirements.txt \
-	&& rm -rfv /root/.cache/pip \
-	&& find /usr/lib/python* -type f -iname '*.py[co]' -exec rm -fv {} \; \
-	&& find /usr/lib/python* -type d -iname '__pycache__' -prune -exec rm -rfv {} \; \
-	&& rm -rfv /var/log/letsencrypt
+	&& rm requirements.txt \
+	&& rm -r /root/.cache/pip \
+	&& find /usr/lib/python* -type f -iname '*.py[co]' -exec rm {} \; \
+	&& find /usr/lib/python* -type d -iname '__pycache__' -prune -exec rm -r {} \; \
+	&& rm -r /var/log/letsencrypt
 
 COPY renew.sh /
 
