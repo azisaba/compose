@@ -2,7 +2,6 @@ FROM alpine:3.11.3
 
 COPY requirements.txt .
 
-SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN set -ex \
 	\
 	&& apk --no-cache add \
@@ -10,7 +9,7 @@ RUN set -ex \
 		python3 \
 		certbot \
 	\
-	&& pip3 install --upgrade -r requirements.txt \
+	&& pip3 install --upgrade --requirement requirements.txt \
 	\
 	&& python3 --version \
 	&& pip3 list \
@@ -19,8 +18,8 @@ RUN set -ex \
 	\
 	&& rm -fv requirements.txt \
 	&& rm -rfv /root/.cache/pip \
-	&& find /usr/lib/python* -type f -iname '*.py[co]' -print0 | xargs -0 rm -fv \
-	&& find /usr/lib/python* -type d -iname '__pycache__' -print0 | xargs -0 rm -rfv \
+	&& find /usr/lib/python* -type f -iname '*.py[co]' -exec rm -fv {} \; \
+	&& find /usr/lib/python* -type d -iname '__pycache__' -prune -exec rm -rfv {} \; \
 	&& rm -rfv /var/log/letsencrypt
 
 COPY renew.sh /
