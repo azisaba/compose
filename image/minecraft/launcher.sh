@@ -1,5 +1,9 @@
 #!/bin/ash
 
+set -u
+: $JAR_PATH
+set +u
+
 close() {
   kill -SIGINT $(pgrep java)
   while pgrep java > /dev/null; do

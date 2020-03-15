@@ -1,15 +1,13 @@
 #!/bin/ash
 
-echo RESOLVER:
-cat /etc/resolv.conf
+set -u
+: $DOMAINS
+: $DNS_CLOUDFLARE_CREDENTIALS
+set +u
 
-echo CREDENTIALS:
-cat $DNS_CLOUDFLARE_CREDENTIALS
+DOMAIN_CN=$(echo $DOMAINS | cut -d , -f 1)
 
-echo DOMAINS: $DOMAINS
-echo DOMAIN_CN: $(echo $DOMAINS | cut -d , -f 1)
-
-if [ -f /etc/letsencrypt/renewal/$(echo $DOMAINS | cut -d , -f 1).conf ]; then
+if [ -f /etc/letsencrypt/renewal/$DOMAIN_CN.conf ]; then
   certbot renew \
     --dns-cloudflare \
     --dns-cloudflare-credentials $DNS_CLOUDFLARE_CREDENTIALS

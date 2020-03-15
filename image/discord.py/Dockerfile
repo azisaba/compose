@@ -20,4 +20,6 @@ RUN set -ex \
 	&& find /usr/lib/python* -type f -iname '*.py[co]' -exec rm {} \; \
 	&& find /usr/lib/python* -type d -iname '__pycache__' -prune -exec rm -r {} \;
 
-CMD ["ash", "-c", "python3 -u $SCRIPT_PATH"]
+COPY run.sh /
+
+CMD ["ash", "/run.sh"]
