@@ -9,7 +9,7 @@ services:
       TZ: Asia/Tokyo
   # データベース
   database:
-    build: ./images/mariadb
+    build: ./tzdata-image/mariadb
     restart: always
     ports:
       - 3306:3306
@@ -20,7 +20,7 @@ services:
       - '/srv/mysql:/var/lib/mysql'
   # 証明書
   letsencrypt:
-    build: ./images/letsencrypt
+    build: ./image/letsencrypt
     secrets:
       - dns-cloudflare
     environment:
@@ -49,7 +49,7 @@ services:
       - netdata
   # ホームページ
   wordpress:
-    build: ./images/wordpress
+    build: ./tzdata-image/wordpress
     restart: always
     secrets:
       - wordpress
@@ -67,7 +67,7 @@ services:
       - database
   # WebP作成
   wordpress-webp:
-    build: ./images/webp
+    build: ./image/webp
     environment:
       TZ: Asia/Tokyo
     volumes:
@@ -84,7 +84,7 @@ services:
       - '/srv/metabase:/app/metabase'
   # アジ鯖ロガー
   logger:
-    build: ./images/discord.py
+    build: ./image/discord.py
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -94,7 +94,7 @@ services:
     working_dir: '/app/logger'
   # アジ鯖サポート
   support:
-    build: ./images/discord.py
+    build: ./image/discord.py
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -104,7 +104,7 @@ services:
     working_dir: '/app/support'
   # Minecraft - bungee (プロキシサーバー)
   bungee:
-    build: ./images/minecraft
+    build: ./image/minecraft
     restart: always
     ports:
       - 8192:8192
@@ -123,7 +123,7 @@ services:
       core: 0
   # Minecraft - lobby (ロビーサーバー)
   lobby:
-    build: ./images/minecraft
+    build: ./image/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -139,7 +139,7 @@ services:
       core: 0
   # Minecraft - main (生活サーバー)
   main:
-    build: ./images/minecraft
+    build: ./image/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -155,7 +155,7 @@ services:
       core: 0
   # Minecraft - parkour (パルクールサーバー)
   parkour:
-    build: ./images/minecraft
+    build: ./image/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -171,7 +171,7 @@ services:
       core: 0
   # Minecraft - p (観光サーバー)
   p:
-    build: ./images/minecraft
+    build: ./image/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -187,7 +187,7 @@ services:
       core: 0
   # Minecraft - lgw (銃サーバー)
   lgw:
-    build: ./images/minecraft
+    build: ./image/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -203,7 +203,7 @@ services:
       core: 0
   # Minecraft - pvp (PvPサーバー)
   pvp:
-    build: ./images/minecraft
+    build: ./image/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -219,7 +219,7 @@ services:
       core: 0
   # Minecraft - pata (ぱたサーバー)
   pata:
-    build: ./images/minecraft
+    build: ./image/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -235,7 +235,7 @@ services:
       core: 0
   # Minecraft - silo-pvp (白猫サーバー)
   silo-pvp:
-    build: ./images/minecraft
+    build: ./image/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -251,7 +251,7 @@ services:
       core: 0
   # Minecraft - wave (WavePvEサーバー)
   wave:
-    build: ./images/minecraft
+    build: ./image/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
