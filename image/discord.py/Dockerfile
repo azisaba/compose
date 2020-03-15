@@ -11,8 +11,7 @@ RUN set -ex \
 		py3-multidict \
 		py3-yarl \
 	\
-	&& pip3 install --upgrade \
-		-r requirements.txt \
+	&& pip3 install --upgrade -r requirements.txt \
 	\
 	&& python3 --version \
 	&& pip3 list \

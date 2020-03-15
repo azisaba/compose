@@ -10,8 +10,7 @@ RUN set -ex \
 		python3 \
 		certbot \
 	\
-	&& pip3 install --upgrade \
-		-r requirements.txt \
+	&& pip3 install --upgrade -r requirements.txt \
 	\
 	&& python3 --version \
 	&& pip3 list \
