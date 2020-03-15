@@ -4,6 +4,7 @@ services:
   # リアルタイムサーバー監視
   netdata:
     image: netdata/netdata:latest
+    restart: always
     environment:
       TZ: Asia/Tokyo
   # データベース
