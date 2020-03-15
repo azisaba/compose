@@ -11,6 +11,7 @@
     |-- silo-pvp/*
     |-- pvp/*
     |-- bungee/*
+    |-- wave/*
   |-- resourcepacks/*.zip
 |-- /srv
   |-- discord
