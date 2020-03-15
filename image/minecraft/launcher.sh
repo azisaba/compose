@@ -12,7 +12,7 @@ close() {
   exit 0
 }
 
-trap 'close' SIGHUP
+trap 'close' SIGTERM
 
 if [ ! -z $JAR_DOWNLOAD_URL ]; then
   SIZE=$(curl -fsSI $JAR_DOWNLOAD_URL | grep -i Content-Length | awk '{ print $2 }')
