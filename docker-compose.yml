@@ -16,7 +16,7 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - './conf/my.cnf:/etc/my.cnf.d/azi.cnf'
+      - './config/my.cnf:/etc/my.cnf.d/azi.cnf'
       - '/srv/mysql:/var/lib/mysql'
   # 証明書
   letsencrypt:
@@ -38,7 +38,7 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - './conf/nginx.conf:/etc/nginx/conf.d/azi.conf'
+      - './config/nginx.conf:/etc/nginx/conf.d/azi.conf'
       - '/srv/letsencrypt:/app/letsencrypt'
       - '/srv/html/azisaba.net:/app/html/azisaba.net'
       - '/srv/html/maps.azisaba.net:/app/html/maps.azisaba.net'
@@ -60,8 +60,8 @@ services:
       WORDPRESS_DB_PASSWORD_FILE: '/run/secrets/wordpress'
       WORDPRESS_DB_NAME: 'azisaba_wordpress'
     volumes:
-      - './conf/php.ini:/usr/local/etc/php/php.ini'
-      - './conf/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-www.conf'
+      - './config/php.ini:/usr/local/etc/php/php.ini'
+      - './config/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-www.conf'
       - '/srv/html/azisaba.net:/app/html/azisaba.net'
     depends_on:
       - database
