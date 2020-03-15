@@ -16,7 +16,7 @@ RUN set -ex \
 		https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.31-r0/glibc-bin-2.31-r0.apk \
 		https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.31-r0/glibc-i18n-2.31-r0.apk \
 	&& apk --no-cache add glibc-*.apk \
-	&& localedef --inputfile POSIX --charmap UTF-8 $LANG || : \
+	&& localedef --inputfile POSIX --charmap UTF-8 C.UTF-8 || : \
 	&& apk --no-cache del glibc-i18n \
 	&& wget --output-document openjdk-shenandoah-jdk8.tar.xz https://builds.shipilev.net/openjdk-shenandoah-jdk8/openjdk-shenandoah-jdk8-latest-linux-x86_64-release.tar.xz \
 	&& mkdir /opt/jdk \
