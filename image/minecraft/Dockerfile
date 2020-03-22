@@ -19,6 +19,7 @@ RUN set -ex \
 	&& apk --no-cache add glibc-*.apk \
 	&& localedef --inputfile POSIX --charmap UTF-8 "$LANG" || : \
 	&& apk --no-cache del glibc-i18n \
+	\
 	&& wget --output-document openjdk-shenandoah-jdk8.tar.xz https://builds.shipilev.net/openjdk-shenandoah-jdk8/openjdk-shenandoah-jdk8-latest-linux-x86_64-release.tar.xz \
 	&& mkdir /opt/jdk \
 	&& tar --extract --xz --file openjdk-shenandoah-jdk8.tar.xz --directory /opt/jdk --strip-components 1 \
@@ -27,7 +28,12 @@ RUN set -ex \
 	\
 	&& rm /etc/apk/keys/sgerrand.rsa.pub \
 	&& rm glibc-*.apk \
-	&& rm openjdk-shenandoah-jdk8.tar.xz
+	&& rm openjdk-shenandoah-jdk8.tar.xz \
+	&& rm /opt/jdk/*.log \
+	\
+	&& find /opt/jdk -type f -exec chmod -x {} \; \
+	&& chmod +x /opt/jdk/bin/* \
+	&& chmod +x /opt/jdk/jre/bin/*
 
 COPY launcher.sh /
 
