@@ -33,7 +33,6 @@ docker-compose down --remove-orphans
     |-- lobby/*
     |-- parkour/*
     |-- p/*
-    |-- silo-pvp/*
     |-- pvp/*
     |-- bungee/*
     |-- wave/*
