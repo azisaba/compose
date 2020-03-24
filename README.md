@@ -7,11 +7,14 @@
 常識を覆せ
 
 ## 📕 使い方
+### 不要なファイルを削除
+```sh
+docker system prune -af --volumes
+```
 ### ビルド
 ```sh
 docker-compose pull
 docker-compose build
-docker system prune -f --volumes
 ```
 ### 起動とリロード
 ```sh
