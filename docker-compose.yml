@@ -132,6 +132,7 @@ services:
       JVM_ARGS: '-Dminecraft@lobby'
       JAVA_TOOL_OPTIONS: '-Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
       LAZY_STARTUP: 'yes'
+      STOP_CMD: 'minecraft:stop'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
     working_dir: '/app/lobby'
@@ -207,6 +208,7 @@ services:
       JVM_ARGS: '-Dminecraft@pvp'
       JAVA_TOOL_OPTIONS: '-Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
       LAZY_STARTUP: 'yes'
+      STOP_CMD: 'minecraft:stop'
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
@@ -222,6 +224,7 @@ services:
       JVM_ARGS: '-Dminecraft@pata'
       JAVA_TOOL_OPTIONS: '-Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
       LAZY_STARTUP: 'yes'
+      STOP_CMD: 'minecraft:stop'
     volumes:
       - '/opt/minecraft/pata:/app/pata'
     working_dir: '/app/pata'

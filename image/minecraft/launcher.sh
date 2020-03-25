@@ -5,7 +5,11 @@ set -u
 set +u
 
 close() {
-  kill -SIGINT $(pgrep java)
+  if [ ! -z $STOP_CMD ]; then
+    screen -S minecraft -p 0 -X stuff "\n$STOP_CMD\n"
+  else
+    kill -SIGINT $(pgrep java)
+  fi
   while pgrep java > /dev/null; do
     sleep 1
   done
