@@ -9,7 +9,7 @@
 ## 📕 使い方
 ### 不要なファイルを削除
 ```sh
-docker system prune -af --volumes
+docker system prune -f --volumes
 ```
 ### ビルド
 ```sh
