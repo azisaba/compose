@@ -1,6 +1,19 @@
 version: '3.1'
 
 services:
+  # バックアップ
+  backup:
+    build: ./image/backup
+    restart: always
+    secrets:
+      - restic
+      - restic-sftp-private-key
+      - restic-sftp-hosts
+    environment:
+      TZ: Asia/Tokyo
+      RESTIC_PASSWORD_FILE: '/run/secrets/restic'
+      SFTP_PRIVATE_KEY: '/run/secrets/restic-sftp-private-key'
+      SFTP_HOSTS: '/run/secrets/restic-sftp-hosts'
   # リアルタイムサーバー監視
   netdata:
     image: netdata/netdata:latest
@@ -250,3 +263,9 @@ secrets:
     file: /srv/secrets/wordpress.txt
   dns-cloudflare:
     file: /srv/secrets/dns-cloudflare.txt
+  restic:
+    file: /srv/secrets/restic.txt
+  restic-sftp-private-key:
+    file: /srv/secrets/restic-sftp-private-key.txt
+  restic-sftp-hosts:
+    file: /srv/secrets/restic-sftp-hosts.txt
