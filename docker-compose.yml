@@ -4,7 +4,6 @@ services:
   # バックアップ
   backup:
     build: ./image/backup
-    restart: always
     secrets:
       - restic
       - restic-sftp-private-key
