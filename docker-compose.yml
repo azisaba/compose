@@ -14,6 +14,16 @@ services:
       RESTIC_PASSWORD_FILE: '/run/secrets/restic'
       SFTP_PRIVATE_KEY: '/run/secrets/restic-sftp-private-key'
       SFTP_HOSTS: '/run/secrets/restic-sftp-hosts'
+    volumes:
+      - '/opt/minecraft:/app/minecraft'
+      - '/opt/resourcepacks:/app/resourcepacks'
+      - '/srv/discord:/app/discord'
+      - '/srv/html:/app/html'
+      - '/srv/letsencrypt:/app/letsencrypt'
+      - '/srv/metabase:/app/metabase'
+      - '/srv/mysql:/app/mysql'
+      - '/srv/secrets:/app/secrets'
+    working_dir: '/app'
   # リアルタイムサーバー監視
   netdata:
     image: netdata/netdata:latest

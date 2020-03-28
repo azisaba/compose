@@ -19,4 +19,6 @@ for REPO in $(cat $SFTP_HOSTS); do
   if ! restic stats 2> /dev/null; then
     restic init
   fi
+
+  restic backup *
 done
