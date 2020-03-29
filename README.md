@@ -20,6 +20,10 @@ docker-compose build
 ```sh
 docker-compose up -d --remove-orphans
 ```
+### コンテナにiptablesを適用
+```sh
+ash container-iptables.sh
+```
 ### シャットダウン
 ```sh
 docker-compose down --remove-orphans
