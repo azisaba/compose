@@ -59,6 +59,9 @@ docker-compose down --remove-orphans
   |-- secrets
     |-- wordpress.txt
     |-- dns-cloudflare.txt
+    |-- restic.txt
+    |-- restic-sftp-private-key.txt
+    |-- restic-sftp-hosts.txt
 ```
 
 ## 👍 参考
