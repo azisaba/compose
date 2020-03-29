@@ -15,15 +15,15 @@ echo "$UPTIME_ROBOT_IP_SOURCE" | xargs -I {} iptables -A AZI_WEB -p tcp -s {} -d
 echo "$CLOUDFLARE_IP_SOURCE" | xargs -I {} iptables -A AZI_WEB -p tcp -s {} -d $WEB_IP --dport 443 -j ACCEPT
 iptables -A AZI_WEB -p tcp -s 0.0.0.0/0 -d $WEB_IP --dport 443 -j DROP
 iptables -A DOCKER -p tcp -s 0.0.0.0/0 -d $WEB_IP --dport 443 -j AZI_WEB
-iptables -D DOCKER -p tcp -s 0.0.0.0/0 -d $WEB_IP --dport 443 -j ACCEPT
+iptables -D $(iptables -S DOCKER | grep $WEB_IP | grep 443 | grep ACCEPT | cut -c 4-)
 
 iptables -N AZI_VOTIFIER
-echo "$LOCAL_IP_SOURCE" | xargs -I {} iptables -A AZI_BUNGEE -p tcp -s {} -d $BUNGEE_IP --dport 8192 -j ACCEPT
+echo "$LOCAL_IP_SOURCE" | xargs -I {} iptables -A AZI_VOTIFIER -p tcp -s {} -d $BUNGEE_IP --dport 8192 -j ACCEPT
 echo "$UPTIME_ROBOT_IP_SOURCE" | xargs -I {} iptables -A AZI_VOTIFIER -p tcp -s {} -d $BUNGEE_IP --dport 8192 -j ACCEPT
 iptables -A AZI_VOTIFIER -p tcp -s 52.197.94.253 -d $BUNGEE_IP --dport 8192 -j ACCEPT
 iptables -A AZI_VOTIFIER -p tcp -s 0.0.0.0/0 -d $BUNGEE_IP --dport 8192 -j DROP
 iptables -A DOCKER -p tcp -s 0.0.0.0/0 -d $BUNGEE_IP --dport 8192 -j AZI_VOTIFIER
-iptables -D DOCKER -p tcp -s 0.0.0.0/0 -d $BUNGEE_IP --dport 8192 -j ACCEPT
+iptables -D $(iptables -S DOCKER | grep $BUNGEE_IP | grep 8192 | grep ACCEPT | cut -c 4-)
 
 iptables -N AZI_BUNGEE
 echo "$LOCAL_IP_SOURCE" | xargs -I {} iptables -A AZI_BUNGEE -p tcp -s {} -d $BUNGEE_IP --dport 25577 -j ACCEPT
@@ -34,4 +34,4 @@ iptables -A AZI_BUNGEE -p tcp -s 202.182.123.235 -d $BUNGEE_IP --dport 25577 -j 
 iptables -A AZI_BUNGEE -p tcp -s 45.77.10.15 -d $BUNGEE_IP --dport 25577 -j ACCEPT
 iptables -A AZI_BUNGEE -p tcp -s 0.0.0.0/0 -d $BUNGEE_IP --dport 25577 -j DROP
 iptables -A DOCKER -p tcp -s 0.0.0.0/0 -d $BUNGEE_IP --dport 25577 -j AZI_BUNGEE
-iptables -D DOCKER -p tcp -s 0.0.0.0/0 -d $BUNGEE_IP --dport 25577 -j ACCEPT
+iptables -D $(iptables -S DOCKER | grep $BUNGEE_IP | grep 25577 | grep ACCEPT | cut -c 4-)
