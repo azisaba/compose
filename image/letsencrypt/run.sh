@@ -1,9 +1,9 @@
 #!/bin/ash
 
-set -u
-: $DOMAINS
-: $DNS_CLOUDFLARE_CREDENTIALS
-set +u
+(
+  set -u
+  : $DOMAINS $DNS_CLOUDFLARE_CREDENTIALS
+)
 
 DOMAIN_CN=$(echo $DOMAINS | cut -d , -f 1)
 

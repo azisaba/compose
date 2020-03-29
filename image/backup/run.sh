@@ -1,10 +1,9 @@
 #!/bin/ash
 
-set -u
-: $RESTIC_PASSWORD_FILE
-: $SFTP_PRIVATE_KEY
-: $SFTP_HOSTS
-set +u
+(
+  set -u
+  : $RESTIC_PASSWORD_FILE $SFTP_PRIVATE_KEY $SFTP_HOSTS
+)
 
 mkdir -p ~/.ssh
 chmod 700 ~/.ssh

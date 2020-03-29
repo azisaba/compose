@@ -9,6 +9,6 @@ RUN set -ex \
 	\
 	&& restic version
 
-COPY backup.sh /
+COPY run.sh /
 
-CMD ["ash", "/backup.sh"]
+CMD ["ash", "/run.sh"]

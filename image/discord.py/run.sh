@@ -1,7 +1,8 @@
 #!/bin/ash
 
-set -u
-: $SCRIPT_PATH
-set +u
+(
+  set -u
+  : $SCRIPT_PATH
+)
 
 exec python3 -u $SCRIPT_PATH

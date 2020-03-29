@@ -9,6 +9,6 @@ RUN set -ex \
 	&& cwebp -version \
 	&& gif2webp -version
 
-COPY convert.sh /
+COPY run.sh /
 
-CMD ["ash", "/convert.sh"]
+CMD ["ash", "/run.sh"]

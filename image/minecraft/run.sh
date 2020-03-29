@@ -1,8 +1,9 @@
 #!/bin/ash
 
-set -u
-: $JAR_PATH
-set +u
+(
+  set -u
+  : $JAR_PATH
+)
 
 close() {
   if [ ! -z $STOP_CMD ]; then

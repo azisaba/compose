@@ -22,6 +22,6 @@ RUN set -ex \
 	&& find /usr/lib/python* -type d -iname '__pycache__' -prune -exec rm -r {} \; \
 	&& rm -r /var/log/letsencrypt
 
-COPY renew.sh /
+COPY run.sh /
 
-CMD ["ash", "/renew.sh"]
+CMD ["ash", "/run.sh"]

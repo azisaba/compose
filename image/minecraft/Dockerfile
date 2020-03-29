@@ -35,6 +35,6 @@ RUN set -ex \
 	&& chmod +x /opt/jdk/bin/* \
 	&& chmod +x /opt/jdk/jre/bin/*
 
-COPY launcher.sh /
+COPY run.sh /
 
-CMD ["ash", "/launcher.sh"]
+CMD ["ash", "/run.sh"]
