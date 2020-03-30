@@ -22,7 +22,7 @@ docker-compose up -d --remove-orphans
 ```
 ### コンテナにiptablesを適用
 ```sh
-ash container-iptables.sh
+python3 security/iptables.py
 ```
 ### シャットダウン
 ```sh
