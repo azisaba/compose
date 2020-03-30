@@ -3,11 +3,17 @@
 import subprocess
 import urllib.request
 
-def sh(cmd):
-    return subprocess.call(cmd, shell=True)
+def sh(cmd, out=None):
+    print("$", cmd)
+    return subprocess.call(cmd, shell=True, stdout=out)
 
 def sh_out(cmd):
+    print("+", cmd)
     return subprocess.check_output(cmd, shell=True, text=True).rstrip()
+
+def sh_check(cmd):
+    print("!", cmd)
+    subprocess.check_call(cmd, shell=True)
 
 def docker_compose_ip(service):
     container_id = sh_out("docker-compose ps -q " + service)
@@ -30,9 +36,9 @@ bungee_ip = docker_compose_ip("bungee")
 database_ip = docker_compose_ip("database")
 web_ip = docker_compose_ip("web")
 
-subprocess.check_call("iptables -V", shell=True)
+sh_check("iptables -V")
 
-if sh("iptables -n -L AZI_DOCKER") != 0:
+if sh("iptables -n -L AZI_DOCKER", out=subprocess.DEVNULL):
     sh("iptables -N AZI_DOCKER")
 
 before_custom_rules = get_rules("AZI_DOCKER")
