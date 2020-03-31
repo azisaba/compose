@@ -11,3 +11,7 @@ jobs:
       - uses: docker://koalaman/shellcheck
         with:
           args: --version
+      - uses: docker://koalaman/shellcheck
+        with:
+          entrypoint: /bin/bash
+          args: -c "find . -type f -name '*.sh' -print0 | xargs -0t shellcheck"
