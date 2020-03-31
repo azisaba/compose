@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: docker://koalaman/shellcheck
         with:
-          args: /bin/bash -c "shellcheck --version && find . -type f -name '*.sh' -print0 | xargs -0t shellcheck"
+          args: --version
