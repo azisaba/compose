@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v2
       - run: docker version
       - run: docker-compose version
-      - run: docker-compose pull --no-ansi
+      - run: docker-compose --no-ansi pull
 
   build:
     name: Build
@@ -28,4 +28,4 @@ jobs:
       - uses: actions/checkout@v2
       - run: docker version
       - run: docker-compose version
-      - run: docker-compose build --no-ansi
+      - run: docker-compose --no-ansi build
