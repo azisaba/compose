@@ -8,9 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          wget "https://github.com/koalaman/shellcheck/releases/download/latest/shellcheck-latest.linux.x86_64.tar.xz"
-          tar -xJv "$(basename "$_")"
-          sudo cp -v shellcheck-latest/shellcheck /usr/local/bin/shellcheck
+      - run: wget "https://github.com/koalaman/shellcheck/releases/download/latest/shellcheck-latest.linux.x86_64.tar.xz"
+      - run: tar -xJv shellcheck-latest.linux.x86_64.tar.xz
+      - run: sudo cp -v shellcheck-latest/shellcheck /usr/local/bin/shellcheck
       - run: shellcheck --version
       - run: find . -type f -name '*.sh' -print0 | xargs -0t shellcheck
