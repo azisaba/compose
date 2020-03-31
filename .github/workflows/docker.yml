@@ -14,21 +14,14 @@ jobs:
       - run: hadolint --version
       - run: find . -type f -name Dockerfile -print0 | xargs -0t hadolint
 
-  #pull:
-  #  name: Pull
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - uses: actions/checkout@v2
-  #    - run: docker version
-  #    - run: docker-compose version
-  #    - run: docker-compose --no-ansi pull
-  #    - run: docker image ls --filter dangling=false
-
-  #build:
-  #  name: Build
-  #  runs-on: ubuntu-latest
-  #  steps:
-  #    - uses: actions/checkout@v2
-  #    - run: docker version
-  #    - run: docker-compose version
-  #    - run: docker-compose --no-ansi build
+  build:
+    strategy:
+      matrix:
+        compose: [pull, build]
+    name: Build - ${{ matrix.compose }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker version
+      - run: docker-compose version
+      - run: docker-compose --no-ansi ${{ matrix.compose }}
