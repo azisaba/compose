@@ -11,4 +11,4 @@ jobs:
       - uses: docker://hadolint/hadolint
         with:
           entrypoint: /bin/ash
-          args: -c "hadolint --version"
+          args: -c "hadolint --version && find . -type f -name Dockerfile -print0 | xargs -0t hadolint"
