@@ -8,19 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          sudo wget -O hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
-          sudo chmod -c +x hadolint
-        working-directory: /usr/local/bin
-      - run: hadolint --version
-      - run: find . -type f -name 'Dockerfile' -print0 | xargs -0t hadolint
-
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: docker version
-      - run: docker-compose version
-      - run: docker-compose pull
-      - run: docker-compose build
+      - uses: docker://hadolint/hadolint
+        with:
+          entrypoint: /bin/ash
+          args: |
+            hadolint --version
+            find . -type f -name Dockerfile -print0 | xargs -0t hadolint
