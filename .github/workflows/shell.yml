@@ -8,6 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: sudo apt-get install shellcheck
-      - run: shellcheck --version
-      - run: find . -type f -name '*.sh' -print0 | xargs -0t shellcheck
+      - uses: docker://koalaman/shellcheck
+        with:
+          args: /bin/ash -c "shellcheck --version && find . -type f -name '*.sh' -print0 | xargs -0t shellcheck"
