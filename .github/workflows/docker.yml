@@ -14,3 +14,4 @@ jobs:
           args: |
             hadolint --version
             find . -type f -name Dockerfile -print0 | xargs -0t hadolint
+
