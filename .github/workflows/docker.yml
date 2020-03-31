@@ -20,7 +20,7 @@ jobs:
       - run: docker version
       - run: docker-compose version
       - run: docker-compose --no-ansi pull
-      - run: docker-compose --no-ansi images
+      - run: sudo docker-compose images
 
   build:
     name: Build
