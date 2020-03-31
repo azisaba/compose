@@ -8,10 +8,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: docker://koalaman/shellcheck
-        with:
-          args: --version
-      - uses: docker://koalaman/shellcheck
-        with:
-          entrypoint: /bin/bash
-          args: -c "find . -type f -name '*.sh' -print0 | xargs -0t shellcheck"
+      - run: wget "https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz"
+      - run: xz -d shellcheck-stable.linux.x86_64.tar.xz
+      - run: tar -xv -f shellcheck-stable.linux.x86_64.tar
+      - run: cp -v shellcheck-stable/shellcheck shellcheck
+      - run: chmod -c +x shellcheck
+      - run: sudo mv -v shellcheck /usr/local/bin/shellcheck
+      - run: shellcheck --version
+      - run: find . -type f -name "*.sh" -print0 | xargs -0t shellcheck
