@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: sudo wget -O /usr/local/bin/hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
-      - run: chmod -c +x hadolint
+      - run: chmod -c +x /usr/local/bin/hadolint
       - run: hadolint --version
       - run: find . -type f -name Dockerfile -print0 | xargs -0t hadolint
 
