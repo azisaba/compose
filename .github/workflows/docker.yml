@@ -10,4 +10,4 @@ jobs:
       - uses: actions/checkout@v2
       - uses: docker://hadolint/hadolint
         with:
-          args: /bin/ash -c 'hadolint --version && find . -type f -name Dockerfile -print0 | xargs -0t hadolint'
+          args: /bin/ash -c "hadolint --version && find . -type f -name Dockerfile -print0 | xargs -0t hadolint"
