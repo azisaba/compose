@@ -8,25 +8,30 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: docker://hadolint/hadolint
-        with:
-          args: /bin/ash -c "hadolint --version && find . -type f -name Dockerfile -print0 | xargs -0t hadolint"
+      - run: sudo wget -O /usr/local/bin/hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
+      - run: chmod -c +x hadolint
+      - run: hadolint --version
+      - run: find . -type f -name Dockerfile -print0 | xargs -0t hadolint
 
-  pull:
-    name: Pull
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: docker version
-      - run: docker-compose version
-      - run: docker-compose --no-ansi pull
-      - run: docker image ls --filter dangling=false
+      # - uses: docker://hadolint/hadolint
+      #   with:
+      #     args: /bin/ash -c "hadolint --version && find . -type f -name Dockerfile -print0 | xargs -0t hadolint"
 
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - run: docker version
-      - run: docker-compose version
-      #- run: docker-compose --no-ansi build
+  #pull:
+  #  name: Pull
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - run: docker version
+  #    - run: docker-compose version
+  #    - run: docker-compose --no-ansi pull
+  #    - run: docker image ls --filter dangling=false
+
+  #build:
+  #  name: Build
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - uses: actions/checkout@v2
+  #    - run: docker version
+  #    - run: docker-compose version
+  #    - run: docker-compose --no-ansi build
