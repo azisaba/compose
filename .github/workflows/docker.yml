@@ -12,3 +12,15 @@ jobs:
         with:
           entrypoint: /bin/ash
           args: -c "hadolint --version && find . -type f -name Dockerfile -print0 | xargs -0t hadolint"
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: |
+          docker version
+          docker-compose version
+      - run: docker-compose pull
+      - run: docker-compose build
+      - run: docker system df --verbose
