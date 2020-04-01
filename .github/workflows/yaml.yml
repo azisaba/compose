@@ -13,4 +13,5 @@ jobs:
           python-version: "3.x"
       - run: python --version
       - run: pip install yamllint
+      - run: yamllint --version
       - run: yamllint .
