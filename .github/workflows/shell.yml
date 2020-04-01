@@ -1,6 +1,6 @@
+---
 name: Shell
-
-on: [push]
+"on": [push]
 
 jobs:
   lint:

@@ -1,7 +1,5 @@
 ---
-
 name: Yaml
-
 "on": [push]
 
 jobs:
