@@ -12,4 +12,4 @@ jobs:
       - run: tar -xJv -f shellcheck-stable.linux.x86_64.tar.xz
       - run: sudo cp -v shellcheck-stable/shellcheck /usr/local/bin/shellcheck
       - run: shellcheck --version
-      - run: find . -type f -name "*.sh" -print0 | xargs -0t shellcheck
+      - run: find . -type f -name "*.sh" -print0 | xargs -0t shellcheck -e SC2187
