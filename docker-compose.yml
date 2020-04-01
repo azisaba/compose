@@ -161,7 +161,7 @@ services:
       JAR_PATH: 'paper-1.8.8.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
       JVM_ARGS: '-Dminecraft@lobby'
-      JAVA_TOOL_OPTIONS: '-Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
       STOP_CMD: 'minecraft:stop'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
@@ -176,7 +176,7 @@ services:
       JAR_PATH: 'paper-1.15.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.15.2/latest/download'
       JVM_ARGS: '-Dminecraft@main'
-      JAVA_TOOL_OPTIONS: '-Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/main:/app/main'
@@ -191,7 +191,7 @@ services:
       JAR_PATH: 'paper-1.13.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
       JVM_ARGS: '-Dminecraft@parkour'
-      JAVA_TOOL_OPTIONS: '-Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
@@ -206,7 +206,7 @@ services:
       JAR_PATH: 'paper-1.13.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
       JVM_ARGS: '-Dminecraft@p'
-      JAVA_TOOL_OPTIONS: '-Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/p:/app/p'
@@ -221,7 +221,7 @@ services:
       JAR_PATH: 'paper-1.12.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
       JVM_ARGS: '-Dminecraft@lgw'
-      JAVA_TOOL_OPTIONS: '-Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
@@ -236,7 +236,7 @@ services:
       JAR_PATH: 'paper-1.8.8.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
       JVM_ARGS: '-Dminecraft@pvp'
-      JAVA_TOOL_OPTIONS: '-Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
       LAZY_STARTUP: 'yes'
       STOP_CMD: 'minecraft:stop'
     volumes:
@@ -252,7 +252,7 @@ services:
       JAR_PATH: 'paper-1.8.8.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
       JVM_ARGS: '-Dminecraft@pata'
-      JAVA_TOOL_OPTIONS: '-Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
       LAZY_STARTUP: 'yes'
       STOP_CMD: 'minecraft:stop'
     volumes:
@@ -268,7 +268,7 @@ services:
       JAR_PATH: 'paper-1.12.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
       JVM_ARGS: '-Dminecraft@wave'
-      JAVA_TOOL_OPTIONS: '-Xms6G -Xmx6G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
+      JAVA_TOOL_OPTIONS: '-XX:+UseShenandoahGC -Xloggc:./gc.log -XX:+PrintGCDetails -XX:+PrintGCDateStamps'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/wave:/app/wave'
