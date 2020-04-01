@@ -17,7 +17,7 @@ Host *
   LogLevel ERROR
 EOT
 
-cat "$SFTP_HOSTS" | while IFS= read -r REPO; do
+while IFS= read -r REPO; do
   export RESTIC_REPOSITORY=$REPO
 
   if ! restic snapshots > /dev/null; then
@@ -27,4 +27,4 @@ cat "$SFTP_HOSTS" | while IFS= read -r REPO; do
   find . -mindepth 1 -maxdepth 1 | while IFS= read -r TARGET; do
     restic backup "$TARGET"
   done
-done
+done < "$SFTP_HOSTS"
