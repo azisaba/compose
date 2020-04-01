@@ -40,7 +40,7 @@ services:
       TZ: Asia/Tokyo
   # データベース
   database:
-    build: ./tzdata-image/mariadb
+    build: ./image-tzdata/mariadb
     restart: always
     ports:
       - 3306:3306
@@ -80,7 +80,7 @@ services:
       - netdata
   # ホームページ
   wordpress:
-    build: ./tzdata-image/wordpress
+    build: ./image-tzdata/wordpress
     restart: always
     secrets:
       - wordpress
