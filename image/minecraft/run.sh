@@ -17,19 +17,19 @@ close() {
   exit 0
 }
 
-trap 'close' SIGTERM
+trap 'close' TERM
 
 if [ -n "$JAR_DOWNLOAD_URL" ]; then
   SIZE=$(curl -fsSI "$JAR_DOWNLOAD_URL" | grep -i Content-Length | awk '{ print $2 }')
 
   if [ -n "$SIZE" ]; then
-    if [ ! -f "$JAR_PATH" ] || [[ $SIZE != $(stat -c %s "$JAR_PATH") ]]; then
+    if [ ! -f "$JAR_PATH" ] || [ ! "$SIZE" = "$(stat -c %s "$JAR_PATH")" ]; then
       wget -O "$JAR_PATH" "$JAR_DOWNLOAD_URL"
     fi
   fi
 fi
 
-if [ -n "$LAZY_STARTUP" ] && [[ $LAZY_STARTUP == yes ]]; then
+if [ -n "$LAZY_STARTUP" ] && [ "$LAZY_STARTUP" = "yes" ]]; then
   if [ "$(echo "$(cut -d ' ' -f 1 < /proc/uptime)" / 1 | bc)" -lt $(( 5 * 60 )) ]; then
     sleep "$(shuf -n 1 -i 30-$(( 2 * 60 )))"
   fi
