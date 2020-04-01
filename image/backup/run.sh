@@ -17,14 +17,14 @@ Host *
   LogLevel ERROR
 EOT
 
-for REPO in $(cat "$SFTP_HOSTS"); do
+while IFS= read -r REPO; do
   export RESTIC_REPOSITORY=$REPO
 
   if ! restic snapshots > /dev/null; then
     restic init
   fi
 
-  for TARGET in $(find . -mindepth 1 -maxdepth 1); do
+  while IFS= read -r -d '' TARGET; do
     restic backup "$TARGET"
-  done
-done
+  done < <(find . -mindepth 1 -maxdepth 1 -print0)
+done < "$SFTP_HOSTS"

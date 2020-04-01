@@ -29,7 +29,7 @@ if [ -n "$JAR_DOWNLOAD_URL" ]; then
   fi
 fi
 
-if [ -n "$LAZY_STARTUP" ] && [ "$LAZY_STARTUP" = "yes" ]]; then
+if [ -n "$LAZY_STARTUP" ] && [ "$LAZY_STARTUP" = "yes" ]; then
   if [ "$(echo "$(cut -d ' ' -f 1 < /proc/uptime)" / 1 | bc)" -lt $(( 5 * 60 )) ]; then
     sleep "$(shuf -n 1 -i 30-$(( 2 * 60 )))"
   fi
