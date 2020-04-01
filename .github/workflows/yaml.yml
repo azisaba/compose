@@ -1,6 +1,11 @@
+---
+
 name: Yaml
 
-on: [push]
+on:
+  push:
+    branches:
+      - "*"
 
 jobs:
   lint:
