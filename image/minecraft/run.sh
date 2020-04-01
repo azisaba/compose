@@ -30,11 +30,11 @@ if [ -n "$JAR_DOWNLOAD_URL" ]; then
 fi
 
 if [ -n "$LAZY_STARTUP" ] && [[ $LAZY_STARTUP == yes ]]; then
-  if [ "$(echo "$(cat /proc/uptime | cut -d ' ' -f 1)" / 1 | bc)" -lt $(( 5 * 60 )) ]; then
+  if [ "$(echo "$(cut -d ' ' -f 1 < /proc/uptime)" / 1 | bc)" -lt $(( 5 * 60 )) ]; then
     sleep "$(shuf -n 1 -i 30-$(( 2 * 60 )))"
   fi
 
-  if [ "$(echo "$(cat /proc/loadavg | cut -d ' ' -f 1)" / 1 | bc)" -ge $(( $(nproc --all) / 4 )) ]; then
+  if [ "$(echo "$(cut -d ' ' -f 1 < /proc/loadavg)" / 1 | bc)" -ge $(( $(nproc --all) / 4 )) ]; then
     sleep "$(shuf -n 1 -i 30-$(( 2 * 60 )))"
   fi
 fi
