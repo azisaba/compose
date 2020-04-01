@@ -1,6 +1,6 @@
+---
 name: Docker
-
-on: [push]
+"on": [push]
 
 jobs:
   lint:
@@ -8,19 +8,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: |
-          sudo wget -O hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
-          sudo chmod -c +x hadolint
-        working-directory: /usr/local/bin
+      - run: wget -O hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
+      - run: chmod -c +x hadolint
+      - run: sudo cp -v hadolint /usr/local/bin/hadolint
       - run: hadolint --version
-      - run: find . -type f -name 'Dockerfile' -print0 | xargs -0t hadolint
+      - run: find . -type f -name Dockerfile -print0 | xargs -0t hadolint
 
   build:
-    name: Build
+    strategy:
+      matrix:
+        compose: [pull, build]
+    name: Build - ${{ matrix.compose }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - run: docker version
       - run: docker-compose version
-      - run: docker-compose pull
-      - run: docker-compose build
+      - run: docker-compose --no-ansi ${{ matrix.compose }}

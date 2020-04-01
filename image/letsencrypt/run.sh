@@ -2,19 +2,19 @@
 
 (
   set -u
-  : $DOMAINS $DNS_CLOUDFLARE_CREDENTIALS
+  : "$DOMAINS" "$DNS_CLOUDFLARE_CREDENTIALS"
 )
 
-DOMAIN_CN=$(echo $DOMAINS | cut -d , -f 1)
+DOMAIN_CN=$(echo "$DOMAINS" | cut -d , -f 1)
 
-if [ -f /etc/letsencrypt/renewal/$DOMAIN_CN.conf ]; then
+if [ -f /etc/letsencrypt/renewal/"$DOMAIN_CN".conf ]; then
   certbot renew \
     --dns-cloudflare \
-    --dns-cloudflare-credentials $DNS_CLOUDFLARE_CREDENTIALS
+    --dns-cloudflare-credentials "$DNS_CLOUDFLARE_CREDENTIALS"
 else
   certbot certonly \
     --dns-cloudflare \
-    --dns-cloudflare-credentials $DNS_CLOUDFLARE_CREDENTIALS \
+    --dns-cloudflare-credentials "$DNS_CLOUDFLARE_CREDENTIALS" \
     --server https://acme-v02.api.letsencrypt.org/directory \
-    --domains $DOMAINS
+    --domains "$DOMAINS"
 fi

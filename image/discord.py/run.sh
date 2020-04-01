@@ -2,7 +2,7 @@
 
 (
   set -u
-  : $SCRIPT_PATH
+  : "$SCRIPT_PATH"
 )
 
-exec python3 -u $SCRIPT_PATH
+exec python3 -u "$SCRIPT_PATH"
