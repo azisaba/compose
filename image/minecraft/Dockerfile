@@ -3,6 +3,7 @@ FROM alpine:3.11.5
 ENV LANG C.UTF-8
 ENV JAVA_HOME /opt/jdk
 ENV PATH $JAVA_HOME/bin:/usr/glibc-compat/bin:$PATH
+ENV MALLOC_ARENA_MAX 2
 
 RUN set -ex \
 	\
