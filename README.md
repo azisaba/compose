@@ -20,10 +20,6 @@ docker-compose build
 ```sh
 docker-compose up -d --remove-orphans
 ```
-### コンテナにiptablesを適用
-```sh
-python3 security/iptables.py
-```
 ### シャットダウン
 ```sh
 docker-compose down --remove-orphans
