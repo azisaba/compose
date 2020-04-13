@@ -23,5 +23,6 @@ RUN set -ex \
 	&& rm -r /var/log/letsencrypt
 
 COPY run.sh /
+COPY crontab /etc/crontabs/root
 
-CMD ["ash", "/run.sh"]
+CMD ["crond", "-f"]

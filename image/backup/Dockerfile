@@ -10,5 +10,6 @@ RUN set -ex \
 	&& restic version
 
 COPY run.sh /
+COPY crontab /etc/crontabs/root
 
-CMD ["ash", "/run.sh"]
+CMD ["crond", "-f"]
