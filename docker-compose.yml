@@ -152,6 +152,8 @@ services:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
     stop_grace_period: 15s
+    ulimits:
+      core: 0
   # Minecraft - lobby (ロビーサーバー)
   lobby:
     build: ./image/minecraft
@@ -167,6 +169,8 @@ services:
       - '/opt/minecraft/lobby:/app/lobby'
     working_dir: '/app/lobby'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - main (生活サーバー)
   main:
     build: ./image/minecraft
@@ -182,6 +186,8 @@ services:
       - '/opt/minecraft/main:/app/main'
     working_dir: '/app/main'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - parkour (パルクールサーバー)
   parkour:
     build: ./image/minecraft
@@ -197,6 +203,8 @@ services:
       - '/opt/minecraft/parkour:/app/parkour'
     working_dir: '/app/parkour'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - p (観光サーバー)
   p:
     build: ./image/minecraft
@@ -212,6 +220,8 @@ services:
       - '/opt/minecraft/p:/app/p'
     working_dir: '/app/p'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - lgw (銃サーバー)
   lgw:
     build: ./image/minecraft
@@ -227,6 +237,8 @@ services:
       - '/opt/minecraft/lgw:/app/lgw'
     working_dir: '/app/lgw'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - pvp (PvPサーバー)
   pvp:
     build: ./image/minecraft
@@ -243,6 +255,8 @@ services:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - pata (ぱたサーバー)
   pata:
     build: ./image/minecraft
@@ -259,6 +273,8 @@ services:
       - '/opt/minecraft/pata:/app/pata'
     working_dir: '/app/pata'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
   # Minecraft - wave (WavePvEサーバー)
   wave:
     build: ./image/minecraft
@@ -274,6 +290,8 @@ services:
       - '/opt/minecraft/wave:/app/wave'
     working_dir: '/app/wave'
     stop_grace_period: 30s
+    ulimits:
+      core: 0
 
 secrets:
   wordpress:

@@ -41,6 +41,5 @@ fi
 
 tail -n 0 -F ./proxy.log.0 ./logs/latest.log 2> /dev/null &
 
-ulimit -c 1024
 screen -ADmS minecraft java "$JVM_ARGS" -jar "$JAR_PATH" &
 wait $!
