@@ -9,6 +9,7 @@ RUN set -ex \
 	&& cwebp -version \
 	&& gif2webp -version
 
+COPY run.sh /
 COPY run-with-cron.sh /
 
 CMD ["ash", "/run-with-cron.sh"]

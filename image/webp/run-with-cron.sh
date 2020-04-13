@@ -1,6 +1,6 @@
 #!/bin/ash
 
-EXEC_LINE="0 * * * * cd $PWD && ash /run.sh"
+EXEC_LINE="0 * * * * cd \"$PWD\" && ash /run.sh"
 grep -qxF "$EXEC_LINE" /etc/crontabs/root || echo "$EXEC_LINE" >> /etc/crontabs/root
 
 close() {

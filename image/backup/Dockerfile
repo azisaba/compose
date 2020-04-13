@@ -9,6 +9,7 @@ RUN set -ex \
 	\
 	&& restic version
 
+COPY run.sh /
 COPY run-with-cron.sh /
 
 CMD ["ash", "/run-with-cron.sh"]
