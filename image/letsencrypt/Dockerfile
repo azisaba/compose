@@ -22,7 +22,6 @@ RUN set -ex \
 	&& find /usr/lib/python* -type d -iname '__pycache__' -prune -exec rm -r {} \; \
 	&& rm -r /var/log/letsencrypt
 
-COPY run.sh /
-COPY crontab /etc/crontabs/root
+COPY run-with-cron.sh /
 
-CMD ["crond", "-f"]
+CMD ["ash", "/run-with-cron.sh"]

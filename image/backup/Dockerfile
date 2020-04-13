@@ -9,7 +9,6 @@ RUN set -ex \
 	\
 	&& restic version
 
-COPY run.sh /
-COPY crontab /etc/crontabs/root
+COPY run-with-cron.sh /
 
-CMD ["crond", "-f"]
+CMD ["ash", "/run-with-cron.sh"]

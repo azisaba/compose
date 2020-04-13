@@ -9,7 +9,6 @@ RUN set -ex \
 	&& cwebp -version \
 	&& gif2webp -version
 
-COPY run.sh /
-COPY crontab /etc/crontabs/root
+COPY run-with-cron.sh /
 
-CMD ["crond", "-f"]
+CMD ["ash", "/run-with-cron.sh"]
