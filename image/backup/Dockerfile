@@ -6,6 +6,7 @@ RUN set -ex \
 		tzdata \
 		restic \
 		openssh-client \
+		mariadb-client \
 	\
 	&& restic version
 

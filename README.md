@@ -58,6 +58,7 @@ docker-compose down --remove-orphans
     |-- restic.txt
     |-- restic-sftp-private-key.txt
     |-- restic-sftp-hosts.txt
+    |-- admin.txt
 ```
 
 ## 👍 参考

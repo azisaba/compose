@@ -9,11 +9,15 @@ services:
       - restic
       - restic-sftp-private-key
       - restic-sftp-hosts
+      - admin
     environment:
       TZ: Asia/Tokyo
       RESTIC_PASSWORD_FILE: '/run/secrets/restic'
       SFTP_PRIVATE_KEY: '/run/secrets/restic-sftp-private-key'
       SFTP_HOSTS: '/run/secrets/restic-sftp-hosts'
+      DB_HOST: 'database'
+      DB_USER: 'admin'
+      DB_PASSWORD: '/run/secrets/admin'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
       - '/opt/minecraft/lobby:/app/lobby'
@@ -304,3 +308,5 @@ secrets:
     file: /srv/secrets/restic-sftp-private-key.txt
   restic-sftp-hosts:
     file: /srv/secrets/restic-sftp-hosts.txt
+  admin:
+    file: /srv/secrets/admin.txt
