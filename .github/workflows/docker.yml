@@ -4,13 +4,13 @@ name: Docker
 
 jobs:
   build:
-    name: ${{ matrix.compose }}
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        compose: [pull, build]
+    env:
+      DOCKER_CLI_EXPERIMENTAL: enabled
+      DOCKER_BUILDKIT: 1
     steps:
       - uses: actions/checkout@v2
       - run: docker version
       - run: docker-compose version
-      - run: docker-compose --no-ansi ${{ matrix.compose }}
+      - run: docker-compose --no-ansi pull
+      - run: docker-compose --no-ansi build
