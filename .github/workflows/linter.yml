@@ -26,7 +26,7 @@ jobs:
           find . -type f -name Dockerfile -print0 | xargs -0t hadolint
       - name: yamllint
         run: |
-          pip install --user yamllint
+          pip install yamllint
           python --version
           yamllint --version
           yamllint .
