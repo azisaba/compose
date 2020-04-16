@@ -12,7 +12,7 @@ RUN set -ex \
 		py3-multidict \
 		py3-yarl \
 	\
-	&& export PIP_DISABLE_PIP_VERSION_CHECK=1
+	&& export PIP_DISABLE_PIP_VERSION_CHECK=1 \
 	\
 	&& pip3 install --upgrade --requirement requirements.txt \
 	\
