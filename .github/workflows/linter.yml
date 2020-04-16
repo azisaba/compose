@@ -1,0 +1,35 @@
+---
+name: Linter
+"on": [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+        with:
+          python-version: "3.x"
+      - name: Install koalaman/shellcheck
+        run: |
+          wget "https://github.com/koalaman/shellcheck/releases/download/stable/shellcheck-stable.linux.x86_64.tar.xz"
+          tar -xJv -f shellcheck-stable.linux.x86_64.tar.xz
+          sudo cp -v shellcheck-stable/shellcheck /usr/local/bin/shellcheck
+          shellcheck --version
+      - name: Install hadolint/hadolint
+        run: |
+          wget -O hadolint "https://github.com/hadolint/hadolint/releases/latest/download/hadolint-$(uname -s)-$(uname -m)"
+          chmod -c +x hadolint
+          sudo cp -v hadolint /usr/local/bin/hadolint
+          hadolint --version
+      - name: Install adrienverge/yamllint
+        run: |
+          pip install yamllint
+          python --version
+          yamllint --version
+      - name: Lint shellcheck
+        run: find . -type f -name "*.sh" -print0 | xargs -0t shellcheck
+      - name: Lint hadolint
+        run: find . -type f -name Dockerfile -print0 | xargs -0t hadolint
+      - name: Lint yamllint
+        run: yamllint .
