@@ -27,9 +27,9 @@ jobs:
           pip install yamllint
           python --version
           yamllint --version
-      - name: Lint using shellcheck
+      - name: Lint shellcheck
         run: find . -type f -name "*.sh" -print0 | xargs -0t shellcheck
-      - name: Lint using hadolint
+      - name: Lint hadolint
         run: find . -type f -name Dockerfile -print0 | xargs -0t hadolint
-      - name: Lint using yamllint
+      - name: Lint yamllint
         run: yamllint .
