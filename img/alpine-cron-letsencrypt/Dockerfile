@@ -1,7 +1,5 @@
 FROM alpine:3.11.5
 
-ARG PIP_DISABLE_PIP_VERSION_CHECK 1
-
 COPY requirements.txt .
 
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
@@ -12,6 +10,8 @@ RUN set -ex \
 		tzdata \
 		python3 \
 		certbot \
+	\
+	&& export PIP_DISABLE_PIP_VERSION_CHECK=1
 	\
 	&& pip3 install --upgrade --requirement requirements.txt \
 	\
