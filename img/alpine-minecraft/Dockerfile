@@ -34,7 +34,7 @@ RUN set -ex \
 	&& rm openjdk-shenandoah-jdk8.tar.xz \
 	&& rm /opt/jdk/*.log \
 	\
-	&& find /opt/jdk -type f -print0 | xargs -0 chmod -x \; \
+	&& find /opt/jdk -type f -print0 | xargs -0 chmod -x \
 	&& chmod +x /opt/jdk/bin/* \
 	&& chmod +x /opt/jdk/jre/bin/*
 

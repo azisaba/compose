@@ -22,8 +22,8 @@ RUN set -ex \
 	\
 	&& rm requirements.txt \
 	&& rm -r /root/.cache/pip \
-	&& find /usr/lib/python* -type f -iname '*.py[co]' -print0 | xargs -0 rm \; \
-	&& find /usr/lib/python* -type d -iname '__pycache__' -prune -print0 | xargs -0 rm -r \; \
+	&& find /usr/lib/python* -type f -iname '*.py[co]' -print0 | xargs -0 rm \
+	&& find /usr/lib/python* -type d -iname '__pycache__' -prune -print0 | xargs -0 rm -r \
 	&& rm -r /var/log/letsencrypt
 
 COPY run.sh /
