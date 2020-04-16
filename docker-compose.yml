@@ -4,7 +4,7 @@ version: '3.1'
 services:
   # バックアップ
   backup:
-    build: ./image/backup
+    build: ./img/alpine-cron-backup
     secrets:
       - restic
       - restic-sftp-private-key
@@ -51,11 +51,11 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - './config/my.cnf:/etc/my.cnf.d/azi.cnf'
+      - './cnf/my.cnf:/etc/my.cnf.d/azi.cnf'
       - '/srv/mysql:/var/lib/mysql'
   # 証明書
   letsencrypt:
-    build: ./image/letsencrypt
+    build: ./img/alpine-cron-letsencrypt
     secrets:
       - dns-cloudflare
     environment:
@@ -73,7 +73,7 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - './config/nginx.conf:/etc/nginx/conf.d/azi.conf'
+      - './cnf/nginx.conf:/etc/nginx/conf.d/azi.conf'
       - '/srv/letsencrypt:/app/letsencrypt'
       - '/srv/html/azisaba.net:/app/html/azisaba.net'
       - '/srv/html/maps.azisaba.net:/app/html/maps.azisaba.net'
@@ -95,14 +95,14 @@ services:
       WORDPRESS_DB_PASSWORD_FILE: '/run/secrets/wordpress'
       WORDPRESS_DB_NAME: 'azisaba_wordpress'
     volumes:
-      - './config/php.ini:/usr/local/etc/php/php.ini'
-      - './config/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-www.conf'
+      - './cnf/php.ini:/usr/local/etc/php/php.ini'
+      - './cnf/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-www.conf'
       - '/srv/html/azisaba.net:/app/html/azisaba.net'
     depends_on:
       - database
   # WebP作成
   wordpress-webp:
-    build: ./image/webp
+    build: ./img/alpine-cron-webp
     environment:
       TZ: Asia/Tokyo
     volumes:
@@ -121,7 +121,7 @@ services:
       - database
   # アジ鯖ロガー
   logger:
-    build: ./image/discord.py
+    build: ./img/alpine-discord.py
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -131,7 +131,7 @@ services:
     working_dir: '/app/logger'
   # アジ鯖サポート
   support:
-    build: ./image/discord.py
+    build: ./img/alpine-discord.py
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -141,7 +141,7 @@ services:
     working_dir: '/app/support'
   # Minecraft - bungee (プロキシサーバー)
   bungee:
-    build: ./image/minecraft
+    build: ./img/alpine-minecraft
     restart: always
     ports:
       - 8192:8192
@@ -160,7 +160,7 @@ services:
       core: 0
   # Minecraft - lobby (ロビーサーバー)
   lobby:
-    build: ./image/minecraft
+    build: ./img/alpine-minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -177,7 +177,7 @@ services:
       core: 0
   # Minecraft - main (生活サーバー)
   main:
-    build: ./image/minecraft
+    build: ./img/alpine-minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -194,7 +194,7 @@ services:
       core: 0
   # Minecraft - parkour (パルクールサーバー)
   parkour:
-    build: ./image/minecraft
+    build: ./img/alpine-minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -211,7 +211,7 @@ services:
       core: 0
   # Minecraft - p (観光サーバー)
   p:
-    build: ./image/minecraft
+    build: ./img/alpine-minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -228,7 +228,7 @@ services:
       core: 0
   # Minecraft - lgw (銃サーバー)
   lgw:
-    build: ./image/minecraft
+    build: ./img/alpine-minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -245,7 +245,7 @@ services:
       core: 0
   # Minecraft - pvp (PvPサーバー)
   pvp:
-    build: ./image/minecraft
+    build: ./img/alpine-minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -263,7 +263,7 @@ services:
       core: 0
   # Minecraft - pata (ぱたサーバー)
   pata:
-    build: ./image/minecraft
+    build: ./img/alpine-minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -281,7 +281,7 @@ services:
       core: 0
   # Minecraft - wave (WavePvEサーバー)
   wave:
-    build: ./image/minecraft
+    build: ./img/alpine-minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
