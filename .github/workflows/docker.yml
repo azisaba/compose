@@ -8,6 +8,7 @@ jobs:
     env:
       DOCKER_CLI_EXPERIMENTAL: enabled
       DOCKER_BUILDKIT: 1
+      COMPOSE_DOCKER_CLI_BUILD: 1
     steps:
       - uses: actions/checkout@v2
       - run: docker version
