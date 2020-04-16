@@ -44,7 +44,7 @@ services:
       TZ: Asia/Tokyo
   # データベース
   database:
-    build: ./image-tzdata/mariadb
+    build: ./img/from-mariadb-alpine
     restart: always
     ports:
       - 3306:3306
@@ -84,7 +84,7 @@ services:
       - netdata
   # ホームページ
   wordpress:
-    build: ./image-tzdata/wordpress
+    build: ./img/from-wordpress-alpine
     restart: always
     secrets:
       - wordpress
