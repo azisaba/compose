@@ -13,18 +13,18 @@ RUN set -ex \
 	\
 	&& export PIP_DISABLE_PIP_VERSION_CHECK=1 \
 	\
-	&& pip3 install --upgrade --requirement requirements.txt \
+	&& pip3 --no-cache-dir install --upgrade --requirement requirements.txt \
 	\
 	&& python3 --version \
 	&& pip3 list \
 	&& certbot --version \
 	&& certbot plugins \
 	\
-	&& rm requirements.txt \
-	&& rm -r /root/.cache/pip \
+	&& rm \
+		requirements.txt \
+		/var/log/letsencrypt/letsencrypt.log* \
 	&& find /usr/lib/python* -type f -iname '*.py[co]' -print0 | xargs -0 rm \
-	&& find /usr/lib/python* -type d -iname '__pycache__' -prune -print0 | xargs -0 rm -r \
-	&& rm -r /var/log/letsencrypt
+	&& find /usr/lib/python* -type d -iname '__pycache__' -prune -print0 | xargs -0 rm -r
 
 COPY run.sh /
 COPY run-with-cron.sh /
