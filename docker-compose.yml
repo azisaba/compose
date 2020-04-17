@@ -40,8 +40,17 @@ services:
   netdata:
     image: netdata/netdata:latest
     restart: always
+    hostname: 'netdata.azisaba.net'
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfined
     environment:
       TZ: Asia/Tokyo
+    volumes:
+      - '/proc:/host/proc:ro'
+      - '/sys:/host/sys:ro'
+      - '/etc/os-release:/host/etc/os-release:ro'
   # データベース
   database:
     build: ./img/from-mariadb-alpine
