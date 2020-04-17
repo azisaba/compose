@@ -19,29 +19,38 @@ services:
       DB_USER: 'admin'
       DB_PASSWORD: '/run/secrets/admin'
     volumes:
-      - '/opt/minecraft/bungee:/app/bungee'
-      - '/opt/minecraft/lobby:/app/lobby'
-      - '/opt/minecraft/main:/app/main'
-      - '/opt/minecraft/parkour:/app/parkour'
-      - '/opt/minecraft/p:/app/p'
-      - '/opt/minecraft/lgw:/app/lgw'
-      - '/opt/minecraft/pvp:/app/pvp'
-      - '/opt/minecraft/pata:/app/pata'
-      - '/opt/minecraft/wave:/app/wave'
-      - '/opt/resourcepacks:/app/resourcepacks'
-      - '/srv/discord:/app/discord'
-      - '/srv/html:/app/html'
-      - '/srv/letsencrypt:/app/letsencrypt'
-      - '/srv/metabase:/app/metabase'
-      - '/srv/mysql:/app/mysql'
-      - '/srv/secrets:/app/secrets'
+      - '/opt/minecraft/bungee:/app/bungee:ro'
+      - '/opt/minecraft/lobby:/app/lobby:ro'
+      - '/opt/minecraft/main:/app/main:ro'
+      - '/opt/minecraft/parkour:/app/parkour:ro'
+      - '/opt/minecraft/p:/app/p:ro'
+      - '/opt/minecraft/lgw:/app/lgw:ro'
+      - '/opt/minecraft/pvp:/app/pvp:ro'
+      - '/opt/minecraft/pata:/app/pata:ro'
+      - '/opt/minecraft/wave:/app/wave:ro'
+      - '/opt/resourcepacks:/app/resourcepacks:ro'
+      - '/srv/discord:/app/discord:ro'
+      - '/srv/html:/app/html:ro'
+      - '/srv/letsencrypt:/app/letsencrypt:ro'
+      - '/srv/metabase:/app/metabase:ro'
+      - '/srv/mysql:/app/mysql:ro'
+      - '/srv/secrets:/app/secrets:ro'
     working_dir: '/app'
   # リアルタイムサーバー監視
   netdata:
     image: netdata/netdata:latest
     restart: always
+    hostname: 'netdata.azisaba.net'
+    cap_add:
+      - SYS_PTRACE
+    security_opt:
+      - apparmor:unconfined
     environment:
       TZ: Asia/Tokyo
+    volumes:
+      - '/proc:/host/proc:ro'
+      - '/sys:/host/sys:ro'
+      - '/etc/os-release:/host/etc/os-release:ro'
   # データベース
   database:
     build: ./img/from-mariadb-alpine
@@ -51,7 +60,7 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - './cnf/my.cnf:/etc/my.cnf.d/azi.cnf'
+      - './cnf/my.cnf:/etc/my.cnf.d/azi.cnf:ro'
       - '/srv/mysql:/var/lib/mysql'
   # 証明書
   letsencrypt:
@@ -73,8 +82,8 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - './cnf/nginx.conf:/etc/nginx/conf.d/azi.conf'
-      - '/srv/letsencrypt:/app/letsencrypt'
+      - './cnf/nginx.conf:/etc/nginx/conf.d/azi.conf:ro'
+      - '/srv/letsencrypt:/app/letsencrypt:ro'
       - '/srv/html/azisaba.net:/app/html/azisaba.net'
       - '/srv/html/maps.azisaba.net:/app/html/maps.azisaba.net'
       - '/opt/resourcepacks:/app/resourcepacks'
@@ -95,8 +104,8 @@ services:
       WORDPRESS_DB_PASSWORD_FILE: '/run/secrets/wordpress'
       WORDPRESS_DB_NAME: 'azisaba_wordpress'
     volumes:
-      - './cnf/php.ini:/usr/local/etc/php/php.ini'
-      - './cnf/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-www.conf'
+      - './cnf/php.ini:/usr/local/etc/php/php.ini:ro'
+      - './cnf/php-fpm.conf:/usr/local/etc/php-fpm.d/zzz-www.conf:ro'
       - '/srv/html/azisaba.net:/app/html/azisaba.net'
     depends_on:
       - database
