@@ -5,6 +5,8 @@ ENV JAVA_HOME /opt/jdk
 ENV PATH $JAVA_HOME/bin:/usr/glibc-compat/bin:$PATH
 ENV MALLOC_ARENA_MAX 2
 
+SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+
 RUN set -ex \
 	\
 	&& apk --no-cache add \
@@ -27,12 +29,13 @@ RUN set -ex \
 	\
 	&& java -version \
 	\
-	&& rm /etc/apk/keys/sgerrand.rsa.pub \
-	&& rm glibc-*.apk \
-	&& rm openjdk-shenandoah-jdk8.tar.xz \
-	&& rm /opt/jdk/*.log \
+	&& rm \
+		/etc/apk/keys/sgerrand.rsa.pub \
+		glibc-*.apk \
+		openjdk-shenandoah-jdk8.tar.xz \
+		/opt/jdk/*.log \
 	\
-	&& find /opt/jdk -type f -exec chmod -x {} \; \
+	&& find /opt/jdk -type f -print0 | xargs -0 chmod -x \
 	&& chmod +x /opt/jdk/bin/* \
 	&& chmod +x /opt/jdk/jre/bin/*
 
