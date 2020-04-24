@@ -4,7 +4,7 @@ version: '3.1'
 services:
   # バックアップ
   backup:
-    build: ./img/alpine-cron-backup
+    build: ./img/#backup
     secrets:
       - restic
       - restic-sftp-private-key
@@ -53,7 +53,7 @@ services:
       - '/etc/os-release:/host/etc/os-release:ro'
   # データベース
   database:
-    build: ./img/from-mariadb-alpine
+    build: ./img/@mariadb
     restart: always
     ports:
       - 3306:3306
@@ -64,7 +64,7 @@ services:
       - '/srv/mysql:/var/lib/mysql'
   # 証明書
   letsencrypt:
-    build: ./img/alpine-cron-letsencrypt
+    build: ./img/#letsencrypt
     secrets:
       - dns-cloudflare
     environment:
@@ -93,7 +93,7 @@ services:
       - netdata
   # ホームページ
   wordpress:
-    build: ./img/from-wordpress-alpine
+    build: ./img/@wordpress
     restart: always
     secrets:
       - wordpress
@@ -111,7 +111,7 @@ services:
       - database
   # WebP作成
   wordpress-webp:
-    build: ./img/alpine-cron-webp
+    build: ./img/#webp
     environment:
       TZ: Asia/Tokyo
     volumes:
@@ -130,7 +130,7 @@ services:
       - database
   # アジ鯖ロガー
   logger:
-    build: ./img/alpine-discord.py
+    build: ./img/discord.py
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -140,7 +140,7 @@ services:
     working_dir: '/app/logger'
   # アジ鯖サポート
   support:
-    build: ./img/alpine-discord.py
+    build: ./img/discord.py
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -150,7 +150,7 @@ services:
     working_dir: '/app/support'
   # Minecraft - bungee (プロキシサーバー)
   bungee:
-    build: ./img/alpine-minecraft
+    build: ./img/minecraft
     restart: always
     ports:
       - 8192:8192
@@ -169,7 +169,7 @@ services:
       core: 0
   # Minecraft - lobby (ロビーサーバー)
   lobby:
-    build: ./img/alpine-minecraft
+    build: ./img/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -186,7 +186,7 @@ services:
       core: 0
   # Minecraft - main (生活サーバー)
   main:
-    build: ./img/alpine-minecraft
+    build: ./img/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -203,7 +203,7 @@ services:
       core: 0
   # Minecraft - parkour (パルクールサーバー)
   parkour:
-    build: ./img/alpine-minecraft
+    build: ./img/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -220,7 +220,7 @@ services:
       core: 0
   # Minecraft - p (観光サーバー)
   p:
-    build: ./img/alpine-minecraft
+    build: ./img/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -237,7 +237,7 @@ services:
       core: 0
   # Minecraft - lgw (銃サーバー)
   lgw:
-    build: ./img/alpine-minecraft
+    build: ./img/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -254,7 +254,7 @@ services:
       core: 0
   # Minecraft - pvp (PvPサーバー)
   pvp:
-    build: ./img/alpine-minecraft
+    build: ./img/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -272,7 +272,7 @@ services:
       core: 0
   # Minecraft - pata (ぱたサーバー)
   pata:
-    build: ./img/alpine-minecraft
+    build: ./img/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
@@ -290,7 +290,7 @@ services:
       core: 0
   # Minecraft - wave (WavePvEサーバー)
   wave:
-    build: ./img/alpine-minecraft
+    build: ./img/minecraft
     restart: always
     environment:
       TZ: Asia/Tokyo
