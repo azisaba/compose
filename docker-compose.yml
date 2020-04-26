@@ -17,7 +17,7 @@ services:
       SFTP_HOSTS: '/run/secrets/restic-sftp-hosts'
       DB_HOST: 'database'
       DB_USER: 'admin'
-      DB_PASSWORD: '/run/secrets/admin'
+      DB_PASSWORD_FILE: '/run/secrets/admin'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee:ro'
       - '/opt/minecraft/lobby:/app/lobby:ro'
