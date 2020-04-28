@@ -4,7 +4,7 @@ version: '3.1'
 services:
   # バックアップ
   backup:
-    build: ./img/#backup
+    build: ./img/+backup
     secrets:
       - restic
       - restic-sftp-private-key
@@ -64,7 +64,7 @@ services:
       - '/srv/mysql:/var/lib/mysql'
   # 証明書
   letsencrypt:
-    build: ./img/#letsencrypt
+    build: ./img/+letsencrypt
     secrets:
       - dns-cloudflare
     environment:
@@ -111,7 +111,7 @@ services:
       - database
   # WebP作成
   wordpress-webp:
-    build: ./img/#webp
+    build: ./img/+webp
     environment:
       TZ: Asia/Tokyo
     volumes:
