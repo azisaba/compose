@@ -1,4 +1,4 @@
-FROM alpine:3.11.5
+FROM alpine:3.11.6
 
 ENV LANG C.UTF-8
 ENV JAVA_HOME /opt/jdk
