@@ -159,7 +159,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'BungeeCord.jar'
       JAR_DOWNLOAD_URL: 'https://ci.md-5.net/job/BungeeCord/lastSuccessfulBuild/artifact/bootstrap/target/BungeeCord.jar'
-      JVM_ARGS: '-Dminecraft@bungee -Xms2G -Xmx2G -XX:+UseG1GC -XX:+UnlockExperimentalVMOptions -XX:MaxGCPauseMillis=100 -XX:+DisableExplicitGC -XX:TargetSurvivorRatio=90 -XX:G1NewSizePercent=50 -XX:G1MaxNewSizePercent=80 -XX:G1MixedGCLiveThresholdPercent=35 -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled'
+      JVM_ARGS: '-Dminecraft@bungee -Xms2G -Xmx2G -XX:+UseG1GC -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:+ParallelRefProcEnabled'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
