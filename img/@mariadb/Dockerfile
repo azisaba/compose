@@ -4,8 +4,8 @@ USER root
 
 RUN set -ex \
 	\
-	&& sed -i 's,\(/usr/bin/mysqld\),exec \1,g' /run.sh \
+	&& apk --no-cache add tzdata \
 	\
-	&& apk --no-cache add tzdata
+	&& sed -i 's,\(/usr/bin/mysqld\),exec \1,g' /run.sh
 
 USER mysql
