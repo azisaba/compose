@@ -159,7 +159,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'BungeeCord.jar'
       JAR_DOWNLOAD_URL: 'https://ci.md-5.net/job/BungeeCord/lastSuccessfulBuild/artifact/bootstrap/target/BungeeCord.jar'
-      JVM_ARGS: '-Dminecraft@bungee -XX:+UseShenandoahGC -XX:ActiveProcessorCount=4 -verbose:gc'
+      JVM_ARGS: '-Dminecraft@bungee -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
@@ -174,7 +174,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.8.8.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
-      JVM_ARGS: '-Dminecraft@lobby -XX:+UseShenandoahGC -XX:ActiveProcessorCount=4 -verbose:gc'
+      JVM_ARGS: '-Dminecraft@lobby -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       STOP_CMD: 'minecraft:stop'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
@@ -190,7 +190,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.15.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.15.2/latest/download'
-      JVM_ARGS: '-Dminecraft@main -XX:+UseShenandoahGC -XX:ActiveProcessorCount=4 -verbose:gc'
+      JVM_ARGS: '-Dminecraft@main -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/main:/app/main'
@@ -206,7 +206,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.13.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
-      JVM_ARGS: '-Dminecraft@parkour -XX:+UseShenandoahGC -XX:ActiveProcessorCount=4 -verbose:gc'
+      JVM_ARGS: '-Dminecraft@parkour -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
@@ -222,7 +222,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.13.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
-      JVM_ARGS: '-Dminecraft@p -XX:+UseShenandoahGC -XX:ActiveProcessorCount=4 -verbose:gc'
+      JVM_ARGS: '-Dminecraft@p -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/p:/app/p'
@@ -238,7 +238,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.12.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
-      JVM_ARGS: '-Dminecraft@lgw -XX:+UseShenandoahGC -XX:ActiveProcessorCount=4 -verbose:gc'
+      JVM_ARGS: '-Dminecraft@lgw -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
@@ -254,7 +254,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.8.8.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
-      JVM_ARGS: '-Dminecraft@pvp -XX:+UseShenandoahGC -XX:ActiveProcessorCount=4 -verbose:gc'
+      JVM_ARGS: '-Dminecraft@pvp -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
       STOP_CMD: 'minecraft:stop'
     volumes:
@@ -271,7 +271,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.8.8.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
-      JVM_ARGS: '-Dminecraft@pata -XX:+UseShenandoahGC -XX:ActiveProcessorCount=4 -verbose:gc'
+      JVM_ARGS: '-Dminecraft@pata -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
       STOP_CMD: 'minecraft:stop'
     volumes:
@@ -288,7 +288,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.12.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
-      JVM_ARGS: '-Dminecraft@wave -XX:+UseShenandoahGC -XX:ActiveProcessorCount=4 -verbose:gc'
+      JVM_ARGS: '-Dminecraft@wave -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/wave:/app/wave'
