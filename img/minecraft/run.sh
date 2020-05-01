@@ -39,7 +39,7 @@ if [ -n "$LAZY_STARTUP" ] && [ "$LAZY_STARTUP" = "yes" ]; then
   fi
 fi
 
-tail -n 0 -F ./proxy.log.0 ./logs/latest.log 2> /dev/null &
+tail -n 0 -F ./logs/latest.log 2> /dev/null &
 
 screen -ADmS minecraft java "$JVM_ARGS" -jar "$JAR_PATH" &
 wait $!

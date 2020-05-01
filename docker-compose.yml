@@ -157,8 +157,8 @@ services:
       - 25565:25577
     environment:
       TZ: Asia/Tokyo
-      JAR_PATH: 'BungeeCord.jar'
-      JAR_DOWNLOAD_URL: 'https://ci.md-5.net/job/BungeeCord/lastSuccessfulBuild/artifact/bootstrap/target/BungeeCord.jar'
+      JAR_PATH: 'Waterfall.jar'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/waterfall/1.15/latest/download'
       JVM_ARGS: '-Dminecraft@bungee -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
