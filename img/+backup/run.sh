@@ -5,10 +5,11 @@
   : "$RESTIC_PASSWORD_FILE" "$SFTP_PRIVATE_KEY" "$SFTP_HOSTS"
 )
 
-mkdir -p ~/.ssh
-chmod 700 ~/.ssh
-cp "$SFTP_PRIVATE_KEY" ~/.ssh/id_ed25519
-chmod 600 ~/.ssh/id_ed25519
+mkdir -m 700 ~/.ssh
+
+touch ~/.ssh/id_ed25519
+chmod 600 "$_"
+cp "$SFTP_PRIVATE_KEY" "$_"
 
 cat << EOT > ~/.ssh/config
 Host *
@@ -31,7 +32,16 @@ while IFS= read -r REPO; do
     restic init
   fi
 
-  mysqldump -QqAv --order-by-primary --ignore-database=mysql --ignore-database=information_schema --ignore-database=performance_schema > dump.sql
+  mysqldump \
+    --quote-names \
+    --quick \
+    --all-databases \
+    --verbose \
+    --order-by-primary \
+    --ignore-database=mysql \
+    --ignore-database=information_schema \
+    --ignore-database=performance_schema \
+  > dump.sql
 
   find . -mindepth 1 -maxdepth 1 | while IFS= read -r TARGET; do
     restic backup "$TARGET"
