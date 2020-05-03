@@ -159,11 +159,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'Waterfall.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/waterfall/1.15/latest/download'
-      JVM_ARGS: |
-        -Dminecraft@bungee
-        -Xms4G -Xmx4G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true
-        -XX:ActiveProcessorCount=8
-        -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:./gc.log
+      JVM_ARGS: '-Dminecraft@bungee -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
@@ -178,11 +174,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.8.8.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
-      JVM_ARGS: |
-        -Dminecraft@lobby
-        -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true
-        -XX:ActiveProcessorCount=8
-        -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:./gc.log
+      JVM_ARGS: '-Dminecraft@lobby -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       STOP_CMD: 'minecraft:stop'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
@@ -198,11 +190,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.15.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.15.2/latest/download'
-      JVM_ARGS: |
-        -Dminecraft@main
-        -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true
-        -XX:ActiveProcessorCount=8
-        -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:./gc.log
+      JVM_ARGS: '-Dminecraft@main -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/main:/app/main'
@@ -218,11 +206,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.13.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
-      JVM_ARGS: |
-        -Dminecraft@parkour
-        -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true
-        -XX:ActiveProcessorCount=8
-        -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:./gc.log
+      JVM_ARGS: '-Dminecraft@parkour -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
@@ -238,11 +222,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.13.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
-      JVM_ARGS: |
-        -Dminecraft@p
-        -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true
-        -XX:ActiveProcessorCount=8
-        -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:./gc.log
+      JVM_ARGS: '-Dminecraft@p -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/p:/app/p'
@@ -258,11 +238,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.12.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
-      JVM_ARGS: |
-        -Dminecraft@lgw
-        -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true
-        -XX:ActiveProcessorCount=8
-        -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:./gc.log
+      JVM_ARGS: '-Dminecraft@lgw -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
@@ -278,11 +254,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.8.8.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
-      JVM_ARGS: |
-        -Dminecraft@pvp
-        -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true
-        -XX:ActiveProcessorCount=8
-        -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:./gc.log
+      JVM_ARGS: '-Dminecraft@pvp -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
       STOP_CMD: 'minecraft:stop'
     volumes:
@@ -299,11 +271,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.8.8.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
-      JVM_ARGS: |
-        -Dminecraft@pata
-        -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true
-        -XX:ActiveProcessorCount=8
-        -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:./gc.log
+      JVM_ARGS: '-Dminecraft@pata -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
       STOP_CMD: 'minecraft:stop'
     volumes:
@@ -320,11 +288,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.12.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
-      JVM_ARGS: |
-        -Dminecraft@wave
-        -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseMillis=200 -XX:+UnlockExperimentalVMOptions -XX:+DisableExplicitGC -XX:+AlwaysPreTouch -XX:G1NewSizePercent=30 -XX:G1MaxNewSizePercent=40 -XX:G1HeapRegionSize=8M -XX:G1ReservePercent=20 -XX:G1HeapWastePercent=5 -XX:G1MixedGCCountTarget=4 -XX:InitiatingHeapOccupancyPercent=15 -XX:G1MixedGCLiveThresholdPercent=90 -XX:G1RSetUpdatingPauseTimePercent=5 -XX:SurvivorRatio=32 -XX:+PerfDisableSharedMem -XX:MaxTenuringThreshold=1 -Dusing.aikars.flags=https://mcflags.emc.gs -Daikars.new.flags=true
-        -XX:ActiveProcessorCount=8
-        -XX:+PrintGCTimeStamps -XX:+PrintGCDetails -Xloggc:./gc.log
+      JVM_ARGS: '-Dminecraft@wave -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/wave:/app/wave'
