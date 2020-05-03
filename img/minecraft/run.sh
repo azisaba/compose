@@ -41,5 +41,5 @@ fi
 
 tail -n 0 -F ./logs/latest.log 2> /dev/null &
 
-screen -ADmS minecraft java "$JVM_ARGS" -jar "$JAR_PATH" &
+screen -ADmS minecraft java $(echo "$JVM_ARGS") -jar "$JAR_PATH" &
 wait $!
