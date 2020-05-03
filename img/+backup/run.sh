@@ -5,7 +5,8 @@
   : "$RESTIC_PASSWORD_FILE" "$SFTP_PRIVATE_KEY" "$SFTP_HOSTS"
 )
 
-mkdir -m 700 ~/.ssh
+mkdir -p ~/.ssh
+chmod 700 "$_"
 
 touch ~/.ssh/id_ed25519
 chmod 600 "$_"
