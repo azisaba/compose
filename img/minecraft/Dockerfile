@@ -1,14 +1,4 @@
-FROM shipilev/openjdk-shenandoah:8 as jdk
-
-FROM frolvlad/alpine-glibc:alpine-3.11_glibc-2.31
-
-ENV JAVA_HOME /opt/jdk
-ENV PATH $JAVA_HOME/bin:/usr/glibc-compat/bin:$PATH
-ENV MALLOC_ARENA_MAX 2
-
-COPY --from=jdk /opt/jdk /opt/jdk
-
-SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+FROM alpine:3.11.6
 
 RUN set -ex \
 	\
@@ -16,6 +6,7 @@ RUN set -ex \
 		tzdata \
 		curl \
 		screen \
+		openjdk8-jre \
 	\
 	&& java -version
 
