@@ -16,6 +16,7 @@ RUN set -ex \
 		tzdata \
 		curl \
 		screen \
+		bash \
 	\
 	&& java -version
 
