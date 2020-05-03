@@ -1,7 +1,8 @@
 #!/bin/ash
 
-EXEC_LINE="0 */8 * * * cd \"$PWD\" && ash /run.sh"
-grep -qxF "$EXEC_LINE" /etc/crontabs/root || echo "$EXEC_LINE" >> /etc/crontabs/root
+cat << EOT > /etc/crontabs/root
+0 */8 * * * cd "$PWD" && /run.sh
+EOT
 
 close() {
   kill -SIGTERM "$(pgrep crond)"
@@ -10,5 +11,4 @@ close() {
 
 trap 'close' TERM
 
-crond -f -d 8 &
-wait $!
+crond -f -d 8 & wait $!
