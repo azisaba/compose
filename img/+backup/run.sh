@@ -6,10 +6,11 @@
 )
 
 mkdir -p ~/.ssh
-chmod 700 "$_"
+chmod 700 ~/.ssh
 
+touch ~/.ssh/id_ed25519
+chmod 600 ~/.ssh/id_ed25519
 cp "$SFTP_PRIVATE_KEY" ~/.ssh/id_ed25519
-chmod 600 "$_"
 
 cat << EOT > ~/.ssh/config
 Host *
