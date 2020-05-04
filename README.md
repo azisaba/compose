@@ -32,10 +32,8 @@ docker-compose down --remove-orphans
   |-- minecraft
     |-- lgw/*
     |-- main/*
-    |-- pata/*
     |-- lobby/*
     |-- parkour/*
-    |-- p/*
     |-- pvp/*
     |-- bungee/*
     |-- wave/*

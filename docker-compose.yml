@@ -23,10 +23,8 @@ services:
       - '/opt/minecraft/lobby:/app/lobby:ro'
       - '/opt/minecraft/main:/app/main:ro'
       - '/opt/minecraft/parkour:/app/parkour:ro'
-      - '/opt/minecraft/p:/app/p:ro'
       - '/opt/minecraft/lgw:/app/lgw:ro'
       - '/opt/minecraft/pvp:/app/pvp:ro'
-      - '/opt/minecraft/pata:/app/pata:ro'
       - '/opt/minecraft/wave:/app/wave:ro'
       - '/opt/resourcepacks:/app/resourcepacks:ro'
       - '/srv/discord:/app/discord:ro'
@@ -214,22 +212,6 @@ services:
     stop_grace_period: 30s
     ulimits:
       core: 0
-  # Minecraft - p (観光サーバー)
-  p:
-    build: ./img/minecraft
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-      JAR_PATH: 'paper-1.13.2.jar'
-      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
-      JVM_ARGS: '-Dminecraft@p -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
-      LAZY_STARTUP: 'yes'
-    volumes:
-      - '/opt/minecraft/p:/app/p'
-    working_dir: '/app/p'
-    stop_grace_period: 30s
-    ulimits:
-      core: 0
   # Minecraft - lgw (銃サーバー)
   lgw:
     build: ./img/minecraft
@@ -260,23 +242,6 @@ services:
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
-    stop_grace_period: 30s
-    ulimits:
-      core: 0
-  # Minecraft - pata (ぱたサーバー)
-  pata:
-    build: ./img/minecraft
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-      JAR_PATH: 'paper-1.8.8.jar'
-      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
-      JVM_ARGS: '-Dminecraft@pata -XX:+UseShenandoahGC -XX:ActiveProcessorCount=8 -verbose:gc'
-      LAZY_STARTUP: 'yes'
-      STOP_CMD: 'minecraft:stop'
-    volumes:
-      - '/opt/minecraft/pata:/app/pata'
-    working_dir: '/app/pata'
     stop_grace_period: 30s
     ulimits:
       core: 0
