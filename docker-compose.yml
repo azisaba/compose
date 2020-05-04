@@ -33,21 +33,6 @@ services:
       - '/srv/mysql:/app/mysql:ro'
       - '/srv/secrets:/app/secrets:ro'
     working_dir: '/app'
-  # リアルタイムサーバー監視
-  netdata:
-    image: netdata/netdata:latest
-    restart: always
-    hostname: 'netdata.azisaba.net'
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - apparmor:unconfined
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - '/proc:/host/proc:ro'
-      - '/sys:/host/sys:ro'
-      - '/etc/os-release:/host/etc/os-release:ro'
   # データベース
   database:
     build: ./img/@mariadb
@@ -86,7 +71,6 @@ services:
       - '/opt/resourcepacks:/app/resourcepacks'
     depends_on:
       - wordpress
-      - netdata
   # ホームページ
   wordpress:
     build: ./img/@wordpress
