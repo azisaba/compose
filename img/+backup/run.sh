@@ -8,9 +8,8 @@
 mkdir -p ~/.ssh
 chmod 700 "$_"
 
-touch ~/.ssh/id_ed25519
+cp "$SFTP_PRIVATE_KEY" ~/.ssh/id_ed25519
 chmod 600 "$_"
-cp "$SFTP_PRIVATE_KEY" "$_"
 
 cat << EOT > ~/.ssh/config
 Host *
