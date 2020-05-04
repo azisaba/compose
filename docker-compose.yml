@@ -157,7 +157,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'Waterfall.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/waterfall/1.15/latest/download'
-      JVM_ARGS: '-Dminecraft@bungee -XX:+UseShenandoahGC -verbose:gc'
+      JVM_ARGS: '-Dminecraft@bungee -XX:+UseShenandoahGC -Xloggc:./gc.log'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
@@ -172,7 +172,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.8.8.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
-      JVM_ARGS: '-Dminecraft@lobby -XX:+UseShenandoahGC -verbose:gc'
+      JVM_ARGS: '-Dminecraft@lobby -XX:+UseShenandoahGC -Xloggc:./gc.log'
       STOP_CMD: 'minecraft:stop'
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
@@ -188,7 +188,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.15.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.15.2/latest/download'
-      JVM_ARGS: '-Dminecraft@main -XX:+UseShenandoahGC -verbose:gc'
+      JVM_ARGS: '-Dminecraft@main -XX:+UseShenandoahGC -Xloggc:./gc.log'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/main:/app/main'
@@ -204,7 +204,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.13.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.13.2/latest/download'
-      JVM_ARGS: '-Dminecraft@parkour -XX:+UseShenandoahGC -verbose:gc'
+      JVM_ARGS: '-Dminecraft@parkour -XX:+UseShenandoahGC -Xloggc:./gc.log'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
@@ -220,7 +220,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.12.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
-      JVM_ARGS: '-Dminecraft@lgw -XX:+UseShenandoahGC -verbose:gc'
+      JVM_ARGS: '-Dminecraft@lgw -XX:+UseShenandoahGC -Xloggc:./gc.log'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
@@ -236,7 +236,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.8.8.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.8.8/latest/download'
-      JVM_ARGS: '-Dminecraft@pvp -XX:+UseShenandoahGC -verbose:gc'
+      JVM_ARGS: '-Dminecraft@pvp -XX:+UseShenandoahGC -Xloggc:./gc.log'
       LAZY_STARTUP: 'yes'
       STOP_CMD: 'minecraft:stop'
     volumes:
@@ -253,7 +253,7 @@ services:
       TZ: Asia/Tokyo
       JAR_PATH: 'paper-1.12.2.jar'
       JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.12.2/latest/download'
-      JVM_ARGS: '-Dminecraft@wave -XX:+UseShenandoahGC -verbose:gc'
+      JVM_ARGS: '-Dminecraft@wave -XX:+UseShenandoahGC -Xloggc:./gc.log'
       LAZY_STARTUP: 'yes'
     volumes:
       - '/opt/minecraft/wave:/app/wave'
