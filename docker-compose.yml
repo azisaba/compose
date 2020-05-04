@@ -30,7 +30,6 @@ services:
       - '/srv/discord:/app/discord:ro'
       - '/srv/html:/app/html:ro'
       - '/srv/letsencrypt:/app/letsencrypt:ro'
-      - '/srv/metabase:/app/metabase:ro'
       - '/srv/mysql:/app/mysql:ro'
       - '/srv/secrets:/app/secrets:ro'
     working_dir: '/app'
@@ -87,7 +86,6 @@ services:
       - '/opt/resourcepacks:/app/resourcepacks'
     depends_on:
       - wordpress
-      - metabase
       - netdata
   # ホームページ
   wordpress:
@@ -115,17 +113,6 @@ services:
     volumes:
       - '/srv/html/azisaba.net/wp-content/uploads:/app/wordpress-webp'
     working_dir: '/app/wordpress-webp'
-  # データ可視化
-  metabase:
-    image: metabase/metabase:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-      MB_DB_FILE: /app/metabase/metabase.db
-    volumes:
-      - '/srv/metabase:/app/metabase'
-    depends_on:
-      - database
   # アジ鯖ロガー
   logger:
     build: ./img/discord.py

@@ -46,9 +46,6 @@ docker-compose down --remove-orphans
     |-- azisaba.net/*
     |-- maps.azisaba.net/*
   |-- letsencrypt/*
-  |-- metabase/metabase.db
-    |-- metabase.db.mv.db
-    |-- metabase.db.trace.db
   |-- mysql/*
   |-- secrets
     |-- wordpress.txt
