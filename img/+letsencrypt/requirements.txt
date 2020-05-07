@@ -1,1 +1,2 @@
-certbot-dns-cloudflare==1.3.0
+certbot==1.4.0
+certbot-dns-cloudflare==1.4.0
