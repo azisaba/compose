@@ -26,6 +26,7 @@ services:
       - '/opt/minecraft/lgw:/app/lgw:ro'
       - '/opt/minecraft/pvp:/app/pvp:ro'
       - '/opt/minecraft/wave:/app/wave:ro'
+      - '/opt/minecraft/life:/app/life:ro'
       - '/opt/resourcepacks:/app/resourcepacks:ro'
       - '/srv/discord:/app/discord:ro'
       - '/srv/html:/app/html:ro'
@@ -229,6 +230,22 @@ services:
     volumes:
       - '/opt/minecraft/wave:/app/wave'
     working_dir: '/app/wave'
+    stop_grace_period: 30s
+    ulimits:
+      core: 0
+  # Minecraft - life (新しい生活サーバー)
+  life:
+    build: ./img/minecraft
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      JAR_PATH: 'paper-1.15.2.jar'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.15.2/latest/download'
+      JVM_ARGS: '-Dminecraft@life -XX:+UseShenandoahGC -Xloggc:./gc.log'
+      LAZY_STARTUP: 'yes'
+    volumes:
+      - '/opt/minecraft/life:/app/life'
+    working_dir: '/app/life'
     stop_grace_period: 30s
     ulimits:
       core: 0
