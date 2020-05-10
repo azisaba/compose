@@ -98,16 +98,6 @@ services:
     volumes:
       - '/srv/html/azisaba.net/wp-content/uploads:/app/wordpress-webp'
     working_dir: '/app/wordpress-webp'
-  # アジ鯖ロガー
-  logger:
-    build: ./img/discord.py
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-      SCRIPT_PATH: 'AzisabaLogger.py'
-    volumes:
-      - '/srv/discord/logger:/app/logger'
-    working_dir: '/app/logger'
   # アジ鯖サポート
   support:
     build: ./img/discord.py

@@ -41,7 +41,6 @@ docker-compose down --remove-orphans
   |-- resourcepacks/*.zip
 |-- /srv
   |-- discord
-    |-- logger/*
     |-- support/*
   |-- html
     |-- azisaba.net/*
