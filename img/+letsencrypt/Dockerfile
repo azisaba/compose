@@ -1,10 +1,19 @@
 FROM alpine:3.11.6 as builder
+
 COPY run.sh /
-COPY run-with-cron.sh /
-RUN chmod +x /*.sh
+RUN chmod +x /run.sh
+
+RUN wget https://raw.githubusercontent.com/AzisabaNetwork/docker-wrapper.sh/v1.1/docker-wrapper.sh
+RUN chmod +x docker-wrapper.sh
+RUN mv docker-wrapper.sh /usr/local/bin/wrapper
 
 FROM alpine:3.11.6
+
 COPY requirements.txt .
+COPY crontab /var/spool/cron/crontabs/root
+COPY --from=builder /run.sh /
+COPY --from=builder /usr/local/bin/wrapper /usr/local/bin
+
 SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN set -ex \
 	&& apk --no-cache add tzdata python3 py3-cryptography \
@@ -13,5 +22,5 @@ RUN set -ex \
 	&& rm requirements.txt \
 	&& find /usr/lib/python* -type f -iname '*.py[co]' -print0 | xargs -0 rm \
 	&& find /usr/lib/python* -type d -iname '__pycache__' -prune -print0 | xargs -0 rm -r
-COPY --from=builder /*.sh /
-ENTRYPOINT ["/run-with-cron.sh"]
+
+ENTRYPOINT ["wrapper", "crond", "-f", "-L", "/dev/stderr"]
