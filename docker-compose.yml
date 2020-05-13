@@ -68,7 +68,6 @@ services:
       - './cnf/nginx.conf:/etc/nginx/conf.d/azi.conf:ro'
       - '/srv/letsencrypt:/app/letsencrypt:ro'
       - '/srv/html/azisaba.net:/app/html/azisaba.net'
-      - '/srv/html/maps.azisaba.net:/app/html/maps.azisaba.net'
       - '/opt/resourcepacks:/app/resourcepacks'
     depends_on:
       - wordpress

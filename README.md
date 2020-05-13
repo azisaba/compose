@@ -44,7 +44,6 @@ docker-compose down --remove-orphans
     |-- support/*
   |-- html
     |-- azisaba.net/*
-    |-- maps.azisaba.net/*
   |-- letsencrypt/*
   |-- mysql/*
   |-- secrets
