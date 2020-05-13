@@ -1,9 +1,18 @@
 FROM alpine:3.11.6 as builder
+
 COPY run.sh /
-COPY run-with-cron.sh /
-RUN chmod +x /*.sh
+RUN chmod +x /run.sh
+
+RUN wget https://raw.githubusercontent.com/AzisabaNetwork/docker-wrapper.sh/v1.1/docker-wrapper.sh
+RUN chmod +x docker-wrapper.sh
+RUN mv docker-wrapper.sh /usr/local/bin/wrapper
 
 FROM alpine:3.11.6
+
+COPY crontab /var/spool/cron/crontabs/root
+COPY --from=builder /run.sh /
+COPY --from=builder /usr/local/bin/wrapper /usr/local/bin
+
 RUN apk --no-cache add tzdata restic openssh-client mariadb-client
-COPY --from=builder /*.sh /
-ENTRYPOINT ["/run-with-cron.sh"]
+
+ENTRYPOINT ["wrapper", "crond", "-f", "-L", "/dev/stderr"]
