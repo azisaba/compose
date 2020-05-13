@@ -38,6 +38,7 @@ docker-compose down --remove-orphans
     |-- bungee/*
     |-- wave/*
     |-- life/*
+    |-- rpg/*
   |-- resourcepacks/*.zip
 |-- /srv
   |-- discord

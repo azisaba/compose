@@ -238,6 +238,22 @@ services:
     stop_grace_period: 30s
     ulimits:
       core: 0
+  # Minecraft - rpg (MEC式RPGサーバー)
+  rpg:
+    build: ./img/minecraft
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+      JAR_PATH: 'paper-1.15.2.jar'
+      JAR_DOWNLOAD_URL: 'https://papermc.io/api/v1/paper/1.15.2/latest/download'
+      JVM_ARGS: '-Dminecraft@rpg -XX:+UseShenandoahGC -Xloggc:./gc.log'
+      LAZY_STARTUP: 'yes'
+    volumes:
+      - '/opt/minecraft/rpg:/app/rpg'
+    working_dir: '/app/rpg'
+    stop_grace_period: 30s
+    ulimits:
+      core: 0
 
 secrets:
   wordpress:
