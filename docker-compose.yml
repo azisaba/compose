@@ -103,10 +103,10 @@ services:
     restart: always
     environment:
       TZ: Asia/Tokyo
-      SCRIPT_PATH: 'support.py'
     volumes:
       - '/srv/discord/support:/app/support'
     working_dir: '/app/support'
+    command: '-u support.py'
   # Minecraft - bungee (プロキシサーバー)
   bungee:
     build: ./img/minecraft
