@@ -43,6 +43,7 @@ docker-compose down --remove-orphans
 |-- /srv
   |-- discord
     |-- support/*
+    |-- colorful-discord/*
   |-- html
     |-- azisaba.net/*
   |-- letsencrypt/*

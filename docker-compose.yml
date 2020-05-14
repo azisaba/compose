@@ -107,6 +107,16 @@ services:
       - '/srv/discord/support:/app/support'
     working_dir: '/app/support'
     command: '-u support.py'
+  # 名前に色付けるやつ
+  colorful:
+    build: ./img/discord.py
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - '/srv/discord/colorful-discord:/app/colorful'
+    working_dir: '/app/colorful'
+    command: '-u colorful.py'
   # Minecraft - bungee (プロキシサーバー)
   bungee:
     build: ./img/minecraft
