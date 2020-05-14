@@ -132,9 +132,6 @@ services:
     volumes:
       - '/opt/minecraft/bungee:/app/bungee'
     working_dir: '/app/bungee'
-    stop_grace_period: 15s
-    ulimits:
-      core: 0
   # Minecraft - lobby (ロビーサーバー)
   lobby:
     build: ./img/minecraft
@@ -148,9 +145,6 @@ services:
     volumes:
       - '/opt/minecraft/lobby:/app/lobby'
     working_dir: '/app/lobby'
-    stop_grace_period: 30s
-    ulimits:
-      core: 0
   # Minecraft - main (生活サーバー)
   main:
     build: ./img/minecraft
@@ -164,9 +158,6 @@ services:
     volumes:
       - '/opt/minecraft/main:/app/main'
     working_dir: '/app/main'
-    stop_grace_period: 30s
-    ulimits:
-      core: 0
   # Minecraft - parkour (パルクールサーバー)
   parkour:
     build: ./img/minecraft
@@ -180,9 +171,6 @@ services:
     volumes:
       - '/opt/minecraft/parkour:/app/parkour'
     working_dir: '/app/parkour'
-    stop_grace_period: 30s
-    ulimits:
-      core: 0
   # Minecraft - lgw (銃サーバー)
   lgw:
     build: ./img/minecraft
@@ -196,9 +184,6 @@ services:
     volumes:
       - '/opt/minecraft/lgw:/app/lgw'
     working_dir: '/app/lgw'
-    stop_grace_period: 30s
-    ulimits:
-      core: 0
   # Minecraft - pvp (PvPサーバー)
   pvp:
     build: ./img/minecraft
@@ -213,9 +198,6 @@ services:
     volumes:
       - '/opt/minecraft/pvp:/app/pvp'
     working_dir: '/app/pvp'
-    stop_grace_period: 30s
-    ulimits:
-      core: 0
   # Minecraft - wave (WavePvEサーバー)
   wave:
     build: ./img/minecraft
@@ -229,9 +211,6 @@ services:
     volumes:
       - '/opt/minecraft/wave:/app/wave'
     working_dir: '/app/wave'
-    stop_grace_period: 30s
-    ulimits:
-      core: 0
   # Minecraft - life (新しい生活サーバー)
   life:
     build: ./img/minecraft
@@ -245,9 +224,6 @@ services:
     volumes:
       - '/opt/minecraft/life:/app/life'
     working_dir: '/app/life'
-    stop_grace_period: 30s
-    ulimits:
-      core: 0
   # Minecraft - rpg (MEC式RPGサーバー)
   rpg:
     build: ./img/minecraft
@@ -261,9 +237,6 @@ services:
     volumes:
       - '/opt/minecraft/rpg:/app/rpg'
     working_dir: '/app/rpg'
-    stop_grace_period: 30s
-    ulimits:
-      core: 0
 
 secrets:
   dns-cloudflare:
