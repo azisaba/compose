@@ -2,7 +2,7 @@ FROM alpine:3.11.6
 
 COPY requirements.txt .
 
-SHELL ["/bin/ash", "-o", "pipefail", "-c"]
+# SHELL ["/bin/ash", "-o", "pipefail", "-c"]
 RUN set -ex \
 	&& apk --no-cache add tzdata python3 py3-multidict py3-yarl \
 	&& export PIP_DISABLE_PIP_VERSION_CHECK=1 \
