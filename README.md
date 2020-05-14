@@ -48,12 +48,12 @@ docker-compose down --remove-orphans
   |-- letsencrypt/*
   |-- mysql/*
   |-- secrets
-    |-- wordpress.txt
     |-- dns-cloudflare.txt
     |-- restic.txt
     |-- restic-sftp-private-key.txt
     |-- restic-sftp-hosts.txt
-    |-- admin.txt
+    |-- mysql-admin.txt
+    |-- mysql-wordpress.txt
 ```
 
 ## 👍 参考

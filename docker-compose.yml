@@ -9,7 +9,7 @@ services:
       - restic
       - restic-sftp-private-key
       - restic-sftp-hosts
-      - admin
+      - mysql-admin
     environment:
       TZ: Asia/Tokyo
       RESTIC_PASSWORD_FILE: '/run/secrets/restic'
@@ -17,7 +17,7 @@ services:
       SFTP_HOSTS: '/run/secrets/restic-sftp-hosts'
       DB_HOST: 'database'
       DB_USER: 'admin'
-      DB_PASSWORD_FILE: '/run/secrets/admin'
+      DB_PASSWORD_FILE: '/run/secrets/mysql-admin'
     volumes:
       - '/opt/minecraft/bungee:/app/bungee:ro'
       - '/opt/minecraft/lobby:/app/lobby:ro'
@@ -76,12 +76,12 @@ services:
     build: ./img/@wordpress
     restart: always
     secrets:
-      - wordpress
+      - mysql-wordpress
     environment:
       TZ: Asia/Tokyo
       WORDPRESS_DB_HOST: database
       WORDPRESS_DB_USER: 'wordpress'
-      WORDPRESS_DB_PASSWORD_FILE: '/run/secrets/wordpress'
+      WORDPRESS_DB_PASSWORD_FILE: '/run/secrets/mysql-wordpress'
       WORDPRESS_DB_NAME: 'azisaba_wordpress'
     volumes:
       - './cnf/php.ini:/usr/local/etc/php/php.ini:ro'
@@ -256,8 +256,6 @@ services:
       core: 0
 
 secrets:
-  wordpress:
-    file: /srv/secrets/wordpress.txt
   dns-cloudflare:
     file: /srv/secrets/dns-cloudflare.txt
   restic:
@@ -266,5 +264,7 @@ secrets:
     file: /srv/secrets/restic-sftp-private-key.txt
   restic-sftp-hosts:
     file: /srv/secrets/restic-sftp-hosts.txt
-  admin:
-    file: /srv/secrets/admin.txt
+  mysql-admin:
+    file: /srv/secrets/mysql-admin.txt
+  mysql-wordpress:
+    file: /srv/secrets/mysql-wordpress.txt
