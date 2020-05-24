@@ -6,6 +6,5 @@ services:
     environment:
       TZ: Asia/Tokyo
   letsencrypt:
-    restart: always
     environment:
       TZ: Asia/Tokyo
