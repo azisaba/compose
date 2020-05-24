@@ -5,10 +5,16 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        compose:
+          - '-f web/base.yml -f web/compose.yml'
+
     steps:
       - uses: actions/checkout@v2
-      - run: docker-compose pull
-      - run: docker-compose build
-      - run: docker-compose -f web/base.yml -f web/compose.yml up -d
-      - run: docker-compose -f web/base.yml -f web/compose.yml down
+      - run: docker-compose ${{ matrix.compose }} docker-compose pull
+      - run: docker-compose ${{ matrix.compose }} docker-compose build
+      - run: docker-compose ${{ matrix.compose }} up -d
+      - run: docker-compose ${{ matrix.compose }} down
       - run: find .
