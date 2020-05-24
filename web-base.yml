@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  nginx:
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+  letsencrypt:
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
