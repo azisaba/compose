@@ -5,12 +5,10 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         compose:
           - '-f web/base.yml -f web/compose.yml'
-
     steps:
       - uses: actions/checkout@v2
       - run: docker-compose ${{ matrix.compose }} pull

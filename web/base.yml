@@ -8,3 +8,11 @@ services:
   letsencrypt:
     environment:
       TZ: Asia/Tokyo
+  wordpress:
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+  mysql:
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
