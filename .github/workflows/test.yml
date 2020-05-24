@@ -17,4 +17,4 @@ jobs:
       - run: docker-compose ${{ matrix.compose }} build
       - run: docker-compose ${{ matrix.compose }} up -d
       - run: docker-compose ${{ matrix.compose }} down
-      - run: find .
+      - run: find . \( -not -path './.git/*' \)

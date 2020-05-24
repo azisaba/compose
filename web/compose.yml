@@ -5,7 +5,11 @@ services:
     image: nginx:1.17.10-alpine
     ports:
       - 443:443
+    volumes:
+      - ../data/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - letsencrypt
   letsencrypt:
     image: certbot/dns-cloudflare:v1.4.0
     volumes:
-      - ./data/letsencrypt:/etc/letsencrypt
+      - ../data/letsencrypt:/etc/letsencrypt
