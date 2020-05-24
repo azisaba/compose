@@ -11,8 +11,8 @@ jobs:
           - '-f web/base.yml -f web/compose.yml'
     steps:
       - uses: actions/checkout@v2
-      - run: docker-compose ${{ matrix.compose }} pull
-      - run: docker-compose ${{ matrix.compose }} build
-      - run: docker-compose ${{ matrix.compose }} up -d
-      - run: docker-compose ${{ matrix.compose }} down
+      - run: docker-compose --no-ansi ${{ matrix.compose }} pull
+      - run: docker-compose --no-ansi ${{ matrix.compose }} build
+      - run: docker-compose --no-ansi ${{ matrix.compose }} up -d
+      - run: docker-compose --no-ansi ${{ matrix.compose }} down
       - run: sudo find . \( -not -path './.git/*' \)
