@@ -6,5 +6,5 @@
 
 ## 🎇 起動
 ```bash
-docker-compose -p web -f web-base.yml -f web-compose.yml up -d
+docker-compose -f web/base.yml -f web/compose.yml up -d
 ```
