@@ -1,4 +1,4 @@
-FROM jbergstroem/mariadb-alpine:10.4.12
+FROM jbergstroem/mariadb-alpine:10.4.13
 
 USER root
 
