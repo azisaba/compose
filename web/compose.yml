@@ -9,6 +9,7 @@ services:
       - ../data/letsencrypt:/etc/letsencrypt
     depends_on:
       - letsencrypt
+      - wordpress
   letsencrypt:
     image: certbot/dns-cloudflare:v1.4.0
     volumes:
@@ -25,6 +26,8 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_NAME: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
+    depends_on:
+      - mysql
   mysql:
     image: mysql:8.0.20
     environment:
