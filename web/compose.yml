@@ -13,8 +13,6 @@ services:
     image: certbot/dns-cloudflare:v1.4.0
     volumes:
       - ../data/letsencrypt:/etc/letsencrypt
-    environment:
-      CERTBOT_DOMAIN: azisaba.net
     secrets:
       - certbot-dns-cloudflare
     command: 'certonly --dns-cloudflare --dns-cloudflare-credentials /run/secrets/certbot-dns-cloudflare --email ledlaggazi@gmail.com --no-eff-email --agree-tos --domain azisaba.net --keep-until-expiring'
