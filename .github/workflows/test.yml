@@ -1,0 +1,14 @@
+name: Docker
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker-compose pull
+      - run: docker-compose build
+      - run: docker-compose -f web/base.yml -f web/compose.yml up -d
+      - run: docker-compose -f web/base.yml -f web/compose.yml down
+      - run: find .
