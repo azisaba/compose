@@ -7,9 +7,14 @@
 # アジ鯖で動作する軽量なDocker
 常識を覆せ
 
-## 🎇 起動
+## ⤴ 起動する
 ```bash
 docker-compose -f web/base.yml -f web/compose.yml up -d
+```
+
+## ⤵ 停止する
+```bash
+docker-compose -f web/base.yml -f web/compose.yml down
 ```
 
 ## 🔌 ファイルの構造
