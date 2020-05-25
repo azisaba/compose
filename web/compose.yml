@@ -43,4 +43,4 @@ services:
 
 secrets:
   certbot-dns-cloudflare:
-    file: ../secrets/certbot-dns-cloudflare.txt
+    file: ../secrets/certbot-dns-cloudflare.ini
