@@ -19,4 +19,4 @@ jobs:
       - run: docker-compose --no-ansi ${{ matrix.compose }} build
       - run: docker-compose --no-ansi ${{ matrix.compose }} up -d
       - run: docker-compose --no-ansi ${{ matrix.compose }} down
-      - run: sudo find . \( -not -path './.git/*' \) -maxdepth 3
+      - run: sudo find . \( -not -path './.git/*' \)
