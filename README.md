@@ -8,3 +8,15 @@
 ```bash
 docker-compose -f web/base.yml -f web/compose.yml up -d
 ```
+
+## 🔌 ファイルの構造
+```go
+|-- ./secrets
+    |-- certbot-dns-cloudflare.ini <権限600、編集が必要>
+|-- ./data
+    |-- resourcepacks <権限777、追加が必要>
+        |-- *.zip <権限666>
+    |-- letsencrypt [自動生成]
+    |-- wordpress [自動生成]
+    |-- wordpress-mysql [自動生成]
+```
