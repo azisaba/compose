@@ -1,4 +1,4 @@
-FROM alpine:3.11.6 as builder
+FROM alpine:3.12.0 as builder
 
 COPY run.sh /
 RUN chmod +x /run.sh
@@ -7,7 +7,7 @@ RUN wget https://raw.githubusercontent.com/AzisabaNetwork/docker-wrapper.sh/v1.1
 RUN chmod +x docker-wrapper.sh
 RUN mv docker-wrapper.sh /usr/local/bin/wrapper
 
-FROM alpine:3.11.6
+FROM alpine:3.12.0
 
 COPY requirements.txt .
 COPY crontab /var/spool/cron/crontabs/root
