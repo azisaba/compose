@@ -2,7 +2,7 @@ FROM shipilev/openjdk-shenandoah:8 as jdk
 
 RUN java -version
 
-FROM alpine:3.11.6 as builder
+FROM alpine:3.12.0 as builder
 
 COPY run.sh /
 RUN chmod +x /run.sh
