@@ -10,11 +10,13 @@
 ## ⤴ 起動する
 ```bash
 docker-compose -f web/base.yml -f web/compose.yml up -d
+docker-compose -f minecraft/base.yml -f minecraft/compose.yml up -d
 ```
 
 ## ⤵ 停止する
 ```bash
 docker-compose -f web/base.yml -f web/compose.yml down
+docker-compose -f minecraft/base.yml -f minecraft/compose.yml down
 ```
 
 ## 🔌 ファイルの構造
@@ -27,4 +29,5 @@ docker-compose -f web/base.yml -f web/compose.yml down
     |-- letsencrypt [自動生成]
     |-- wordpress [自動生成]
     |-- wordpress-mysql [自動生成]
+    |-- minecraft-mysql [自動生成]
 ```
