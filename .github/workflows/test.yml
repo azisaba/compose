@@ -8,6 +8,7 @@ on:
 
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -18,5 +19,7 @@ jobs:
       - run: docker-compose --no-ansi ${{ matrix.compose }} pull
       - run: docker-compose --no-ansi ${{ matrix.compose }} build
       - run: docker-compose --no-ansi ${{ matrix.compose }} up -d
-      - run: docker-compose --no-ansi ${{ matrix.compose }} down
+      - run: docker-compose --no-ansi ${{ matrix.compose }} stop
+      - run: docker-compose --no-ansi ${{ matrix.compose }} logs
+      - run: docker-compose --no-ansi ${{ matrix.compose }} rm -f
       - run: sudo find . \( -not -path './.git/*' \)
