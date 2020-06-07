@@ -11,6 +11,9 @@ services:
       - ../data/minecraft-mysql:/var/lib/mysql
   bungee:
     image: yukileafx/minecraft-alpine:latest
+    ports:
+      - 8192:8192
+      - 25565:25577
     volumes:
       - /opt/minecraft/bungee:/app
     environment:
@@ -36,7 +39,7 @@ services:
     volumes:
       - /opt/minecraft/wave:/app
     environment:
-      JAVA_OPTIONS: -Dazi@wave -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G
+      JAVA_OPTIONS: -Dazi@wave -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G -Dbungee=true
       JAR_PATH: Yukkit.jar
   pvp:
     image: yukileafx/minecraft-alpine:latest
@@ -64,7 +67,7 @@ services:
     volumes:
       - /opt/minecraft/lgw:/app
     environment:
-      JAVA_OPTIONS: -Dazi@lgw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G
+      JAVA_OPTIONS: -Dazi@lgw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G -Dbungee=true
       JAR_PATH: Yukkit.jar
   chibi:
     image: yukileafx/minecraft-alpine:latest
