@@ -17,7 +17,9 @@ services:
     volumes:
       - /opt/minecraft/bungee:/app
     environment:
-      JAVA_OPTIONS: -Dazi@bungee -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G
+      JAVA_OPTIONS: >
+        -Dazi@bungee
+        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahUncommitDelay=20000 -XX:ShenandoahGuaranteedGCInterval=80000
       JAR_PATH: Waterfall.jar
       STOP_CMD: end
   lobby:
@@ -25,61 +27,81 @@ services:
     volumes:
       - /opt/minecraft/lobby:/app
     environment:
-      JAVA_OPTIONS: -Dazi@lobby -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G
+      JAVA_OPTIONS: >
+        -Dazi@lobby
+        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahUncommitDelay=20000 -XX:ShenandoahGuaranteedGCInterval=80000
       JAR_PATH: paper-1.8.8.jar
   main:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/main:/app
     environment:
-      JAVA_OPTIONS: -Dazi@main -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G
+      JAVA_OPTIONS: >
+        -Dazi@main
+        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahUncommitDelay=20000 -XX:ShenandoahGuaranteedGCInterval=80000
       JAR_PATH: paper-1.15.2.jar
   wave:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/wave:/app
     environment:
-      JAVA_OPTIONS: -Dazi@wave -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G -Dbungee=true
+      JAVA_OPTIONS: >
+        -Dazi@wave
+        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahUncommitDelay=20000 -XX:ShenandoahGuaranteedGCInterval=80000
+        -Dbungee=true
       JAR_PATH: Yukkit.jar
   pvp:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/pvp:/app
     environment:
-      JAVA_OPTIONS: -Dazi@pvp -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G
+      JAVA_OPTIONS: >
+        -Dazi@pvp
+        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahUncommitDelay=20000 -XX:ShenandoahGuaranteedGCInterval=80000
       JAR_PATH: paper-1.8.8.jar
   parkour:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/parkour:/app
     environment:
-      JAVA_OPTIONS: -Dazi@parkour -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G
+      JAVA_OPTIONS: >
+        -Dazi@parkour
+        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahUncommitDelay=20000 -XX:ShenandoahGuaranteedGCInterval=80000
       JAR_PATH: paper-1.13.2.jar
   life:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/life:/app
     environment:
-      JAVA_OPTIONS: -Dazi@life -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G
+      JAVA_OPTIONS: >
+        -Dazi@life
+        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahUncommitDelay=20000 -XX:ShenandoahGuaranteedGCInterval=80000
       JAR_PATH: paper-1.15.2.jar
   lgw:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/lgw:/app
     environment:
-      JAVA_OPTIONS: -Dazi@lgw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G -Dbungee=true
+      JAVA_OPTIONS: >
+        -Dazi@lgw
+        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahUncommitDelay=20000 -XX:ShenandoahGuaranteedGCInterval=80000
+        -Dbungee=true
       JAR_PATH: Yukkit.jar
   chibi:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/chibi:/app
     environment:
-      JAVA_OPTIONS: -Dazi@chibi -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G
+      JAVA_OPTIONS: >
+        -Dazi@chibi
+        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahUncommitDelay=20000 -XX:ShenandoahGuaranteedGCInterval=80000
       JAR_PATH: paper-1.15.2.jar
   rpg:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/rpg:/app
     environment:
-      JAVA_OPTIONS: -Dazi@rpg -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Xms1G -Xmx16G
+      JAVA_OPTIONS: >
+        -Dazi@rpg
+        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:+UnlockExperimentalVMOptions -XX:ShenandoahUncommitDelay=20000 -XX:ShenandoahGuaranteedGCInterval=80000
       JAR_PATH: paper-1.15.2.jar
