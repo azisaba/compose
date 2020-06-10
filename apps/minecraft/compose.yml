@@ -17,7 +17,7 @@ services:
     volumes:
       - /opt/minecraft/bungee:/app
     environment:
-      JAVA_OPTIONS: >
+      JAVA_OPTIONS: >-
         -Dazi@bungee
         -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: Waterfall.jar
@@ -27,7 +27,7 @@ services:
     volumes:
       - /opt/minecraft/lobby:/app
     environment:
-      JAVA_OPTIONS: >
+      JAVA_OPTIONS: >-
         -Dazi@lobby
         -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.8.8.jar
@@ -36,7 +36,7 @@ services:
     volumes:
       - /opt/minecraft/main:/app
     environment:
-      JAVA_OPTIONS: >
+      JAVA_OPTIONS: >-
         -Dazi@main
         -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
@@ -45,7 +45,7 @@ services:
     volumes:
       - /opt/minecraft/wave:/app
     environment:
-      JAVA_OPTIONS: >
+      JAVA_OPTIONS: >-
         -Dazi@wave
         -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
         -Dbungee=true
@@ -55,7 +55,7 @@ services:
     volumes:
       - /opt/minecraft/pvp:/app
     environment:
-      JAVA_OPTIONS: >
+      JAVA_OPTIONS: >-
         -Dazi@pvp
         -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.8.8.jar
@@ -64,7 +64,7 @@ services:
     volumes:
       - /opt/minecraft/parkour:/app
     environment:
-      JAVA_OPTIONS: >
+      JAVA_OPTIONS: >-
         -Dazi@parkour
         -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.13.2.jar
@@ -73,7 +73,7 @@ services:
     volumes:
       - /opt/minecraft/life:/app
     environment:
-      JAVA_OPTIONS: >
+      JAVA_OPTIONS: >-
         -Dazi@life
         -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
@@ -82,7 +82,7 @@ services:
     volumes:
       - /opt/minecraft/lgw:/app
     environment:
-      JAVA_OPTIONS: >
+      JAVA_OPTIONS: >-
         -Dazi@lgw
         -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
         -Dbungee=true
@@ -92,7 +92,7 @@ services:
     volumes:
       - /opt/minecraft/chibi:/app
     environment:
-      JAVA_OPTIONS: >
+      JAVA_OPTIONS: >-
         -Dazi@chibi
         -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
@@ -101,7 +101,7 @@ services:
     volumes:
       - /opt/minecraft/rpg:/app
     environment:
-      JAVA_OPTIONS: >
+      JAVA_OPTIONS: >-
         -Dazi@rpg
         -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
