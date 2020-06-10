@@ -6,9 +6,9 @@ services:
     ports:
       - 443:443
     volumes:
-      - ../data/letsencrypt:/etc/letsencrypt:ro
-      - ../data/wordpress:/var/www/html:ro
-      - ../data/resourcepacks:/app/resourcepacks:ro
+      - ../../data/letsencrypt:/etc/letsencrypt:ro
+      - ../../data/wordpress:/var/www/html:ro
+      - ../../data/resourcepacks:/app/resourcepacks:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
     depends_on:
       - letsencrypt
@@ -16,14 +16,14 @@ services:
   letsencrypt:
     image: certbot/dns-cloudflare:v1.4.0
     volumes:
-      - ../data/letsencrypt:/etc/letsencrypt
+      - ../../data/letsencrypt:/etc/letsencrypt
     secrets:
       - certbot-dns-cloudflare
     command: 'certonly --dns-cloudflare --dns-cloudflare-credentials /run/secrets/certbot-dns-cloudflare --email ledlaggazi@gmail.com --no-eff-email --agree-tos --domain azisaba.net --keep-until-expiring'
   wordpress:
     image: wordpress:5.4.1-php7.4-fpm-alpine
     volumes:
-      - ../data/wordpress:/var/www/html
+      - ../../data/wordpress:/var/www/html
     environment:
       WORDPRESS_DB_HOST: mysql
       WORDPRESS_DB_USER: wordpress
@@ -39,8 +39,8 @@ services:
       MYSQL_PASSWORD: wordpress
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - ../data/wordpress-mysql:/var/lib/mysql
+      - ../../data/wordpress-mysql:/var/lib/mysql
 
 secrets:
   certbot-dns-cloudflare:
-    file: ../secrets/certbot-dns-cloudflare.ini
+    file: ../../secrets/certbot-dns-cloudflare.ini

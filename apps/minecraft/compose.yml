@@ -8,7 +8,7 @@ services:
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - ../data/minecraft-mysql:/var/lib/mysql
+      - ../../data/minecraft-mysql:/var/lib/mysql
   bungee:
     image: yukileafx/minecraft-alpine:latest
     ports:
