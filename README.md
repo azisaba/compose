@@ -9,18 +9,26 @@
 
 ## ⤴ 起動する
 ```bash
-COMPOSE_FILE=web/base.yml:web/compose.yml \
+(
+  export COMPOSE_FILE=apps/web/base.yml:apps/web/compose.yml
   docker-compose up -d
-COMPOSE_FILE=minecraft/base.yml:minecraft/compose.yml \
+)
+(
+  export COMPOSE_FILE=apps/minecraft/base.yml:apps/minecraft/compose.yml
   docker-compose up -d
+)
 ```
 
 ## ⤵ 停止する
 ```bash
-COMPOSE_FILE=web/base.yml:web/compose.yml \
+(
+  export COMPOSE_FILE=apps/web/base.yml:apps/web/compose.yml
   docker-compose down
-COMPOSE_FILE=minecraft/base.yml:minecraft/compose.yml \
+)
+(
+  export COMPOSE_FILE=apps/minecraft/base.yml:apps/minecraft/compose.yml
   docker-compose down
+)
 ```
 
 ## 🔌 ファイルの構造
