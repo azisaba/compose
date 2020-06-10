@@ -13,14 +13,16 @@ jobs:
     strategy:
       matrix:
         compose:
-          - '-f web/base.yml -f web/compose.yml'
-          - '-f minecraft/base.yml -f minecraft/compose.yml'
+          - web/base.yml:web/compose.yml
+          - minecraft/base.yml:minecraft/compose.yml
+    env:
+      COMPOSE_FILE: ${{ matrix.compose }}
     steps:
       - uses: actions/checkout@v2
-      - run: docker-compose --no-ansi ${{ matrix.compose }} pull
-      - run: docker-compose --no-ansi ${{ matrix.compose }} build
-      - run: docker-compose --no-ansi ${{ matrix.compose }} up -d
-      - run: docker-compose --no-ansi ${{ matrix.compose }} stop
-      - run: docker-compose --no-ansi ${{ matrix.compose }} logs
-      - run: docker-compose --no-ansi ${{ matrix.compose }} rm -f
+      - run: docker-compose --no-ansi pull
+      - run: docker-compose --no-ansi build
+      - run: docker-compose --no-ansi up -d
+      - run: docker-compose --no-ansi stop
+      - run: docker-compose --no-ansi logs
+      - run: docker-compose --no-ansi rm -f
       - run: sudo find . \( -not -path './.git/*' \)
