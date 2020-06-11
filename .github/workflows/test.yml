@@ -23,6 +23,6 @@ jobs:
       - run: docker-compose --no-ansi build
       - run: docker-compose --no-ansi up -d
       - run: docker-compose --no-ansi stop
-      - run: docker-compose --no-ansi logs
+      - run: docker-compose logs
       - run: docker-compose --no-ansi rm -f
       - run: sudo find . \( -not -path './.git/*' \)
