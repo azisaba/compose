@@ -16,3 +16,7 @@ services:
     restart: always
     environment:
       TZ: Asia/Tokyo
+  netdata:
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
