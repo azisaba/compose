@@ -19,7 +19,7 @@ services:
     environment:
       JAVA_OPTIONS: >-
         -Dazi@bungee
-        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: Waterfall.jar
       STOP_CMD: end
   lobby:
@@ -29,7 +29,7 @@ services:
     environment:
       JAVA_OPTIONS: >-
         -Dazi@lobby
-        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.8.8.jar
   main:
     image: yukileafx/minecraft-alpine:latest
@@ -38,7 +38,7 @@ services:
     environment:
       JAVA_OPTIONS: >-
         -Dazi@main
-        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
   wave:
     image: yukileafx/minecraft-alpine:latest
@@ -47,7 +47,7 @@ services:
     environment:
       JAVA_OPTIONS: >-
         -Dazi@wave
-        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
         -Dbungee=true
       JAR_PATH: Yukkit.jar
   pvp:
@@ -57,7 +57,7 @@ services:
     environment:
       JAVA_OPTIONS: >-
         -Dazi@pvp
-        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.8.8.jar
   parkour:
     image: yukileafx/minecraft-alpine:latest
@@ -66,7 +66,7 @@ services:
     environment:
       JAVA_OPTIONS: >-
         -Dazi@parkour
-        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.13.2.jar
   life:
     image: yukileafx/minecraft-alpine:latest
@@ -75,7 +75,7 @@ services:
     environment:
       JAVA_OPTIONS: >-
         -Dazi@life
-        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
   lgw:
     image: yukileafx/minecraft-alpine:latest
@@ -84,7 +84,7 @@ services:
     environment:
       JAVA_OPTIONS: >-
         -Dazi@lgw
-        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
         -Dbungee=true
       JAR_PATH: Yukkit.jar
   chibi:
@@ -94,7 +94,7 @@ services:
     environment:
       JAVA_OPTIONS: >-
         -Dazi@chibi
-        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
   rpg:
     image: yukileafx/minecraft-alpine:latest
@@ -103,5 +103,5 @@ services:
     environment:
       JAVA_OPTIONS: >-
         -Dazi@rpg
-        -Xms32M -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:+DisableExplicitGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
