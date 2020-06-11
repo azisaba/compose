@@ -14,7 +14,7 @@ services:
       - letsencrypt
       - wordpress
   letsencrypt:
-    image: certbot/dns-cloudflare:v1.4.0
+    image: certbot/dns-cloudflare:v1.5.0
     volumes:
       - ../../data/letsencrypt:/etc/letsencrypt
     secrets:
