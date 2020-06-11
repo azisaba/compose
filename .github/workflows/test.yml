@@ -13,8 +13,8 @@ jobs:
     strategy:
       matrix:
         compose:
-          - apps/web/base.yml:apps/web/compose.yml
-          - apps/minecraft/base.yml:apps/minecraft/compose.yml
+          - apps/web/zones.yml:apps/web/compose.yml
+          - apps/minecraft/zones.yml:apps/minecraft/compose.yml
     env:
       COMPOSE_FILE: ${{ matrix.compose }}
     steps:
