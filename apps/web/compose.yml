@@ -23,6 +23,7 @@ services:
   wordpress:
     image: wordpress:5.4.1-php7.4-fpm-alpine
     volumes:
+      - ./php/php.ini:/usr/local/etc/php/php.ini:ro
       - ../../data/wordpress:/var/www/html
     environment:
       WORDPRESS_DB_HOST: mysql
