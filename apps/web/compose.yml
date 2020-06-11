@@ -49,9 +49,11 @@ services:
     security_opt:
       - apparmor:unconfined
     volumes:
+      - /etc/passwd:/host/etc/passwd:ro
+      - /etc/group:/host/etc/group:ro
       - /proc:/host/proc:ro
       - /sys:/host/sys:ro
-      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /etc/os-release:/host/etc/os-release:ro
 
 secrets:
   certbot-dns-cloudflare:
