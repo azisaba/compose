@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  database:
+    restart: always
+  bungee:
+    restart: always
+  lobby:
+    restart: always
+  main:
+    restart: always
+  wave:
+    restart: always
+  pvp:
+    restart: always
+  parkour:
+    restart: always
+  life:
+    restart: always
+  lgw:
+    restart: always
+  chibi:
+    restart: always
+  rpg:
+    restart: always

@@ -22,8 +22,8 @@ azifry() {
   )
 }
 
-alias web='COMPOSE_FILE=apps/web/base.yml:apps/web/compose.yml azifry'
-alias mc='COMPOSE_FILE=apps/minecraft/base.yml:apps/minecraft/compose.yml azifry'
+alias web='COMPOSE_FILE=apps/web/zones.yml:apps/web/restarts.yml:apps/web/compose.yml azifry'
+alias mc='COMPOSE_FILE=apps/minecraft/zones.yml:apps/minecraft/restarts.yml:apps/minecraft/compose.yml azifry'
 
 alias server='echo "Run: mc screen <Container>" && :'
 alias servers='echo "Run: mc ls" && :'
