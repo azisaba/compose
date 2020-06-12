@@ -1,4 +1,4 @@
-name: Docker
+name: Build
 
 on:
   push:
@@ -7,8 +7,27 @@ on:
   pull_request:
 
 jobs:
-  build:
-    name: Build
+  shellcheck:
+    name: ShellCheck
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo apt-get -y update
+      - run: sudo apt-get -y install shellcheck
+      - run: find . -type f -name '*.sh' -print0 | xargs -0t -n 1 shellcheck
+  yamllint:
+    name: yamllint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: sudo apt-get -y update
+      - run: sudo apt-get -y install yamllint
+      - run: yamllint .
+  docker-compose:
+    needs:
+      - shellcheck
+      - yamllint
+    name: Docker Compose
     runs-on: ubuntu-latest
     strategy:
       matrix:
