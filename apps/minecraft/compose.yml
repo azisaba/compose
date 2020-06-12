@@ -10,7 +10,7 @@ services:
     volumes:
       - ../../data/minecraft-mysql:/var/lib/mysql
   bungee:
-    image: yukileafx/minecraft-alpine:latest
+    image: yukileafx/minecraft-server:latest
     ports:
       - 8192:8192
       - 25565:25577
@@ -23,7 +23,7 @@ services:
       JAR_PATH: Waterfall.jar
       STOP_CMD: end
   lobby:
-    image: yukileafx/minecraft-alpine:latest
+    image: yukileafx/minecraft-server:latest
     volumes:
       - /opt/minecraft/lobby:/app
     environment:
@@ -32,7 +32,7 @@ services:
         -Xms4G -Xmx16G -XX:+UseShenandoahGC
       JAR_PATH: paper-1.8.8.jar
   main:
-    image: yukileafx/minecraft-alpine:latest
+    image: yukileafx/minecraft-server:latest
     volumes:
       - /opt/minecraft/main:/app
     environment:
@@ -41,7 +41,7 @@ services:
         -Xms4G -Xmx16G -XX:+UseShenandoahGC
       JAR_PATH: paper-1.15.2.jar
   wave:
-    image: yukileafx/minecraft-alpine:latest
+    image: yukileafx/minecraft-server:latest
     volumes:
       - /opt/minecraft/wave:/app
     environment:
@@ -51,7 +51,7 @@ services:
         -Dbungee=true
       JAR_PATH: Yukkit.jar
   pvp:
-    image: yukileafx/minecraft-alpine:latest
+    image: yukileafx/minecraft-server:latest
     volumes:
       - /opt/minecraft/pvp:/app
     environment:
@@ -60,7 +60,7 @@ services:
         -Xms4G -Xmx16G -XX:+UseShenandoahGC
       JAR_PATH: paper-1.8.8.jar
   parkour:
-    image: yukileafx/minecraft-alpine:latest
+    image: yukileafx/minecraft-server:latest
     volumes:
       - /opt/minecraft/parkour:/app
     environment:
@@ -69,7 +69,7 @@ services:
         -Xms4G -Xmx16G -XX:+UseShenandoahGC
       JAR_PATH: paper-1.13.2.jar
   life:
-    image: yukileafx/minecraft-alpine:latest
+    image: yukileafx/minecraft-server:latest
     volumes:
       - /opt/minecraft/life:/app
     environment:
@@ -78,7 +78,7 @@ services:
         -Xms4G -Xmx16G -XX:+UseShenandoahGC
       JAR_PATH: paper-1.15.2.jar
   lgw:
-    image: yukileafx/minecraft-alpine:latest
+    image: yukileafx/minecraft-server:latest
     volumes:
       - /opt/minecraft/lgw:/app
     environment:
@@ -88,7 +88,7 @@ services:
         -Dbungee=true
       JAR_PATH: Yukkit.jar
   chibi:
-    image: yukileafx/minecraft-alpine:latest
+    image: yukileafx/minecraft-server:latest
     volumes:
       - /opt/minecraft/chibi:/app
     environment:
@@ -97,7 +97,7 @@ services:
         -Xms4G -Xmx16G -XX:+UseShenandoahGC
       JAR_PATH: paper-1.15.2.jar
   rpg:
-    image: yukileafx/minecraft-alpine:latest
+    image: yukileafx/minecraft-server:latest
     volumes:
       - /opt/minecraft/rpg:/app
     environment:
