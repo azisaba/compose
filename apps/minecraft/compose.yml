@@ -10,7 +10,7 @@ services:
     volumes:
       - ../../data/minecraft-mysql:/var/lib/mysql
   bungee:
-    image: yukileafx/minecraft-server:latest
+    image: yukileafx/minecraft-alpine:latest
     ports:
       - 8192:8192
       - 25565:25577
@@ -19,89 +19,89 @@ services:
     environment:
       JAVA_OPTIONS: >-
         -Dazi@bungee
-        -Xms4G -Xmx16G -XX:+UseShenandoahGC
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: Waterfall.jar
       STOP_CMD: end
   lobby:
-    image: yukileafx/minecraft-server:latest
+    image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/lobby:/app
     environment:
       JAVA_OPTIONS: >-
         -Dazi@lobby
-        -Xms4G -Xmx16G -XX:+UseShenandoahGC
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.8.8.jar
   main:
-    image: yukileafx/minecraft-server:latest
+    image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/main:/app
     environment:
       JAVA_OPTIONS: >-
         -Dazi@main
-        -Xms4G -Xmx16G -XX:+UseShenandoahGC
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
   wave:
-    image: yukileafx/minecraft-server:latest
+    image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/wave:/app
     environment:
       JAVA_OPTIONS: >-
         -Dazi@wave
-        -Xms4G -Xmx16G -XX:+UseShenandoahGC
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
         -Dbungee=true
       JAR_PATH: Yukkit.jar
   pvp:
-    image: yukileafx/minecraft-server:latest
+    image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/pvp:/app
     environment:
       JAVA_OPTIONS: >-
         -Dazi@pvp
-        -Xms4G -Xmx16G -XX:+UseShenandoahGC
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.8.8.jar
   parkour:
-    image: yukileafx/minecraft-server:latest
+    image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/parkour:/app
     environment:
       JAVA_OPTIONS: >-
         -Dazi@parkour
-        -Xms4G -Xmx16G -XX:+UseShenandoahGC
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.13.2.jar
   life:
-    image: yukileafx/minecraft-server:latest
+    image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/life:/app
     environment:
       JAVA_OPTIONS: >-
         -Dazi@life
-        -Xms4G -Xmx16G -XX:+UseShenandoahGC
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
   lgw:
-    image: yukileafx/minecraft-server:latest
+    image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/lgw:/app
     environment:
       JAVA_OPTIONS: >-
         -Dazi@lgw
-        -Xms4G -Xmx16G -XX:+UseShenandoahGC
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
         -Dbungee=true
       JAR_PATH: Yukkit.jar
   chibi:
-    image: yukileafx/minecraft-server:latest
+    image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/chibi:/app
     environment:
       JAVA_OPTIONS: >-
         -Dazi@chibi
-        -Xms4G -Xmx16G -XX:+UseShenandoahGC
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
   rpg:
-    image: yukileafx/minecraft-server:latest
+    image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/rpg:/app
     environment:
       JAVA_OPTIONS: >-
         -Dazi@rpg
-        -Xms4G -Xmx16G -XX:+UseShenandoahGC
+        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
       JAR_PATH: paper-1.15.2.jar
