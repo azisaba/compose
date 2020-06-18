@@ -17,91 +17,50 @@ services:
     volumes:
       - /opt/minecraft/bungee:/app
     environment:
-      JAVA_OPTIONS: >-
-        -Dazi@bungee
-        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
-      JAR_PATH: Waterfall.jar
       STOP_CMD: end
+    command: 'java -Dazi@bungee -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar Waterfall.jar'
   lobby:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/lobby:/app
-    environment:
-      JAVA_OPTIONS: >-
-        -Dazi@lobby
-        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
-      JAR_PATH: paper-1.8.8.jar
+    command: 'java -Dazi@lobby -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
   main:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/main:/app
-    environment:
-      JAVA_OPTIONS: >-
-        -Dazi@main
-        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
-      JAR_PATH: paper-1.15.2.jar
+    command: 'java -Dazi@main -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
   wave:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/wave:/app
-    environment:
-      JAVA_OPTIONS: >-
-        -Dazi@wave
-        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
-        -Dbungee=true
-      JAR_PATH: Yukkit.jar
+    command: 'java -Dazi@wave -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Dbungee=true -jar Yukkit.jar'
   pvp:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/pvp:/app
-    environment:
-      JAVA_OPTIONS: >-
-        -Dazi@pvp
-        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
-      JAR_PATH: paper-1.8.8.jar
+    command: 'java -Dazi@pvp -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
   parkour:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/parkour:/app
-    environment:
-      JAVA_OPTIONS: >-
-        -Dazi@parkour
-        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
-      JAR_PATH: paper-1.13.2.jar
+    command: 'java -Dazi@parkour -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.13.2.jar'
   life:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/life:/app
-    environment:
-      JAVA_OPTIONS: >-
-        -Dazi@life
-        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
-      JAR_PATH: paper-1.15.2.jar
+    command: 'java -Dazi@life -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
   lgw:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/lgw:/app
-    environment:
-      JAVA_OPTIONS: >-
-        -Dazi@lgw
-        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
-        -Dbungee=true
-      JAR_PATH: Yukkit.jar
+    command: 'java -Dazi@lgw -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Dbungee=true -jar Yukkit.jar'
   chibi:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/chibi:/app
-    environment:
-      JAVA_OPTIONS: >-
-        -Dazi@chibi
-        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
-      JAR_PATH: paper-1.15.2.jar
+    command: 'java -Dazi@chibi -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
   rpg:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/rpg:/app
-    environment:
-      JAVA_OPTIONS: >-
-        -Dazi@rpg
-        -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact
-      JAR_PATH: paper-1.15.2.jar
+    command: 'java -Dazi@rpg -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
