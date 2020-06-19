@@ -21,7 +21,7 @@ services:
       - certbot-dns-cloudflare
     command: 'certonly --dns-cloudflare --dns-cloudflare-credentials /run/secrets/certbot-dns-cloudflare --email ledlaggazi@gmail.com --no-eff-email --agree-tos --domain azisaba.net --keep-until-expiring'
   wordpress:
-    image: wordpress:5.4.1-php7.4-fpm-alpine
+    image: wordpress:5.4.2-php7.4-fpm-alpine
     volumes:
       - ./php/php.ini:/usr/local/etc/php/php.ini:ro
       - ../../data/wordpress:/var/www/html
