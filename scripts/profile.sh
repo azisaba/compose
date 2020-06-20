@@ -1,10 +1,12 @@
 #!/bin/bash
 
+azifry_dir=$1
+
 azifry() {
   (
     set -ex
 
-    cd /srv/azifry
+    cd "$azifry_dir"
 
     cmds=$*
     case "$1" in
