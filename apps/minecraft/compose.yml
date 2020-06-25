@@ -9,6 +9,10 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - ../../data/minecraft-mysql:/var/lib/mysql
+  mcredis:
+    image: redis:6.0.5-alpine
+    volumes:
+      - ../../data/minecraft-redis:/data
   bungee:
     image: yukileafx/minecraft-alpine:latest
     ports:
