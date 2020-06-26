@@ -9,6 +9,7 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - ../../data/minecraft-mariadb:/var/lib/mysql
+    command: --gdb --max-connections=1000
   mcredis:
     image: redis:6.0.5-alpine
     volumes:
