@@ -41,7 +41,7 @@ jobs:
       - run: docker-compose --no-ansi pull
       - run: docker-compose --no-ansi build
       - run: docker-compose --no-ansi up -d
-      - run: sleep 10
+      - run: sleep 30
       - run: docker-compose --no-ansi stop
       - run: docker-compose logs
       - run: docker-compose --no-ansi rm -f
