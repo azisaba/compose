@@ -42,7 +42,7 @@ services:
     volumes:
       - ../../data/wordpress-mysql:/var/lib/mysql
   netdata:
-    image: netdata/netdata:v1.22.1
+    image: netdata/netdata:v1.23.0
     hostname: netdata.azisaba.net
     cap_add:
       - SYS_PTRACE
