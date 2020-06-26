@@ -43,6 +43,6 @@ jobs:
       - run: docker-compose --no-ansi up -d
       - run: sleep 1m
       - run: docker-compose --no-ansi stop
-      - run: docker-compose logs
+      - run: docker-compose config --services | xargs -n 1 docker-compose logs
       - run: docker-compose --no-ansi rm -f
       - run: sudo find . \( -not -path './.git/*' \)
