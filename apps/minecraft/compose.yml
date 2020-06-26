@@ -22,69 +22,69 @@ services:
       - /opt/minecraft/bungee:/app
     environment:
       STOP_CMD: end
-    command: 'java -Dazi@bungee -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar Waterfall.jar'
+    command: 'java -Dazi@bungee -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication -XX:+DisableExplicitGC -XX:MaxGCPauseMillis=200 -jar Waterfall.jar'
     depends_on:
       - database
   lobby:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/lobby:/app
-    command: 'java -Dazi@lobby -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
+    command: 'java -Dazi@lobby -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication -XX:+DisableExplicitGC -XX:MaxGCPauseMillis=200 -jar paper-1.8.8.jar'
     depends_on:
       - database
   main:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/main:/app
-    command: 'java -Dazi@main -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
+    command: 'java -Dazi@main -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication -XX:+DisableExplicitGC -XX:MaxGCPauseMillis=200 -jar paper-1.15.2.jar'
     depends_on:
       - database
   wave:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/wave:/app
-    command: 'java -Dazi@wave -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Dbungee=true -jar Yukkit.jar'
+    command: 'java -Dazi@wave -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication -XX:+DisableExplicitGC -XX:MaxGCPauseMillis=200 -Dbungee=true -jar Yukkit.jar'
     depends_on:
       - database
   pvp:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/pvp:/app
-    command: 'java -Dazi@pvp -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
+    command: 'java -Dazi@pvp -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication -XX:+DisableExplicitGC -XX:MaxGCPauseMillis=200 -jar paper-1.8.8.jar'
     depends_on:
       - database
   parkour:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/parkour:/app
-    command: 'java -Dazi@parkour -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.13.2.jar'
+    command: 'java -Dazi@parkour -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication -XX:+DisableExplicitGC -XX:MaxGCPauseMillis=200 -jar paper-1.13.2.jar'
     depends_on:
       - database
   life:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/life:/app
-    command: 'java -Dazi@life -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
+    command: 'java -Dazi@life -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication -XX:+DisableExplicitGC -XX:MaxGCPauseMillis=200 -jar paper-1.15.2.jar'
     depends_on:
       - database
   lgw:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/lgw:/app
-    command: 'java -Dazi@lgw -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Dbungee=true -jar Yukkit.jar'
+    command: 'java -Dazi@lgw -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication -XX:+DisableExplicitGC -XX:MaxGCPauseMillis=200 -Dbungee=true -jar Yukkit.jar'
     depends_on:
       - database
   chibi:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/chibi:/app
-    command: 'java -Dazi@chibi -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
+    command: 'java -Dazi@chibi -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication -XX:+DisableExplicitGC -XX:MaxGCPauseMillis=200 -jar paper-1.15.2.jar'
     depends_on:
       - database
   rpg:
     image: yukileafx/minecraft-alpine:latest
     volumes:
       - /opt/minecraft/rpg:/app
-    command: 'java -Dazi@rpg -Xms1G -Xmx16G -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
+    command: 'java -Dazi@rpg -Xms10G -Xmx10G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:+UseStringDeduplication -XX:+DisableExplicitGC -XX:MaxGCPauseMillis=200 -jar paper-1.15.2.jar'
     depends_on:
       - database
