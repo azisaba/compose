@@ -4,6 +4,9 @@ services:
   database:
     environment:
       TZ: Asia/Tokyo
+  mcredis:
+    environment:
+      TZ: Asia/Tokyo
   bungee:
     environment:
       TZ: Asia/Tokyo

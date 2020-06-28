@@ -3,6 +3,8 @@ version: '3.7'
 services:
   database:
     restart: always
+  mcredis:
+    restart: always
   bungee:
     restart: always
   lobby:
