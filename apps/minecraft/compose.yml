@@ -89,3 +89,10 @@ services:
     command: 'java -Dazi@rpg -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
     depends_on:
       - database
+  afk:
+    image: yukileafx/minecraft-alpine:latest
+    volumes:
+      - /opt/minecraft/afk:/app
+    command: 'java -Dazi@afk -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
+    depends_on:
+      - database
