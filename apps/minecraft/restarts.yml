@@ -25,3 +25,7 @@ services:
     restart: always
   rpg:
     restart: always
+  afk:
+    restart: always
+  fsw:
+    restart: always

@@ -37,3 +37,9 @@ services:
   rpg:
     environment:
       TZ: Asia/Tokyo
+  afk:
+    environment:
+      TZ: Asia/Tokyo
+  fsw:
+    environment:
+      TZ: Asia/Tokyo
