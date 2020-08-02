@@ -41,19 +41,6 @@ services:
     volumes:
       - ../../data/wordpress-mariadb:/var/lib/mysql
     command: --gdb
-  netdata:
-    image: netdata/netdata:v1.23.2
-    hostname: netdata.azisaba.net
-    cap_add:
-      - SYS_PTRACE
-    security_opt:
-      - apparmor:unconfined
-    volumes:
-      - /etc/passwd:/host/etc/passwd:ro
-      - /etc/group:/host/etc/group:ro
-      - /proc:/host/proc:ro
-      - /sys:/host/sys:ro
-      - /etc/os-release:/host/etc/os-release:ro
 
 secrets:
   certbot-dns-cloudflare:

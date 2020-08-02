@@ -13,6 +13,3 @@ services:
   mysql:
     environment:
       TZ: Asia/Tokyo
-  netdata:
-    environment:
-      TZ: Asia/Tokyo

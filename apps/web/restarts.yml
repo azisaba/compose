@@ -7,5 +7,3 @@ services:
     restart: always
   mysql:
     restart: always
-  netdata:
-    restart: always
