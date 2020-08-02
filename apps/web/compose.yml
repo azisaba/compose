@@ -8,7 +8,6 @@ services:
     volumes:
       - ../../data/letsencrypt:/etc/letsencrypt:ro
       - ../../data/wordpress:/var/www/html:ro
-      - ../../data/resourcepacks:/app/resourcepacks:ro
       - ./nginx/conf.d:/etc/nginx/conf.d:ro
     depends_on:
       - letsencrypt

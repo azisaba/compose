@@ -23,8 +23,6 @@ scripts/stop.sh
 |-- ./secrets
     |-- certbot-dns-cloudflare.ini <権限600、編集が必要>
 |-- ./data
-    |-- resourcepacks <権限777、追加が必要>
-        |-- *.zip <権限666>
     |-- letsencrypt [自動生成]
     |-- wordpress [自動生成]
     |-- wordpress-mysql [自動生成]
