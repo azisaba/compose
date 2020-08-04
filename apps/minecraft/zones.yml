@@ -43,3 +43,6 @@ services:
   fsw:
     environment:
       TZ: Asia/Tokyo
+  lgwf:
+    environment:
+      TZ: Asia/Tokyo
