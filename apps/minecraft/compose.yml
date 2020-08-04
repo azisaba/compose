@@ -75,6 +75,13 @@ services:
     command: 'java -Dazi@lgw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Dbungee=true -jar Yukkit.jar'
     depends_on:
       - database
+  lgwf:
+    image: yukileafx/minecraft-alpine:latest
+    volumes:
+      - /opt/minecraft/lgwf:/app
+    command: 'java -Dazi@lgwf -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Dbungee=true -jar Yukkit.jar'
+    depends_on:
+      - database
   chibi:
     image: yukileafx/minecraft-alpine:latest
     volumes:
