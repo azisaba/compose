@@ -29,3 +29,5 @@ services:
     restart: always
   fsw:
     restart: always
+  lgwf:
+    restart: always
