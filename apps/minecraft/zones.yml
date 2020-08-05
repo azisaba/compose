@@ -46,3 +46,6 @@ services:
   lgwf:
     environment:
       TZ: Asia/Tokyo
+  coretol:
+    environment:
+      TZ: Asia/Tokyo
