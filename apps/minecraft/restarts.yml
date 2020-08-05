@@ -31,3 +31,5 @@ services:
     restart: always
   lgwf:
     restart: always
+  coretol:
+    restart: always
