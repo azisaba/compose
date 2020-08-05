@@ -110,3 +110,10 @@ services:
     command: 'java -Dazi@fsw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
     depends_on:
       - database
+  coretol:
+    image: yukileafx/minecraft-alpine:latest
+    volumes:
+      - /opt/minecraft/coretol:/app
+    command: 'java -Dazi@coretol -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
+    depends_on:
+      - database
