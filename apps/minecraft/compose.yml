@@ -33,13 +33,6 @@ services:
     command: 'java -Dazi@lobby -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
     depends_on:
       - database
-  main:
-    image: yukileafx/minecraft-alpine:latest
-    volumes:
-      - /opt/minecraft/main:/app
-    command: 'java -Dazi@main -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
-    depends_on:
-      - database
   wave:
     image: yukileafx/minecraft-alpine:latest
     volumes:

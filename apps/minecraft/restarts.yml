@@ -9,8 +9,6 @@ services:
     restart: always
   lobby:
     restart: always
-  main:
-    restart: always
   wave:
     restart: always
   pvp:

@@ -13,9 +13,6 @@ services:
   lobby:
     environment:
       TZ: Asia/Tokyo
-  main:
-    environment:
-      TZ: Asia/Tokyo
   wave:
     environment:
       TZ: Asia/Tokyo
