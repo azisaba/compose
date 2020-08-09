@@ -1,9 +1,9 @@
 [![](https://badgen.net/twitter/follow/AzisabaNetwork?icon=twitter)](https://twitter.com/AzisabaNetwork)
 [![](https://discordapp.com/api/guilds/357134045328572418/widget.png)](https://discord.gg/seheC2W)
 
-[![](https://badgen.net/github/license/AzisabaNetwork/azifry?icon=libraries)](LICENSE)
-[![](https://badgen.net/github/checks/AzisabaNetwork/azifry?icon=github)](https://github.com/AzisabaNetwork/azifry/actions)
-[![](https://badgen.net/dependabot/AzisabaNetwork/azifry?icon=dependabot)](https://app.dependabot.com/accounts/AzisabaNetwork/repos/227227452)
+[![](https://badgen.net/github/license/AzisabaSystem/azifry?icon=libraries)](LICENSE)
+[![](https://badgen.net/github/checks/AzisabaSystem/azifry?icon=github)](https://github.com/AzisabaSystem/azifry/actions)
+[![](https://badgen.net/dependabot/AzisabaSystem/azifry?icon=dependabot)](https://app.dependabot.com/accounts/AzisabaSystem/repos/227227452)
 
 # アジ鯖で動作する軽量なDocker
 常識を覆せ
@@ -20,13 +20,9 @@ scripts/stop.sh
 
 ## 🔌 ファイルの構造
 ```go
-|-- ./secrets
-    |-- certbot-dns-cloudflare.ini <権限600、編集が必要>
 |-- ./data
-    |-- letsencrypt [自動生成]
-    |-- wordpress [自動生成]
-    |-- wordpress-mysql [自動生成]
     |-- minecraft-mysql [自動生成]
+    |-- minecraft-redis [自動生成]
 ```
 
 ## コマンド一覧

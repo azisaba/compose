@@ -1,15 +1,3 @@
 version: '3.7'
 
-services:
-  nginx:
-    environment:
-      TZ: Asia/Tokyo
-  letsencrypt:
-    environment:
-      TZ: Asia/Tokyo
-  wordpress:
-    environment:
-      TZ: Asia/Tokyo
-  mysql:
-    environment:
-      TZ: Asia/Tokyo
+services: {}
