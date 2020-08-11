@@ -1,9 +1,6 @@
 [![](https://badgen.net/twitter/follow/AzisabaNetwork?icon=twitter)](https://twitter.com/AzisabaNetwork)
 [![](https://discordapp.com/api/guilds/357134045328572418/widget.png)](https://discord.gg/seheC2W)
-
-[![](https://badgen.net/github/license/AzisabaSystem/azifry?icon=libraries)](LICENSE)
 [![](https://badgen.net/github/checks/AzisabaSystem/azifry?icon=github)](https://github.com/AzisabaSystem/azifry/actions)
-[![](https://badgen.net/dependabot/AzisabaSystem/azifry?icon=dependabot)](https://app.dependabot.com/accounts/AzisabaSystem/repos/227227452)
 
 # アジ鯖で動作する軽量なDocker
 常識を覆せ
