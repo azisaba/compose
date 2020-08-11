@@ -15,17 +15,10 @@ services:
     volumes:
       - ../../data/minecraft-redis:/data
   bungee:
-    image: yukileafx/minecraft-alpine:latest
+    image: yukileafx/azi-waterfall
     ports:
       - 8192:8192
       - 25565:25577
-    volumes:
-      - /opt/minecraft/bungee:/app
-    environment:
-      STOP_CMD: end
-    command: 'java -Dazi@bungee -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar Waterfall.jar'
-    depends_on:
-      - database
   lobby:
     image: yukileafx/minecraft-alpine:latest
     volumes:
