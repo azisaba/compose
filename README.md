@@ -39,8 +39,3 @@ scripts/stop.sh
 <web|mc> logs [Container...]   # 起動しているコンテナのログを表示
 <web|mc> screen <Container>    # コンテナにスクリーンが存在する場合は接続
 ```
-
-```bash
-sudo iotest  # ディスクIOの速度を測定
-speedtest    # ネットワークの速度を測定
-```
