@@ -25,8 +25,23 @@ scripts/stop.sh
     |-- minecraft-redis [自動生成]
 ```
 
-## コマンド一覧
+## インストール (Alpine)
+```bash
+git clone https://github.com/AzisabaSystem/azifry.git /srv/azifry
 
+ln -s /srv/azifry/scripts/start.sh /etc/local.d/azi.start
+ln -s /srv/azifry/scripts/stop.sh /etc/local.d/azi.stop
+
+rc-update add local default
+rc-service local start
+
+echo 'COMPOSE_FILE=apps/web/zones.yml:apps/web/restarts.yml:apps/web/compose.yml DIR=/srv/azifry bash /srv/azifry/scripts/command.sh $@' > /usr/local/bin/web
+chmod +x /usr/local/bin/web
+echo 'COMPOSE_FILE=apps/minecraft/zones.yml:apps/minecraft/restarts.yml:apps/minecraft/compose.yml DIR=/srv/azifry bash /srv/azifry/scripts/command.sh $@' > /usr/local/bin/mc
+chmod +x /usr/local/bin/mc
+```
+
+## コマンド一覧
 ```bash
 <web|mc> ls                    # 全コンテナを一覧表示
 <web|mc> ps                    # 起動中のコンテナを一覧表示
