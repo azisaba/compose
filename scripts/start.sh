@@ -18,7 +18,7 @@ docker_compose_random_up() {
 (
   cd "$root_dir"
 
-  export COMPOSE_FILE=apps/web/zones.yml:apps/web/restarts.yml:apps/web/compose.yml
+  export COMPOSE_FILE=web/docker-compose.yml
   docker-compose up -d
 
   export COMPOSE_FILE=apps/minecraft/zones.yml:apps/minecraft/restarts.yml:apps/minecraft/compose.yml

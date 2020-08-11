@@ -35,7 +35,7 @@ ln -s /srv/azifry/scripts/stop.sh /etc/local.d/azi.stop
 rc-update add local default
 rc-service local start
 
-echo 'COMPOSE_FILE=apps/web/zones.yml:apps/web/restarts.yml:apps/web/compose.yml DIR=/srv/azifry bash /srv/azifry/scripts/command.sh $@' > /usr/local/bin/web
+echo 'COMPOSE_FILE=web/docker-compose.yml DIR=/srv/azifry bash /srv/azifry/scripts/command.sh $@' > /usr/local/bin/web
 chmod +x /usr/local/bin/web
 echo 'COMPOSE_FILE=apps/minecraft/zones.yml:apps/minecraft/restarts.yml:apps/minecraft/compose.yml DIR=/srv/azifry bash /srv/azifry/scripts/command.sh $@' > /usr/local/bin/mc
 chmod +x /usr/local/bin/mc
