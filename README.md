@@ -37,7 +37,7 @@ rc-service local start
 
 echo 'COMPOSE_FILE=web/docker-compose.yml DIR=/srv/azifry bash /srv/azifry/scripts/command.sh $@' > /usr/local/bin/web
 chmod +x /usr/local/bin/web
-echo 'COMPOSE_FILE=apps/minecraft/zones.yml:apps/minecraft/restarts.yml:apps/minecraft/compose.yml DIR=/srv/azifry bash /srv/azifry/scripts/command.sh $@' > /usr/local/bin/mc
+echo 'COMPOSE_FILE=minecraft/docker-compose.yml DIR=/srv/azifry bash /srv/azifry/scripts/command.sh $@' > /usr/local/bin/mc
 chmod +x /usr/local/bin/mc
 ```
 

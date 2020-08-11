@@ -3,24 +3,35 @@ version: '3.7'
 services:
   database:
     image: mariadb:10.5.4-focal
+    restart: always
     ports:
       - 3306:3306
     environment:
+      TZ: Asia/Tokyo
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
       - ../../data/minecraft-mariadb:/var/lib/mysql
     command: --gdb --max-connections=1000
   mcredis:
     image: redis:6.0.6-alpine
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - ../../data/minecraft-redis:/data
   bungee:
     image: yukileafx/azi-waterfall
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     ports:
       - 8192:8192
       - 25565:25577
   lobby:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/lobby:/app
     command: 'java -Dazi@lobby -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
@@ -28,6 +39,9 @@ services:
       - database
   wave:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/wave:/app
     command: 'java -Dazi@wave -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Dbungee=true -jar Yukkit.jar'
@@ -35,6 +49,9 @@ services:
       - database
   pvp:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/pvp:/app
     command: 'java -Dazi@pvp -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
@@ -42,6 +59,9 @@ services:
       - database
   parkour:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/parkour:/app
     command: 'java -Dazi@parkour -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.13.2.jar'
@@ -49,6 +69,9 @@ services:
       - database
   life:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/life:/app
     command: 'java -Dazi@life -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
@@ -56,6 +79,9 @@ services:
       - database
   lgw:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/lgw:/app
     command: 'java -Dazi@lgw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Dbungee=true -jar Yukkit.jar'
@@ -63,6 +89,9 @@ services:
       - database
   lgwf:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/lgwf:/app
     command: 'java -Dazi@lgwf -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Dbungee=true -jar Yukkit.jar'
@@ -70,6 +99,9 @@ services:
       - database
   chibi:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/chibi:/app
     command: 'java -Dazi@chibi -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
@@ -77,6 +109,9 @@ services:
       - database
   rpg:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/rpg:/app
     command: 'java -Dazi@rpg -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
@@ -84,6 +119,9 @@ services:
       - database
   afk:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/afk:/app
     command: 'java -Dazi@afk -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
@@ -91,6 +129,9 @@ services:
       - database
   fsw:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/fsw:/app
     command: 'java -Dazi@fsw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
@@ -98,6 +139,9 @@ services:
       - database
   coretol:
     image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/coretol:/app
     command: 'java -Dazi@coretol -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'

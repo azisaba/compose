@@ -21,7 +21,7 @@ docker_compose_random_up() {
   export COMPOSE_FILE=web/docker-compose.yml
   docker-compose up -d
 
-  export COMPOSE_FILE=apps/minecraft/zones.yml:apps/minecraft/restarts.yml:apps/minecraft/compose.yml
+  export COMPOSE_FILE=minecraft/docker-compose.yml
   docker-compose up -d mcredis database bungee lobby
   docker_compose_random_up
 )
