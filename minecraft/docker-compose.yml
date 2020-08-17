@@ -147,3 +147,13 @@ services:
     command: 'java -Dazi@coretol -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
     depends_on:
       - database
+  event:
+    image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - /opt/minecraft/event:/app
+    command: 'java -Dazi@event -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.13.2.jar'
+    depends_on:
+      - database
