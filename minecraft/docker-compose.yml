@@ -20,7 +20,7 @@ services:
     volumes:
       - ../data/minecraft-redis:/data
   bungee:
-    image: yukileafx/azi-waterfall
+    image: azisaba/bungee
     restart: always
     environment:
       TZ: Asia/Tokyo
