@@ -10,7 +10,7 @@ services:
       TZ: Asia/Tokyo
       MYSQL_RANDOM_ROOT_PASSWORD: '1'
     volumes:
-      - ../data/minecraft-mariadb:/var/lib/mysql
+      - ./data/minecraft-mariadb:/var/lib/mysql
     command: --gdb --max-connections=1000
   mcredis:
     image: redis:6.0.6-alpine
@@ -18,7 +18,7 @@ services:
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - ../data/minecraft-redis:/data
+      - ./data/minecraft-redis:/data
   bungee:
     image: azisaba/bungee
     restart: always

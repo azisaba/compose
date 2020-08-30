@@ -8,6 +8,5 @@ root_dir=$(realpath "$script_dir"/..)
 (
   cd "$root_dir"
 
-  export COMPOSE_FILE=minecraft/docker-compose.yml
   docker-compose down
 )

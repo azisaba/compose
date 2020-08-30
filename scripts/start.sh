@@ -18,7 +18,6 @@ docker_compose_random_up() {
 (
   cd "$root_dir"
 
-  export COMPOSE_FILE=minecraft/docker-compose.yml
   docker-compose up -d mcredis database bungee lobby
   docker_compose_random_up
 )

@@ -32,7 +32,7 @@ ln -s /srv/azifry/scripts/stop.sh /etc/local.d/azi.stop
 rc-update add local default
 rc-service local start
 
-echo 'COMPOSE_FILE=minecraft/docker-compose.yml DIR=/srv/azifry bash /srv/azifry/scripts/command.sh $@' > /usr/local/bin/mc
+echo 'DIR=/srv/azifry bash /srv/azifry/scripts/command.sh $@' > /usr/local/bin/mc
 chmod +x /usr/local/bin/mc
 ```
 

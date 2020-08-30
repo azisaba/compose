@@ -15,6 +15,6 @@
 
   export IFS='|'
   for cmd in $cmds; do
-    eval sudo COMPOSE_FILE="$COMPOSE_FILE" docker-compose "$cmd"
+    eval sudo docker-compose "$cmd"
   done
 )
