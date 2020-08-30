@@ -8,5 +8,5 @@ root_dir=$(realpath "$script_dir"/..)
 (
   cd "$root_dir"
 
-  docker-compose down
+  docker-compose down --timeout 60
 )
