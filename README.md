@@ -1,6 +1,6 @@
 [![](https://badgen.net/twitter/follow/AzisabaNetwork?icon=twitter)](https://twitter.com/AzisabaNetwork)
 [![](https://discordapp.com/api/guilds/357134045328572418/widget.png)](https://discord.gg/seheC2W)
-[![](https://badgen.net/github/checks/AzisabaSystem/azifry?icon=github)](https://github.com/AzisabaSystem/azifry/actions)
+[![](https://badgen.net/github/checks/AzisabaNetwork/azifry?icon=github)](https://github.com/AzisabaNetwork/azifry/actions)
 
 # アジ鯖で動作する軽量なDocker
 常識を覆せ
@@ -24,7 +24,7 @@ scripts/stop.sh
 
 ## インストール (Alpine)
 ```bash
-git clone https://github.com/AzisabaSystem/azifry.git /srv/azifry
+git clone https://github.com/AzisabaNetwork/azifry.git /srv/azifry
 
 ln -s /srv/azifry/scripts/start.sh /etc/local.d/azi.start
 ln -s /srv/azifry/scripts/stop.sh /etc/local.d/azi.stop
