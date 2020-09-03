@@ -28,15 +28,13 @@ services:
       - 8192:8192
       - 25565:25577
   lobby:
-    image: yukileafx/minecraft-alpine:latest
+    image: azisaba/lobby:latest
     restart: always
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - /opt/minecraft/lobby:/app
-    command: 'java -Dazi@lobby -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
-    depends_on:
-      - database
+      - ./worlds/lobby_world:/app/world
+      - ./worlds/lobby_lobby:/app/lobby
   wave:
     image: yukileafx/minecraft-alpine:latest
     restart: always
