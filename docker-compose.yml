@@ -20,7 +20,7 @@ services:
     volumes:
       - ./data/minecraft-redis:/data
   bungee:
-    image: azisaba/bungee
+    image: ghcr.io/azisaba/bungee
     restart: always
     environment:
       TZ: Asia/Tokyo
