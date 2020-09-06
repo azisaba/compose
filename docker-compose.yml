@@ -28,7 +28,7 @@ services:
       - 8192:8192
       - 25565:25577
   lobby:
-    image: azisaba/lobby:latest
+    image: ghcr.io/azisaba/lobby
     restart: always
     environment:
       TZ: Asia/Tokyo

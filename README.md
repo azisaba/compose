@@ -20,6 +20,9 @@ scripts/stop.sh
 |-- ./data
     |-- minecraft-mysql [自動生成]
     |-- minecraft-redis [自動生成]
+|-- ./worlds
+    |-- lobby_world [必須]
+    |-- lobby_lobby [必須]
 ```
 
 ## インストール (Alpine)
