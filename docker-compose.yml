@@ -155,3 +155,13 @@ services:
     command: 'java -Dazi@event -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.13.2.jar'
     depends_on:
       - database
+  mksrv:
+    image: yukileafx/minecraft-alpine:latest
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+    volumes:
+      - /opt/minecraft/mksrv:/app
+    command: 'java -Dazi@event -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.16.2.jar'
+    depends_on:
+      - database
