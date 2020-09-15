@@ -42,7 +42,7 @@ services:
       TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/wave:/app
-    command: 'java -Dazi@wave -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Dbungee=true -jar Yukkit.jar'
+    command: 'java -Dazi@wave -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
     depends_on:
       - database
   pvp:
