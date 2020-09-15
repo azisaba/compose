@@ -82,7 +82,7 @@ services:
       TZ: Asia/Tokyo
     volumes:
       - /opt/minecraft/lgw:/app
-    command: 'java -Dazi@lgw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -Dbungee=true -jar Yukkit.jar'
+    command: 'java -Dazi@lgw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
     depends_on:
       - database
   lgwf:
