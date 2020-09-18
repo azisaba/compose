@@ -35,14 +35,14 @@ services:
     volumes:
       - ./worlds/lobby_world:/app/world
       - ./worlds/lobby_lobby:/app/lobby
-  wave:
+  rzh:
     image: yukileafx/minecraft-alpine:latest
     restart: always
     environment:
       TZ: Asia/Tokyo
     volumes:
-      - /opt/minecraft/wave:/app
-    command: 'java -Dazi@wave -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
+      - /opt/minecraft/rzh:/app
+    command: 'java -Dazi@rzh -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
     depends_on:
       - database
   pvp:
