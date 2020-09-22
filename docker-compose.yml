@@ -62,25 +62,7 @@ services:
   chibi: { image: adoptopenjdk:14-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/chibi:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@chibi -jar paper-1.15.2.jar }
   rpg: { image: adoptopenjdk:14-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/rpg:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@rpg -jar paper-1.15.2.jar }
   afk: { image: adoptopenjdk:8-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/afk:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@afk -jar paper-1.8.8.jar }
-  fsw:
-    image: yukileafx/minecraft-alpine:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - /opt/minecraft/fsw:/app
-    command: 'java -Dazi@fsw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
-    depends_on:
-      - database
-  coretol:
-    image: yukileafx/minecraft-alpine:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - /opt/minecraft/coretol:/app
-    command: 'java -Dazi@coretol -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
-    depends_on:
-      - database
-  event: { image: adoptopenjdk:13-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/event:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dazi@event -jar paper-1.13.2.jar }
-  mksrv: { image: adoptopenjdk:14-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/mksrv:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dazi@mksrv -jar paper-1.16.2.jar }
+  fsw: { image: adoptopenjdk:14-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/fsw:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@fsw -jar paper-1.12.2.jar }
+  coretol: { image: adoptopenjdk:14-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/coretol:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@coretol -jar paper-1.15.2.jar }
+  event: { image: adoptopenjdk:13-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/event:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@event -jar paper-1.13.2.jar }
+  mksrv: { image: adoptopenjdk:14-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/mksrv:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@mksrv -jar paper-1.16.2.jar }
