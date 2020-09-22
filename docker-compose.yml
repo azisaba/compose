@@ -35,16 +35,7 @@ services:
     volumes:
       - ./worlds/lobby_world:/app/world
       - ./worlds/lobby_lobby:/app/lobby
-  rzh:
-    image: yukileafx/minecraft-alpine:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - /opt/minecraft/rzh:/app
-    command: 'java -Dazi@rzh -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
-    depends_on:
-      - database
+  rzh: { image: adoptopenjdk:8-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/rzh:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@rzh -jar paper-1.12.2.jar }
   pvp:
     image: yukileafx/minecraft-alpine:latest
     restart: always
@@ -55,7 +46,7 @@ services:
     command: 'java -Dazi@pvp -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
     depends_on:
       - database
-  parkour: { image: adoptopenjdk:12-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/parkour:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@parkour -jar paper-1.13.2.jar }
+  parkour: { image: adoptopenjdk:13-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/parkour:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@parkour -jar paper-1.13.2.jar }
   life:
     image: yukileafx/minecraft-alpine:latest
     restart: always
@@ -76,7 +67,7 @@ services:
     command: 'java -Dazi@lgw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
     depends_on:
       - database
-  lgwf: { image: adoptopenjdk:12-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/lgwf:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@lgwf -jar paper-1.14.4.jar }
+  lgwf: { image: adoptopenjdk:13-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/lgwf:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@lgwf -jar paper-1.14.4.jar }
   chibi:
     image: yukileafx/minecraft-alpine:latest
     restart: always
