@@ -82,23 +82,5 @@ services:
     command: 'java -Dazi@coretol -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
     depends_on:
       - database
-  event:
-    image: yukileafx/minecraft-alpine:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - /opt/minecraft/event:/app
-    command: 'java -Dazi@event -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.13.2.jar'
-    depends_on:
-      - database
-  mksrv:
-    image: yukileafx/minecraft-alpine:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - /opt/minecraft/mksrv:/app
-    command: 'java -Dazi@event -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.16.2.jar'
-    depends_on:
-      - database
+  event: { image: adoptopenjdk:13-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/event:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dazi@event -jar paper-1.13.2.jar }
+  mksrv: { image: adoptopenjdk:14-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/mksrv:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dazi@mksrv -jar paper-1.16.2.jar }
