@@ -59,25 +59,15 @@ services:
     volumes: [ /opt/minecraft/parkour:/app ]
     command: java -Dlegacy@parkour -jar paper-1.13.2.jar
   life:
-    image: yukileafx/minecraft-alpine:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - /opt/minecraft/life:/app
-    command: 'java -Dazi@life -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
-    depends_on:
-      - database
+    <<: *legacy-server
+    image: adoptopenjdk:14-jre-hotspot
+    volumes: [ /opt/minecraft/life:/app ]
+    command: java -Dlegacy@life -jar paper-1.15.2.jar
   lgw:
-    image: yukileafx/minecraft-alpine:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - /opt/minecraft/lgw:/app
-    command: 'java -Dazi@lgw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
-    depends_on:
-      - database
+    <<: *legacy-server
+    image: adoptopenjdk:14-jre-hotspot
+    volumes: [ /opt/minecraft/lgw:/app ]
+    command: java -Dlegacy@lgw -jar paper-1.12.2.jar
   lgwf:
     <<: *legacy-server
     image: adoptopenjdk:13-jre-hotspot
