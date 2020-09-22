@@ -45,7 +45,7 @@ services:
       - ./worlds/lobby_lobby:/app/lobby
   rzh:
     <<: *legacy-server
-    image: openjdk:8
+    image: openjdk:15
     volumes: [ /opt/minecraft/rzh:/app ]
     command: java -Dlegacy@rzh -jar paper-1.12.2.jar
   pvp:
@@ -107,4 +107,4 @@ services:
     <<: *legacy-server
     image: openjdk:15
     volumes: [ /opt/minecraft/mksrv:/app ]
-    command: java -Dlegacy@mksrv -jar paper-1.16.2.jar
+    command: java -Dlegacy@mksrv -jar paper-1.16.3.jar
