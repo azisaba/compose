@@ -1,5 +1,13 @@
 version: '3.7'
 
+x-legacy-server: &legacy-server
+  restart: always
+  environment:
+    TZ: Asia/Tokyo
+  working_dir: /app
+  tty: true
+  stop_signal: SIGINT
+
 services:
   database:
     image: mariadb:10.5.4-focal
@@ -35,7 +43,7 @@ services:
     volumes:
       - ./worlds/lobby_world:/app/world
       - ./worlds/lobby_lobby:/app/lobby
-  rzh: { image: adoptopenjdk:8-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/rzh:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@rzh -jar paper-1.12.2.jar }
+  rzh: { <<: *legacy-server, image: adoptopenjdk:8-jre-hotspot, volumes: [ /opt/minecraft/rzh:/app ], command: java -Dlegacy@rzh -jar paper-1.12.2.jar }
   pvp: { image: adoptopenjdk:8-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/pvp:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@pvp -jar paper-1.8.8.jar }
   parkour: { image: adoptopenjdk:13-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/parkour:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@parkour -jar paper-1.13.2.jar }
   life:
