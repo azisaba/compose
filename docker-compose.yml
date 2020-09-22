@@ -43,9 +43,21 @@ services:
     volumes:
       - ./worlds/lobby_world:/app/world
       - ./worlds/lobby_lobby:/app/lobby
-  rzh: { <<: *legacy-server, image: adoptopenjdk:8-jre-hotspot, volumes: [ /opt/minecraft/rzh:/app ], command: java -Dlegacy@rzh -jar paper-1.12.2.jar }
-  pvp: { <<: *legacy-server, image: adoptopenjdk:8-jre-hotspot, volumes: [ /opt/minecraft/pvp:/app ], command: java -Dlegacy@pvp -jar paper-1.8.8.jar }
-  parkour: { <<: *legacy-server, image: adoptopenjdk:13-jre-hotspot, volumes: [ /opt/minecraft/parkour:/app ], command: java -Dlegacy@parkour -jar paper-1.13.2.jar }
+  rzh:
+    <<: *legacy-server
+    image: adoptopenjdk:8-jre-hotspot
+    volumes: [ /opt/minecraft/rzh:/app ]
+    command: java -Dlegacy@rzh -jar paper-1.12.2.jar
+  pvp:
+    <<: *legacy-server
+    image: adoptopenjdk:8-jre-hotspot
+    volumes: [ /opt/minecraft/pvp:/app ]
+    command: java -Dlegacy@pvp -jar paper-1.8.8.jar
+  parkour:
+    <<: *legacy-server
+    image: adoptopenjdk:13-jre-hotspot
+    volumes: [ /opt/minecraft/parkour:/app ]
+    command: java -Dlegacy@parkour -jar paper-1.13.2.jar
   life:
     image: yukileafx/minecraft-alpine:latest
     restart: always
@@ -66,11 +78,43 @@ services:
     command: 'java -Dazi@lgw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
     depends_on:
       - database
-  lgwf: { <<: *legacy-server, image: adoptopenjdk:13-jre-hotspot, volumes: [ /opt/minecraft/lgwf:/app ], command: java -Dlegacy@lgwf -jar paper-1.14.4.jar }
-  chibi: { <<: *legacy-server, image: adoptopenjdk:14-jre-hotspot, volumes: [ /opt/minecraft/chibi:/app ], command: java -Dlegacy@chibi -jar paper-1.15.2.jar }
-  rpg: { <<: *legacy-server, image: adoptopenjdk:14-jre-hotspot, volumes: [ /opt/minecraft/rpg:/app ], command: java -Dlegacy@rpg -jar paper-1.15.2.jar }
-  afk: { <<: *legacy-server, image: adoptopenjdk:8-jre-hotspot, volumes: [ /opt/minecraft/afk:/app ], command: java -Dlegacy@afk -jar paper-1.8.8.jar }
-  fsw: { <<: *legacy-server, image: adoptopenjdk:14-jre-hotspot, volumes: [ /opt/minecraft/fsw:/app ], command: java -Dlegacy@fsw -jar paper-1.12.2.jar }
-  coretol: { <<: *legacy-server, image: adoptopenjdk:14-jre-hotspot, volumes: [ /opt/minecraft/coretol:/app ], command: java -Dlegacy@coretol -jar paper-1.15.2.jar }
-  event: { <<: *legacy-server, image: adoptopenjdk:13-jre-hotspot, volumes: [ /opt/minecraft/event:/app ], command: java -Dlegacy@event -jar paper-1.13.2.jar }
-  mksrv: { <<: *legacy-server, image: adoptopenjdk:14-jre-hotspot, volumes: [ /opt/minecraft/mksrv:/app ], command: java -Dlegacy@mksrv -jar paper-1.16.2.jar }
+  lgwf:
+    <<: *legacy-server
+    image: adoptopenjdk:13-jre-hotspot
+    volumes: [ /opt/minecraft/lgwf:/app ]
+    command: java -Dlegacy@lgwf -jar paper-1.14.4.jar
+  chibi:
+    <<: *legacy-server
+    image: adoptopenjdk:14-jre-hotspot
+    volumes: [ /opt/minecraft/chibi:/app ]
+    command: java -Dlegacy@chibi -jar paper-1.15.2.jar
+  rpg:
+    <<: *legacy-server
+    image: adoptopenjdk:14-jre-hotspot
+    volumes: [ /opt/minecraft/rpg:/app ]
+    command: java -Dlegacy@rpg -jar paper-1.15.2.jar
+  afk:
+    <<: *legacy-server
+    image: adoptopenjdk:8-jre-hotspot
+    volumes: [ /opt/minecraft/afk:/app ]
+    command: java -Dlegacy@afk -jar paper-1.8.8.jar
+  fsw:
+    <<: *legacy-server
+    image: adoptopenjdk:14-jre-hotspot
+    volumes: [ /opt/minecraft/fsw:/app ]
+    command: java -Dlegacy@fsw -jar paper-1.12.2.jar
+  coretol:
+    <<: *legacy-server
+    image: adoptopenjdk:14-jre-hotspot
+    volumes: [ /opt/minecraft/coretol:/app ]
+    command: java -Dlegacy@coretol -jar paper-1.15.2.jar
+  event:
+    <<: *legacy-server
+    image: adoptopenjdk:13-jre-hotspot
+    volumes: [ /opt/minecraft/event:/app ]
+    command: java -Dlegacy@event -jar paper-1.13.2.jar
+  mksrv:
+    <<: *legacy-server
+    image: adoptopenjdk:14-jre-hotspot
+    volumes: [ /opt/minecraft/mksrv:/app ]
+    command: java -Dlegacy@mksrv -jar paper-1.16.2.jar
