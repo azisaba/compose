@@ -55,16 +55,7 @@ services:
     command: 'java -Dazi@pvp -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
     depends_on:
       - database
-  parkour:
-    image: yukileafx/minecraft-alpine:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - /opt/minecraft/parkour:/app
-    command: 'java -Dazi@parkour -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.13.2.jar'
-    depends_on:
-      - database
+  parkour: { image: adoptopenjdk:12-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/parkour:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@parkour -jar paper-1.13.2.jar }
   life:
     image: yukileafx/minecraft-alpine:latest
     restart: always
@@ -85,16 +76,7 @@ services:
     command: 'java -Dazi@lgw -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.12.2.jar'
     depends_on:
       - database
-  lgwf:
-    image: yukileafx/minecraft-alpine:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - /opt/minecraft/lgwf:/app
-    command: 'java -Dazi@lgwf -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.14.4.jar'
-    depends_on:
-      - database
+  lgwf: { image: adoptopenjdk:12-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/lgwf:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@lgwf -jar paper-1.14.4.jar }
   chibi:
     image: yukileafx/minecraft-alpine:latest
     restart: always
