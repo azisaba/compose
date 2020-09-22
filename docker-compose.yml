@@ -36,16 +36,7 @@ services:
       - ./worlds/lobby_world:/app/world
       - ./worlds/lobby_lobby:/app/lobby
   rzh: { image: adoptopenjdk:8-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/rzh:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@rzh -jar paper-1.12.2.jar }
-  pvp:
-    image: yukileafx/minecraft-alpine:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - /opt/minecraft/pvp:/app
-    command: 'java -Dazi@pvp -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.8.8.jar'
-    depends_on:
-      - database
+  pvp: { image: adoptopenjdk:8-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/pvp:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@pvp -jar paper-1.8.8.jar }
   parkour: { image: adoptopenjdk:13-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/parkour:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@parkour -jar paper-1.13.2.jar }
   life:
     image: yukileafx/minecraft-alpine:latest
@@ -68,16 +59,7 @@ services:
     depends_on:
       - database
   lgwf: { image: adoptopenjdk:13-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/lgwf:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@lgwf -jar paper-1.14.4.jar }
-  chibi:
-    image: yukileafx/minecraft-alpine:latest
-    restart: always
-    environment:
-      TZ: Asia/Tokyo
-    volumes:
-      - /opt/minecraft/chibi:/app
-    command: 'java -Dazi@chibi -XX:+UseShenandoahGC -XX:ShenandoahGCHeuristics=compact -jar paper-1.15.2.jar'
-    depends_on:
-      - database
+  chibi: { image: adoptopenjdk:14-jre-hotspot, restart: always, environment: { TZ: Asia/Tokyo }, volumes: [ /opt/minecraft/chibi:/app ], working_dir: /app, tty: true, stop_signal: SIGINT, command: java -Dlegacy@chibi -jar paper-1.15.2.jar }
   rpg:
     image: yukileafx/minecraft-alpine:latest
     restart: always
