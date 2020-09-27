@@ -96,7 +96,7 @@ services:
   coretol:
     <<: *legacy-server
     image: openjdk:14
-    volumes: [ /opt/minecraft/coretol:/app ]
+    volumes: [ /opt/minecraft/coretol/season1:/app ]
     command: java -Dlegacy@coretol -jar paper-1.15.2.jar
   event:
     <<: *legacy-server
