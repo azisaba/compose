@@ -128,3 +128,8 @@ services:
     image: openjdk:13
     volumes: [ /opt/minecraft/sclattest:/app ]
     command: java -Dlegacy@mksrv -jar server.jar
+  lifebuild:
+    <<: *legacy-server
+    image: openjdk:14
+    volumes: [ /opt/minecraft/lifebuild:/app ]
+    command: java -Dlegacy@life -jar paper-1.15.2.jar
