@@ -71,7 +71,7 @@ services:
     depends_on: [ database, mcredis ]
   lgw:
     <<: *legacy-server
-    image: openjdk:15
+    image: openjdk:8
     volumes: [ /opt/minecraft/lgw:/app ]
     command: java -Dlegacy@lgw -jar paper-1.12.2.jar
     depends_on: [ database ]
