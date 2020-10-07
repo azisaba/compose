@@ -35,6 +35,7 @@ services:
     ports:
       - 8192:8192
       - 25565:25577
+    depends_on: [ database ]
   lobby:
     image: ghcr.io/azisaba/lobby
     restart: always
@@ -43,66 +44,79 @@ services:
     volumes:
       - ./worlds/lobby_world:/app/world
       - ./worlds/lobby_lobby:/app/lobby
+    depends_on: [ database ]
   rzh:
     <<: *legacy-server
     image: openjdk:15
     volumes: [ /opt/minecraft/rzh:/app ]
     command: java -Dlegacy@rzh -jar paper-1.12.2.jar
+    depends_on: [ database ]
   pvp:
     <<: *legacy-server
     image: openjdk:8
     volumes: [ /opt/minecraft/pvp:/app ]
     command: java -Dlegacy@pvp -jar paper-1.8.8.jar
+    depends_on: [ database ]
   parkour:
     <<: *legacy-server
     image: openjdk:13
     volumes: [ /opt/minecraft/parkour:/app ]
     command: java -Dlegacy@parkour -jar paper-1.13.2.jar
+    depends_on: [ database ]
   life:
     <<: *legacy-server
     image: openjdk:14
     volumes: [ /opt/minecraft/life:/app ]
     command: java -Dlegacy@life -jar paper-1.15.2.jar
+    depends_on: [ database, redis ]
   lgw:
     <<: *legacy-server
     image: openjdk:15
     volumes: [ /opt/minecraft/lgw:/app ]
     command: java -Dlegacy@lgw -jar paper-1.12.2.jar
+    depends_on: [ database ]
   lgwf:
     <<: *legacy-server
     image: openjdk:13
     volumes: [ /opt/minecraft/lgwf:/app ]
     command: java -Dlegacy@lgwf -jar paper-1.14.4.jar
+    depends_on: [ database ]
   chibi:
     <<: *legacy-server
     image: openjdk:14
     volumes: [ /opt/minecraft/chibi:/app ]
     command: java -Dlegacy@chibi -jar paper-1.15.2.jar
+    depends_on: [ database ]
   rpg:
     <<: *legacy-server
     image: openjdk:14
     volumes: [ /opt/minecraft/rpg:/app ]
     command: java -Dlegacy@rpg -jar paper-1.15.2.jar
+    depends_on: [ database ]
   afk:
     <<: *legacy-server
     image: openjdk:8
     volumes: [ /opt/minecraft/afk:/app ]
     command: java -Dlegacy@afk -jar paper-1.8.8.jar
+    depends_on: [ database ]
   fsw:
     <<: *legacy-server
     image: openjdk:15
     volumes: [ /opt/minecraft/fsw:/app ]
     command: java -Dlegacy@fsw -jar paper-1.12.2.jar
+    depends_on: [ database ]
   coretol:
     <<: *legacy-server
     image: openjdk:14
     volumes: [ /opt/minecraft/coretol/season1:/app ]
     command: java -Dlegacy@coretol -jar paper-1.15.2.jar
+    depends_on: [ database ]
   event:
     <<: *legacy-server
     image: openjdk:13
     volumes: [ /opt/minecraft/event:/app ]
     command: java -Dlegacy@event -jar paper-1.13.2.jar
+    depends_on: [ database ]
   mksrv:
     <<: *legacy-server
     image: openjdk:15
@@ -133,3 +147,4 @@ services:
     image: openjdk:14
     volumes: [ /opt/minecraft/lifebuild:/app ]
     command: java -Dlegacy@life -jar paper-1.15.2.jar
+    depends_on: [ database ]
