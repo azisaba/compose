@@ -68,7 +68,7 @@ services:
     image: openjdk:14
     volumes: [ /opt/minecraft/life:/app ]
     command: java -Dlegacy@life -jar paper-1.15.2.jar
-    depends_on: [ database, redis ]
+    depends_on: [ database, mcredis ]
   lgw:
     <<: *legacy-server
     image: openjdk:15
