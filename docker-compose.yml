@@ -126,25 +126,31 @@ services:
     <<: *legacy-server
     image: openjdk:13
     volumes: [ /opt/minecraft/sclat:/app ]
-    command: java -Dlegacy@mksrv -jar server.jar
+    command: java -Dlegacy@msclat -jar server.jar
   sclatsv1:
     <<: *legacy-server
     image: openjdk:13
     volumes: [ /opt/minecraft/sclatsv1:/app ]
-    command: java -Dlegacy@mksrv -jar server.jar
+    command: java -Dlegacy@sclatsv1 -jar server.jar
   sclatsv2:
     <<: *legacy-server
     image: openjdk:13
     volumes: [ /opt/minecraft/sclatsv2:/app ]
-    command: java -Dlegacy@mksrv -jar server.jar
+    command: java -Dlegacy@sclatsv2 -jar server.jar
   sclattest:
     <<: *legacy-server
     image: openjdk:13
     volumes: [ /opt/minecraft/sclattest:/app ]
-    command: java -Dlegacy@mksrv -jar server.jar
+    command: java -Dlegacy@sclattest -jar server.jar
   lifebuild:
     <<: *legacy-server
     image: openjdk:14
     volumes: [ /opt/minecraft/lifebuild:/app ]
-    command: java -Dlegacy@life -jar paper-1.15.2.jar
+    command: java -Dlegacy@lifebuild -jar paper-1.15.2.jar
+    depends_on: [ database ]
+  mts:
+    <<: *legacy-server
+    image: openjdk:14
+    volumes: [ /opt/minecraft/mts:/app ]
+    command: java -Dlegacy@mts -jar paper-1.15.2.jar
     depends_on: [ database ]
