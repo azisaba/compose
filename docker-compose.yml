@@ -158,3 +158,9 @@ services:
     volumes: [ /opt/minecraft/mts:/app ]
     command: java -Dlegacy@mts -jar paper-1.15.2.jar
     depends_on: [ database ]
+  conquest:
+    <<: *legacy-server
+    image: openjdk:14
+    volumes: [ /opt/minecraft/conquest:/app ]
+    command: java -Dlegacy@conquest -jar paper-1.14.4.jar
+    depends_on: [ database ]
