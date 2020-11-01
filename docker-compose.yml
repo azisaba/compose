@@ -160,7 +160,7 @@ services:
     depends_on: [ database ]
   conquest:
     <<: *legacy-server
-    image: openjdk:14
+    image: openjdk:13
     volumes: [ /opt/minecraft/conquest:/app ]
     command: java -Dlegacy@conquest -jar paper-1.14.4.jar
     depends_on: [ database ]
