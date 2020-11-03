@@ -146,6 +146,12 @@ services:
     volumes: [ /opt/minecraft/sclattest:/app ]
     command: java -Dlegacy@sclattest -jar paper-1.13.2.jar
     depends_on: [ database ]
+  sclattutorial:
+    <<: *legacy-server
+    image: openjdk:13
+    volumes: [ /opt/minecraft/sclattutorial:/app ]
+    command: java -Dlegacy@sclattutorial -jar paper-1.13.2.jar
+    depends_on: [ database ]
   lifebuild:
     <<: *legacy-server
     image: openjdk:14
