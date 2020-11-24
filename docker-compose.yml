@@ -16,6 +16,7 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: 1 # rootパスワードを自動生成する
     volumes:
       - ./save/mariadb:/var/lib/mysql
+      - ./initdb.d:/docker-entrypoint-initdb.d
     command: --max-connections=1000 # 最大コネクション数を増やしてLuckPermsの接続エラー対策をする
   azisaba-redis:
     <<: *global
