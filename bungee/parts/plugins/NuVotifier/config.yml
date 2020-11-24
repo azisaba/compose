@@ -1,0 +1,5 @@
+tokens:
+  default: unngqi2k9rre0euofvcpbu5b8v
+
+forwarding:
+  method: pluginMessaging

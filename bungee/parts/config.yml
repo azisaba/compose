@@ -1,0 +1,64 @@
+ip_forward: true
+log_commands: true
+
+listeners:
+  - query_port: 25577
+    proxy_protocol: true
+    max_players: 2020
+    force_default_server: true
+    priorities:
+      - lobby
+
+servers:
+  lobby:
+    motd: |2-
+                 &4&nAzisaba Network&r &7[&a1.8.x-1.16.4&7]
+              &fアジ鯖、たのしい。 &7| &oPowered by &bDDPS
+    address: lobby:25565
+  parkour:
+    address: parkour:25565
+  event:
+    address: event:25565
+  lgw:
+    address: lgw:25565
+  rzh:
+    address: rzh:25565
+  pvp:
+    address: pvp:25565
+  life:
+    address: life:25565
+  chibi:
+    address: chibi:25565
+  afk:
+    address: afk:25565
+  fsw:
+    address: fsw:25565
+  lgwf:
+    address: lgwf:25565
+  coretol:
+    address: coretol:25565
+  mksrv:
+    address: mksrv:25565
+  sclat:
+    address: sclat:25565
+  sclatsv1:
+    address: sclatsv1:25565
+  sclatsv2:
+    address: sclatsv2:25565
+  sclattest:
+    address: sclattest:25565
+  sclattutorial:
+    address: sclattutorial:25565
+  lifebuild:
+    address: lifebuild:25565
+  mts:
+    address: mts:25565
+  conquest:
+    address: conquest:25565
+
+  casino:
+    address: 192.168.3.101:25565
+  hh:
+    address: 192.168.3.101:25566
+  debug:
+    address: 192.168.3.104:25565

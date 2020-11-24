@@ -1,0 +1,27 @@
+UseMySQL: true
+
+MySQL:
+  IP: azisaba-mariadb
+  DB-Name: advancedban
+  Username: advancedban
+  Password: '8MZvbb$pnQ7w)U|'
+
+WarnActions:
+  3: "tempban %PLAYER% 1mo &c&o警告が3個溜まったので自動的に1か月BANされました。"
+  4: "tempban %PLAYER% 1mo &c&o警告が4個溜まったので自動的に1か月BANされました。"
+  5: "tempban %PLAYER% 1mo &c&o警告が5個溜まったので自動的に1か月BANされました。"
+  6: "tempban %PLAYER% 1mo &c&o警告が6個溜まったので自動的に1か月BANされました。"
+  7: "tempban %PLAYER% 1mo &c&o警告が7個溜まったので自動的に1か月BANされました。"
+  8: "tempban %PLAYER% 1mo &c&o警告が8個溜まったので自動的に1か月BANされました。"
+  9: "tempban %PLAYER% 1mo &c&o警告が9個溜まったので自動的に1か月BANされました。"
+  10: "tempban %PLAYER% 1mo &c&o警告が10個溜まったので自動的に1か月BANされました。"
+  11: "tempban %PLAYER% 1mo &c&o警告が11個溜まったので自動的に1か月BANされました。"
+  12: "tempban %PLAYER% 1mo &c&o警告が12個溜まったので自動的に1か月BANされました。"
+  13: "tempban %PLAYER% 1mo &c&o警告が13個溜まったので自動的に1か月BANされました。"
+  14: "tempban %PLAYER% 1mo &c&o警告が14個溜まったので自動的に1か月BANされました。"
+  15: "tempban %PLAYER% 1mo &c&o警告が15個溜まったので自動的に1か月BANされました。"
+  16: "tempban %PLAYER% 1mo &c&o警告が16個溜まったので自動的に1か月BANされました。"
+  17: "tempban %PLAYER% 1mo &c&o警告が17個溜まったので自動的に1か月BANされました。"
+  18: "tempban %PLAYER% 1mo &c&o警告が18個溜まったので自動的に1か月BANされました。"
+  19: "tempban %PLAYER% 1mo &c&o警告が19個溜まったので自動的に1か月BANされました。"
+  20: "tempban %PLAYER% 1mo &c&o警告が20個溜まったので自動的に1か月BANされました。"

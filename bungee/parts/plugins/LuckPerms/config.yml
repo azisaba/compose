@@ -1,0 +1,7 @@
+storage-method: mariadb
+
+data:
+  address: azisaba-mariadb
+  database: azisaba_luckperms
+  username: luckperms
+  password: '/Le,-Fy3a$ma.yG'
