@@ -1,0 +1,165 @@
+showTo: all
+priority: 4
+showHeaderFooter: true
+
+header:
+  - |-
+    &7ようこそ、 &f${viewer name} &7さん！
+    &8------------------------------------------------
+    &7PING: ${ping} &7ms
+    &7TPS: ${tps} &7/ 20.00
+    &7オンラインプレイヤー: &a${playerset:current size} &7/ ${playerset:global size}
+    &7現在地: &f${viewer server} &7- ${viewer world}${header_duration}${header_team}${header_money}${header_debug}
+    &8------------------------------------------------
+headerAnimationUpdateInterval: 5.0
+
+footer:
+  - "_"
+  - "A_"
+  - "Az_"
+  - "Azi_"
+  - "Azis_"
+  - "Azisa_"
+  - "Azisab_"
+  - "Azisaba_"
+  - "Azisaba _"
+  - "Azisaba N_"
+  - "Azisaba Ne_"
+  - "Azisaba Net_"
+  - "Azisaba Netw_"
+  - "Azisaba Netwo_"
+  - "Azisaba Networ_"
+  - "Azisaba Network_"
+  - "&0Azisaba Network"
+  - "&1Azisaba Network"
+  - "&2Azisaba Network"
+  - "&3Azisaba Network"
+  - "&4Azisaba Network"
+  - "&5Azisaba Network"
+  - "&6Azisaba Network"
+  - "&7Azisaba Network"
+  - "&8Azisaba Network"
+  - "&9Azisaba Network"
+  - "&aAzisaba Network"
+  - "&bAzisaba Network"
+  - "&cAzisaba Network"
+  - "&dAzisaba Network"
+  - "&eAzisaba Network"
+  - "&fAzisaba Network"
+  - "Azisaba_Network"
+  - "Azisaba_Network"
+  - "Azisab___etwork"
+  - "Azisab___etwork"
+  - "Azisa_____twork"
+  - "Azisa_____twork"
+  - "Azis_______work"
+  - "Azis_______work"
+  - "Azi_________ork"
+  - "Azi_________ork"
+  - "Az___________rk"
+  - "Az___________rk"
+  - "A_____________k"
+  - "A_____________k"
+  - "_______________"
+  - "_____________"
+  - "___________"
+  - "_________"
+  - "_______"
+  - "_____"
+  - "___"
+  - "_"
+  - "_"
+  - " _"
+  - "  _"
+  - "   _"
+  - "    _"
+  - "     _"
+  - "      _"
+  - "       _"
+  - "        _"
+  - "         _"
+  - "          _"
+  - "           _"
+  - "            _"
+  - "             _"
+  - "              _"
+  - "               _"
+  - "                _"
+  - "                 _"
+  - "                  _"
+  - "                   _"
+  - "                    _"
+  - "                &b+&r <"
+  - "               &bx&rk  "
+  - "             &b+&rork  "
+  - "           &bx&rtwork  "
+  - "         &b+&rNetwork  "
+  - "       &bx&ra Network  "
+  - "     &b+&raba Network  "
+  - "   &bx&risaba Network  "
+  - " &b+&rAzisaba Network  "
+  - "&bx&r Azisaba Network  "
+  - "&b-&r Azisaba Network  "
+  - "&b-&r Azisaba Network  "
+  - "&b-&r Azisaba Network  "
+  - "&b-&r Azisaba Network  "
+  - "&b-&r Azisaba Network  "
+  - "&b-&r Azisaba Network  "
+  - "&b-&r Azisaba Network  "
+  - "&b-&r Azisaba Network  "
+  - "&m  Azi&rsaba Network  "
+  - "&m  Azisaba &rNetwork  "
+  - "  Azi&msaba Netwo&rrk  "
+  - "  /zi/aba &mNetwork  &r"
+  - "  _/i_//a /e/wo&mrk  &r"
+  - "  __/___/ _/_//r/  "
+  - "  _______ _____/_  "
+  - "  _______ _______  "
+  - "_______________"
+  - "___________"
+  - "_______"
+  - "___"
+  - "_"
+footerAnimationUpdateInterval: 0.3
+
+customPlaceholders:
+  username: !conditional { condition: "true", true: "${event_1}", false: "" }
+  event_1: !conditional { condition: "${time yyyy} == \"2020\" && ${player world} == \"NYPVE\"", true: "&1&l${username_tab} &7[2020]", false: "${username_tab}" }
+  username_tab: !conditional { condition: "${player name} != ${player tab_name}", true: "${player tab_name}", false: "${username_final}" }
+  username_final: !conditional { condition: "${player name} != ${player display_name}", true: "${player display_name}", false: "${player name}" }
+
+  dynamic_name_with_prefix: !conditional { condition: "${player server} == ${viewer server}", true: "${player vault_prefix}${username}${player vault_suffix}", false: "&8${player name}&r" }
+  prefix_server: !conditional { condition: "${player server} == ${viewer server}", true: "", false: "&8@${player server} &r" }
+
+  status: !conditional { condition: "${player is_hidden}", true: "&f\u25cb&r", false: "${status_1}" }
+  status_1: !conditional { condition: "${player essentials_afk}", true: "&6\u263d&r", false: "&a\u25cf&r" }
+
+  usertime_h: !conditional { condition: "${viewer session_duration_hours} > 0", true: "${viewer session_duration_hours}時間", false: "" }
+  usertime_m: !conditional { condition: "${viewer session_duration_minutes} > 0", true: "${viewer session_duration_minutes}分", false: "" }
+  usertime_s: !conditional { condition: "${viewer session_duration_seconds} > 0", true: "${viewer session_duration_seconds}秒", false: "" }
+
+  ping: !conditional { condition: "${viewer ping} < 50", true: "&a${viewer ping}", false: "${ping_normal}" }
+  ping_normal: !conditional { condition: "${viewer ping} < 100", true: "&d${viewer ping}", false: "${ping_bad}" }
+  ping_bad: !conditional { condition: "${viewer ping} < 150", true: "&e${viewer ping}", false: "${ping_worst}" }
+  ping_worst: !conditional { condition: "${viewer ping} >= 150", true: "&c${viewer ping}", false: "" }
+
+  tps: !conditional { condition: "${viewer server tps 1.2} > 20.00", true: "&b${viewer server tps 1.2}", false: "${tps_good}" }
+  tps_good: !conditional { condition: "${viewer server tps 1.2} > 19.00", true: "&a${viewer server tps 1.2}", false: "${tps_bad}" }
+  tps_bad: !conditional { condition: "${viewer server tps 1.2} > 18.00", true: "&e${viewer server tps 1.2}", false: "${tps_worst}" }
+  tps_worst: !conditional { condition: "${viewer server tps 1.2} <= 18.00", true: "&c${viewer server tps 1.2}", false: "" }
+
+  header_duration: !conditional { condition: "${viewer session_duration_hours} > 0", true: "\n&7プレイ中: ${usertime_h}${usertime_m}${usertime_s}", false: "" }
+  header_team: !conditional { condition: "${viewer team} != \"\"", true: "\n&7チーム: &r${viewer team}", false: "" }
+  header_money: !conditional { condition: "${viewer vault_balance 1.2} != \"\" && ${viewer vault_balance 1.2} != \"0.00\"", true: "\n&7所持金: &f${viewer vault_balance 1.2}", false: "" }
+  header_debug: !conditional { condition: "${viewer gamemode} == 1", true: "\n&7&oクライアントバージョン: &r${viewer client_version}${header_debug_perm}", false: "" }
+  header_debug_perm: !conditional { condition: "${viewer vault_primary_group} != \"\"", true: "\n&7&o権限: &r${viewer vault_primary_group}", false: "" }
+
+playerSets:
+  global: { filter: true, hiddenPlayers: VISIBLE_TO_ADMINS }
+  current: { filter: "${player server} == ${viewer server}", hiddenPlayers: VISIBLE_TO_ADMINS }
+
+type: DYNAMIC_SIZE
+
+playerSet: global
+playerOrder: "server viewer-first, server, vault_primary_group_weight desc, name asc"
+playerComponent: " ${status} ${prefix_server}${dynamic_name_with_prefix}"
