@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  hadolint:
+    name: Haskell Dockerfile Linter
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker pull hadolint/hadolint
+      - run: docker run --rm -i hadolint/hadolint < Dockerfile || exit 0
+      - run: docker run --rm -i hadolint/hadolint hadolint --ignore={DL3018,SC2016,DL3001} - < Dockerfile
+  build:
+    name: Docker Compose
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: docker-compose build
