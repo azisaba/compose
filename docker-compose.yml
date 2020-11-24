@@ -1,0 +1,42 @@
+version: '3.7'
+
+# 全コンテナに適用するために定義する
+x-global: &global
+  restart: always # コンテナが終了しても自動で再起動する
+  environment:
+    TZ: Asia/Tokyo # タイムゾーンを日本時間にする
+  stop_grace_period: 1m # KILLシグナルが送信されるまでの期間を1分に伸ばしてプラグインなどのデータを安全に保存する
+
+services:
+  # データベース系
+  azisaba-mariadb:
+    <<: *global
+    image: mariadb:10
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: 1 # rootパスワードを自動生成する
+    volumes:
+      - ./save/mariadb:/var/lib/mysql
+    command: --max-connections=1000 # 最大コネクション数を増やしてLuckPermsの接続エラー対策をする
+  azisaba-redis:
+    <<: *global
+    image: redis:6-alpine
+    volumes:
+      - ./save/redis:/data
+
+  # マインクラフトサーバー系
+  azisaba-bungee:
+    <<: *global
+    build:
+      context: bungee
+      dockerfile: ../Dockerfile
+      args:
+        SOFTWARE_URL: https://papermc.io/api/v1/waterfall/1.16/384/download
+        SOFTWARE_PORT: 25577
+        SOFTWARE_STOP_COMMAND: end
+        SOFTWARE_LOG_FILE: logs/latest.log
+        JAVA_VERSION: 15
+    ports:
+      - 8192:8192
+      - 25565:25577
+    depends_on:
+      - azisaba-mariadb
