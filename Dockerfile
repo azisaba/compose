@@ -32,6 +32,7 @@ RUN apk add --no-cache \
 
 RUN wget -O server.jar "$SOFTWARE_URL"
 RUN cp -aTv /assets .
+RUN cp -aTv /libs .
 
 RUN printf \
 	'#!/bin/bash\n\
