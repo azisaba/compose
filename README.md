@@ -1,35 +1,66 @@
-# アジ鯖マインクラフト
+<h1 align="center">
+  アジ鯖マインクラフト
+</h1>
 
-新しいアジ鯖の管理システム
+[![GitHub Actions](https://badgen.net/github/checks/azisaba/minecraft/main?label=build&icon=github)](https://github.com/azisaba/minecraft/actions)
+[![Twitter](https://badgen.net/twitter/follow/AzisabaNetwork?icon=twitter)](https://twitter.com/AzisabaNetwork)
+[![Discord](https://discord.com/api/guilds/357134045328572418/widget.png)](https://discord.gg/azisaba)
 
-## ⤴ サーバーを起動
+新しいアジ鯖管理システム
+
+## 🔨 ビルド
+
+```console
+$ docker-compose build
+```
+
+## ⤴ 起動
 
 ```console
 $ docker-compose up -d
 ```
 
-## ⤵ サーバーを停止
+✅ 起動が完了すると `localhost:25566` で開発用サーバーへの接続が可能になります！
+⚠ `localhost:25565` は本番用のサーバーで、Proxy Protocolが有効になっているため接続ができません。
+
+## ⤵ 停止
 
 ```console
 $ docker-compose down
 ```
 
+## ⚙ サーバーの構成を編集する
+
+🔍 全体の管理は [docker-compose.yml](docker-compose.yml) を編集してください。
+
 ## ✍ サーバーを編集する
 
-すべてのサーバー設定を管理するには [docker-compose.yml](docker-compose.yml) を編集してください。
+サーバーごとに重要な3つのフォルダがあります。
 
-各サーバーについては、サーバーごとにフォルダがあり、その中に `assets` と `libs` と `parts` フォルダがあります。
+### `libs` フォルダについて
 
-### `assets` と `libs` フォルダについて
+この中のすべてのファイルが、最初にサーバーに導入されます。
 
-この2つのフォルダに明確な違いはありません。
+💡 プラグインの.jarファイルなどを置くと完璧です。
 
-このフォルダ内のすべてのファイルが、一番最初にサーバーに導入されます。
+### `assets` フォルダについて
 
-ヒント: プラグインの.jarファイルや、データが完結しているタイプのファイルを使い分けて保存すると便利です。
+設定ファイルを上書きまたは追加します。
+
+💡 一度サーバーを起動して終了した後に、処理が実行されます。
 
 ### `parts` フォルダについて
 
-一旦サーバーを起動した後に、このフォルダ内のファイルで上書きします。
+この中のすべてのファイルがパーツとなり、設定ファイルを部分的に変更できます。
 
-ヒント: 設定ファイルの一部などはこっちに保存すると見やすくて便利です。
+💡 YAMLとProperties(Java)形式がサポートされます。
+
+## 📚 サーバーを保存する
+
+保存やバックアップが必要なものは最小限に抑えていますが、まだ0ではありません。
+
+| 保存が必要なパス | データを保存する理由 | タイプ |
+| - | - | - |
+| ./save/mariadb | MariaDBデータベースの永続化 | 自動生成 |
+| ./save/redis | Redisデータベースの永続化 | 自動生成 |
+| ./save/lobby/lobby | lobbyサーバーのlobbyワールド | 導入が必要 |
