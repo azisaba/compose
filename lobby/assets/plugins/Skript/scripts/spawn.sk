@@ -5,6 +5,7 @@ on enable:
     set {spawn}'s yaw to 180
 
 on join:
+    wait a tick
     teleport the player to {spawn}
 
 on respawn:
