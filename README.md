@@ -21,6 +21,7 @@ $ docker-compose up -d
 ```
 
 ✅ 起動が完了すると `localhost:25566` で開発用サーバーへの接続が可能になります！
+
 ⚠ `localhost:25565` は本番用のサーバーで、Proxy Protocolが有効になっているため接続ができません。
 
 ## ⤵ 停止
