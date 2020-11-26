@@ -15,7 +15,7 @@ services:
     ports:
       - 25566:810
     volumes:
-      - ./develop/nginx.conf:/etc/nginx/nginx.conf
+      - ./assets/develop/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
       - azisaba-bungee
 
@@ -27,7 +27,7 @@ services:
       MYSQL_RANDOM_ROOT_PASSWORD: 1 # rootパスワードを自動生成する
     volumes:
       - ./save/mariadb:/var/lib/mysql
-      - ./initdb.d:/docker-entrypoint-initdb.d
+      - ./assets/initdb.d:/docker-entrypoint-initdb.d
     command: --max-connections=1000 # 最大コネクション数を増やしてLuckPermsの接続エラー対策をする
   azisaba-redis:
     <<: *global
