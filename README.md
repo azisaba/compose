@@ -59,8 +59,8 @@ $ docker-compose down
 
 保存やバックアップが必要なものは最小限に抑えていますが、まだ0ではありません。
 
-| 保存が必要なパス | データを保存する理由 | タイプ |
-| - | - | - |
-| ./save/mariadb | MariaDBデータベースの永続化 | 自動生成 |
-| ./save/redis | Redisデータベースの永続化 | 自動生成 |
-| ./save/lobby/lobby | lobbyサーバーのlobbyワールド | 導入が必要 |
+| 保存が必要なパス | データを保存する理由 |
+| - | - |
+| ./save/mariadb | MariaDBデータベースの永続化 |
+| ./save/redis | Redisデータベースの永続化 |
+| ./save/lobby/lobby | lobbyサーバーのlobbyワールド |
