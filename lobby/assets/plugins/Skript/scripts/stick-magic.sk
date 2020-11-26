@@ -1,0 +1,9 @@
+on damage:
+    attacker is a player
+    attacker's held item is stick
+    victim is a player
+    victim's held item is stick
+    cancel event
+    send "PUSH!!" to attacker
+    push victim upwards at speed 0.5
+

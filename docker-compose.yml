@@ -52,3 +52,19 @@ services:
       - 25565:25577
     depends_on:
       - azisaba-mariadb
+  azisaba-lobby:
+    <<: *global
+    build:
+      context: lobby
+      dockerfile: ../Dockerfile
+      args:
+        SOFTWARE_URL: https://papermc.io/api/v1/paper/1.12.2/1618/download
+        SOFTWARE_PORT: 25565
+        SOFTWARE_STOP_COMMAND: stop
+        SOFTWARE_LOG_FILE: logs/latest.log
+        SOFTWARE_EULA: 1
+        JAVA_VERSION: 15
+    depends_on:
+      - azisaba-mariadb
+    volumes:
+      - ./save/lobby/lobby:/app/lobby

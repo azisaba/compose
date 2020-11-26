@@ -14,7 +14,7 @@ servers:
     motd: |2-
                  &4&nAzisaba Network&r &7[&a1.8.x-1.16.4&7]
               &fアジ鯖、たのしい。 &7| &oPowered by &bDDPS
-    address: lobby:25565
+    address: azisaba-lobby:25565
   parkour:
     address: parkour:25565
   event:

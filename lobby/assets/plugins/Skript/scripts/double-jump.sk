@@ -1,0 +1,13 @@
+on jump:
+    player's gamemode is survival:
+        set player's flight mode to true
+
+on flight toggle:
+    player's gamemode is survival:
+        cancel event
+        set player's flight mode to false
+        wait a tick
+
+        push player in direction of player at speed 1
+        push player upwards at speed 2
+        send action bar "%player's velocity%" to player

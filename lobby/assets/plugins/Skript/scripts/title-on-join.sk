@@ -1,0 +1,5 @@
+on enable:
+    log "サーバー参加時のタイトル表示機能が有効化されました。"
+
+on join:
+    send title "&4アジ鯖&rへようこそ！" to player for 2 seconds

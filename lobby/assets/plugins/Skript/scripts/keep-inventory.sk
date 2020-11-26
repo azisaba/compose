@@ -1,0 +1,6 @@
+on enable:
+    log "キープインベントリ機能が有効化されました。"
+
+on death of player:
+    keep items and exp
+    cancel exp drops

@@ -19,6 +19,7 @@ ARG SOFTWARE_URL
 ARG SOFTWARE_PORT
 ARG SOFTWARE_STOP_COMMAND
 ARG SOFTWARE_LOG_FILE
+ARG SOFTWARE_EULA
 
 WORKDIR /build
 
@@ -31,8 +32,10 @@ RUN apk add --no-cache \
 	yq
 
 RUN wget -O server.jar "$SOFTWARE_URL"
-RUN cp -aTv /assets .
+
 RUN cp -aTv /libs .
+
+RUN if [ -n "$SOFTWARE_EULA" ]; then echo 'eula=true' > eula.txt; fi
 
 RUN printf \
 	'#!/bin/bash\n\
@@ -52,6 +55,8 @@ RUN set -e \
 	&& wait4ports -s 1 tcp://localhost:"$SOFTWARE_PORT" \
 	&& kill -15 "$(jobs -p)" \
 	&& wait "$(jobs -p)"
+
+RUN cp -aTv /assets .
 
 WORKDIR /parts
 

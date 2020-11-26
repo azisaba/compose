@@ -1,0 +1,18 @@
+on enable:
+    log "スポーン機能が有効化されました。"
+
+    set {spawn} to the location at 0.5, 64, 0.5 in the world "lobby"
+    set {spawn}'s yaw to 180
+
+on join:
+    teleport the player to {spawn}
+
+on respawn:
+    world is "world" or "lobby"
+    set respawn location to {spawn}
+
+command /spawn:
+    executable by: players
+    trigger:
+        send "テレポートしています..."
+        teleport the player to {spawn}

@@ -1,0 +1,9 @@
+server: lobby
+
+storage-method: mariadb
+
+data:
+  address: azisaba-mariadb
+  database: luckperms
+  username: luckperms
+  password: luckperms

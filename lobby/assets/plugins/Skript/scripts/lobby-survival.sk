@@ -1,0 +1,33 @@
+# リセットの説明を表示
+
+on player world change:
+    "%world%" contains "survival"
+
+    send "&4荒らし対策のため、ロビーサバイバルはほぼ毎日リセットされます。%nl%&4大事なアイテムは/ecコマンドで保管できます。"
+
+# ランダムアイテムドロップ
+
+on block break:
+    "%world%" contains "survival"
+    player's gamemode is survival
+
+    loop (random integer between 1 to 10) times:
+        drop (random integer between 1 to 64) of (random item out of all items)
+
+# 岩盤とバリアの荒らし対策
+
+on rightclick:
+    "%world%" contains "survival"
+    player's gamemode is survival
+    block is barrier or bedrock
+
+    break block naturally
+    play sound "entity.experience_orb.pickup"
+
+# プレイヤーが死ぬとクソデカゾンビになる
+
+on death:
+    "%victim's world%" contains "survival"
+    victim is player
+
+    summon giant at victim

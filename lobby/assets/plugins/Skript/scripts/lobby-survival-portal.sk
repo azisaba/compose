@@ -1,0 +1,33 @@
+# 感圧版でテレポート
+
+on plate:
+    world is "lobby"
+
+    block below is diamond block:
+        teleport player to spawn of "survival"
+
+    block below is emerald block:
+        teleport player to spawn of "survival_nether"
+
+    block below is iron block:
+        teleport player to spawn of "survival_the_end"
+
+# コマンドでテレポート
+
+command /survival:
+    executable by: players
+    trigger:
+        send "ロビーサバイバルにテレポート中..."
+        teleport player to (spawn location of world "survival")
+
+command /survivalnether:
+    executable by: players
+    trigger:
+        send "ロビーサバイバル(ネザー)にテレポート中..."
+        teleport player to (spawn location of world "survival_nether")
+
+command /survivalend:
+    executable by: players
+    trigger:
+        send "ロビーサバイバル(エンド)にテレポート中..."
+        teleport player to (spawn location of world "survival_the_end")

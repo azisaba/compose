@@ -1,0 +1,12 @@
+on enable:
+    log "ワールド読み込み機能が有効化されました。"
+
+    execute console command "/multiverse-core:mv import lobby NORMAL"
+    execute console command "/multiverse-core:mv create survival NORMAL"
+    execute console command "/multiverse-core:mv create survival_nether NETHER"
+    execute console command "/multiverse-core:mv create survival_the_end THE_END"
+
+    execute console command "/worldguard:rg f __global__ -w lobby build deny"
+    execute console command "/worldguard:rg f __global__ -w lobby use allow"
+    execute console command "/worldguard:rg f __global__ -w lobby chest-access allow"
+    execute console command "/worldguard:rg f -e __global__ -w lobby deny-message"

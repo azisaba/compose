@@ -1,0 +1,6 @@
+enableChannelChat: false
+
+japanizeType: GoogleIME
+
+normalChatMessageFormat: '%prefix%username%suffix &9» &r%msg'
+japanizeLine1Format: '%japanize &7%msg'

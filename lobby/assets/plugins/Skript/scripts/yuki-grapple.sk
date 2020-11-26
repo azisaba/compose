@@ -1,0 +1,36 @@
+on enable:
+    log "Grapple機能が有効化されました。"
+
+variables:
+    {name} = "&eGrapple"
+
+command /grapple:
+    executable by: players
+    trigger:
+        give unbreakable fishing rod named {name} to player
+        send "Grappleを取得しました。"
+
+on tool change:
+    past tool is fishing rod named {name}
+
+    play sound "BLOCK_NOTE_HAT" with pitch 0.7
+    send "&6Grappleを取り外した"
+
+on damage of player:
+    damage cause is fall
+    victim's held item is fishing rod named {name}
+
+    set damage to damage / 2
+
+on player fishing:
+    player's held item is fishing rod named {name}
+    fishing state is failed attempt or in ground
+    hook's y-coordinate is greater than 0
+
+    if blocks between (block above hook) and (block below hook) is not all water, lava or air:
+        set {_movement} to vector from player to hook ** vector 0.2, 0.2, 0.2
+        send action bar "%{_movement}%" to player
+        set player's velocity to {_movement}
+        play sound "ENTITY_ZOMBIE_INFECT" with pitch 1.78
+    else:
+        send "&cGrappleできません"
