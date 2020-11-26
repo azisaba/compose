@@ -170,3 +170,9 @@ services:
     volumes: [ /opt/minecraft/conquest:/app ]
     command: java -Dlegacy@conquest -jar paper-1.14.4.jar
     depends_on: [ database ]
+  craft:
+    <<: *legacy-server
+    image: openjdk:15
+    volumes: [ /opt/minecraft/craft:/app ]
+    command: java -Dlegacy@craft -jar paper-1.16.3.jar
+    depends_on: [ database ]
