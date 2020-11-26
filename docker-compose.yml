@@ -8,7 +8,18 @@ x-global: &global
   stop_grace_period: 1m # KILLシグナルが送信されるまでの期間を1分に伸ばしてプラグインなどのデータを安全に保存する
 
 services:
-  # データベース系
+  # デバッグ
+  develop-proxy:
+    <<: *global
+    image: nginx:1-alpine
+    ports:
+      - 25566:810
+    volumes:
+      - ./develop/nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - azisaba-bungee
+
+  # データベース
   azisaba-mariadb:
     <<: *global
     image: mariadb:10
@@ -24,7 +35,7 @@ services:
     volumes:
       - ./save/redis:/data
 
-  # マインクラフトサーバー系
+  # マインクラフトサーバー
   azisaba-bungee:
     <<: *global
     build:
