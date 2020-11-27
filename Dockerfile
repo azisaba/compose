@@ -1,6 +1,6 @@
 FROM alpine:3.12 as base
 
-ARG JAVA_VERSION
+ARG JAVA_VERSION=8
 
 RUN set -e \
 	&& echo "https://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories \
@@ -16,9 +16,9 @@ RUN set -e \
 FROM base as builder
 
 ARG SOFTWARE_URL
-ARG SOFTWARE_PORT
-ARG SOFTWARE_STOP_COMMAND
-ARG SOFTWARE_LOG_FILE
+ARG SOFTWARE_PORT=25565
+ARG SOFTWARE_STOP_COMMAND=stop
+ARG SOFTWARE_LOG_FILE=logs/latest.log
 ARG SOFTWARE_EULA
 
 WORKDIR /build

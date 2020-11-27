@@ -45,7 +45,6 @@ services:
         SOFTWARE_URL: https://papermc.io/api/v1/waterfall/1.16/384/download
         SOFTWARE_PORT: 25577
         SOFTWARE_STOP_COMMAND: end
-        SOFTWARE_LOG_FILE: logs/latest.log
         JAVA_VERSION: 15
     ports:
       - 8192:8192
@@ -59,9 +58,6 @@ services:
       dockerfile: ../Dockerfile
       args:
         SOFTWARE_URL: https://papermc.io/api/v1/paper/1.12.2/1618/download
-        SOFTWARE_PORT: 25565
-        SOFTWARE_STOP_COMMAND: stop
-        SOFTWARE_LOG_FILE: logs/latest.log
         SOFTWARE_EULA: 1
         JAVA_VERSION: 15
     depends_on:
