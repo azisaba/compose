@@ -64,4 +64,5 @@ $ docker-compose down
 | - | - |
 | ./save/mariadb | MariaDBデータベースの永続化 |
 | ./save/redis | Redisデータベースの永続化 |
+| ./save/lobby/world/playerdata | lobbyサーバーのプレイヤーデータ |
 | ./save/lobby/lobby | lobbyサーバーのlobbyワールド |

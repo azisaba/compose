@@ -63,4 +63,5 @@ services:
     depends_on:
       - azisaba-mariadb
     volumes:
+      - ./save/lobby/world/playerdata:/app/world/playerdata
       - ./save/lobby/lobby:/app/lobby
