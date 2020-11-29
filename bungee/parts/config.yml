@@ -55,6 +55,8 @@ servers:
     address: mts:25565
   conquest:
     address: conquest:25565
+  craft:
+    address: craft:25565
 
   casino:
     address: 192.168.3.101:25565
