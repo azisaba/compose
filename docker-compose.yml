@@ -146,6 +146,18 @@ services:
     volumes: [ /opt/minecraft/sclatsv3:/app ]
     command: java -Dlegacy@sclatsv3 -jar paper-1.13.2.jar
     depends_on: [ database ]
+  sclatsv4:
+    <<: *legacy-server
+    image: openjdk:13
+    volumes: [ /opt/minecraft/sclatsv4:/app ]
+    command: java -Dlegacy@sclatsv4 -jar paper-1.13.2.jar
+    depends_on: [ database ]
+  sclatsv5:
+    <<: *legacy-server
+    image: openjdk:13
+    volumes: [ /opt/minecraft/sclatsv5:/app ]
+    command: java -Dlegacy@sclatsv5 -jar paper-1.13.2.jar
+    depends_on: [ database ]
   sclattest:
     <<: *legacy-server
     image: openjdk:13
