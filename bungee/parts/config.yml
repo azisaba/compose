@@ -20,6 +20,26 @@ servers:
     address: azisaba-lgw:25565
   life:
     address: azisaba-life:25565
+  sclat:
+    address: azisaba-sclat:25565
+  sclatsv1:
+    address: azisaba-sclatsv1:25565
+  sclatsv2:
+    address: azisaba-sclatsv2:25565
+  sclatsv3:
+    address: azisaba-sclatsv3:25565
+  sclatsv4:
+    address: azisaba-sclatsv4:25565
+  sclatsv5:
+    address: azisaba-sclatsv5:25565
+  sclattest:
+    address: azisaba-sclattest:25565
+  sclattutorial1:
+    address: azisaba-sclattutorial1:25565
+  sclattutorial2:
+    address: azisaba-sclattutorial2:25565
+  sclattutorial3:
+    address: azisaba-sclattutorial3:25565
 
   parkour:
     address: parkour:25565
@@ -41,26 +61,6 @@ servers:
     address: coretol:25565
   mksrv:
     address: mksrv:25565
-  sclat:
-    address: sclat:25565
-  sclatsv1:
-    address: sclatsv1:25565
-  sclatsv2:
-    address: sclatsv2:25565
-  sclatsv3:
-    address: sclatsv3:25565
-  sclatsv4:
-    address: sclatsv4:25565
-  sclatsv5:
-    address: sclatsv5:25565
-  sclattest:
-    address: sclattest:25565
-  sclattutorial1:
-    address: sclattutorial1:25565
-  sclattutorial2:
-    address: sclattutorial2:25565
-  sclattutorial3:
-    address: sclattutorial3:25565
   lifebuild:
     address: lifebuild:25565
   mts:
