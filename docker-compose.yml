@@ -52,6 +52,7 @@ services:
         JAVA_VERSION: 15
     depends_on:
       - azisaba-mariadb
+      - azisaba-redis
   azisaba-bungee2:
     <<: *global
     build:
@@ -64,6 +65,7 @@ services:
         JAVA_VERSION: 15
     depends_on:
       - azisaba-mariadb
+      - azisaba-redis
   azisaba-bungee3:
     <<: *global
     build:
@@ -76,6 +78,7 @@ services:
         JAVA_VERSION: 15
     depends_on:
       - azisaba-mariadb
+      - azisaba-redis
   azisaba-lobby:
     <<: *global
     build:

@@ -1,3 +1,5 @@
+server: bungee
+
 storage-method: mariadb
 
 data:
