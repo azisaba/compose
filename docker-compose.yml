@@ -7,6 +7,13 @@ x-global: &global
     TZ: Asia/Tokyo # タイムゾーンを日本時間にする
   stop_grace_period: 1m # KILLシグナルが送信されるまでの期間を1分に伸ばしてプラグインなどのデータを安全に保存する
 
+# 廃止予定
+x-legacy: &legacy
+  <<: *global
+  working_dir: /legacyapp
+  tty: true
+  stop_signal: SIGINT
+
 services:
   # プロキシ
   nginx:
@@ -93,3 +100,20 @@ services:
     volumes:
       - ./save/lobby/world/playerdata:/app/world/playerdata
       - ./save/lobby/lobby:/app/lobby
+  lgw:
+    <<: *legacy
+    image: openjdk:8
+    volumes:
+      - /srv/lgw:/legacyapp
+    command: java -jar paper-1.12.2.jar
+    depends_on:
+      - azisaba-mariadb
+  life:
+    <<: *legacy
+    image: openjdk:14
+    volumes:
+      - /srv/life:/legacyapp
+    command: java -jar paper-1.15.2.jar
+    depends_on:
+      - azisaba-mariadb
+      - azisaba-redis
