@@ -8,16 +8,20 @@ x-global: &global
   stop_grace_period: 1m # KILLシグナルが送信されるまでの期間を1分に伸ばしてプラグインなどのデータを安全に保存する
 
 services:
-  # デバッグ
+  # プロキシ
   nginx:
     <<: *global
     image: nginx:1-alpine
     ports:
-      - 25566:810
+      - 8192:8192
+      - 25565:25565
+      - 25566:25566
     volumes:
       - ./assets/nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
-      - azisaba-bungee
+      - azisaba-bungee1
+      - azisaba-bungee2
+      - azisaba-bungee3
 
   # データベース
   azisaba-mariadb:
@@ -36,7 +40,7 @@ services:
       - ./save/redis:/data
 
   # マインクラフトサーバー
-  azisaba-bungee:
+  azisaba-bungee1:
     <<: *global
     build:
       context: bungee
@@ -46,9 +50,30 @@ services:
         SOFTWARE_PORT: 25577
         SOFTWARE_STOP_COMMAND: end
         JAVA_VERSION: 15
-    ports:
-      - 8192:8192
-      - 25565:25577
+    depends_on:
+      - azisaba-mariadb
+  azisaba-bungee2:
+    <<: *global
+    build:
+      context: bungee
+      dockerfile: ../Dockerfile
+      args:
+        SOFTWARE_URL: https://papermc.io/api/v1/waterfall/1.16/384/download
+        SOFTWARE_PORT: 25577
+        SOFTWARE_STOP_COMMAND: end
+        JAVA_VERSION: 15
+    depends_on:
+      - azisaba-mariadb
+  azisaba-bungee3:
+    <<: *global
+    build:
+      context: bungee
+      dockerfile: ../Dockerfile
+      args:
+        SOFTWARE_URL: https://papermc.io/api/v1/waterfall/1.16/384/download
+        SOFTWARE_PORT: 25577
+        SOFTWARE_STOP_COMMAND: end
+        JAVA_VERSION: 15
     depends_on:
       - azisaba-mariadb
   azisaba-lobby:
