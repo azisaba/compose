@@ -26,9 +26,7 @@ services:
     volumes:
       - ./assets/nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
-      - azisaba-bungee1
-      - azisaba-bungee2
-      - azisaba-bungee3
+      - azisaba-bungee
 
   # データベース
   azisaba-mariadb:
@@ -45,33 +43,7 @@ services:
     image: redis:6-alpine
 
   # マインクラフトサーバー
-  azisaba-bungee1:
-    <<: *global
-    build:
-      context: bungee
-      dockerfile: ../Dockerfile
-      args:
-        SOFTWARE_URL: https://papermc.io/api/v1/waterfall/1.16/388/download
-        SOFTWARE_PORT: 25577
-        SOFTWARE_STOP_COMMAND: end
-        JAVA_VERSION: 15
-    depends_on:
-      - azisaba-mariadb
-      - azisaba-redis
-  azisaba-bungee2:
-    <<: *global
-    build:
-      context: bungee
-      dockerfile: ../Dockerfile
-      args:
-        SOFTWARE_URL: https://papermc.io/api/v1/waterfall/1.16/388/download
-        SOFTWARE_PORT: 25577
-        SOFTWARE_STOP_COMMAND: end
-        JAVA_VERSION: 15
-    depends_on:
-      - azisaba-mariadb
-      - azisaba-redis
-  azisaba-bungee3:
+  azisaba-bungee:
     <<: *global
     build:
       context: bungee
@@ -98,7 +70,7 @@ services:
     volumes:
       - ./save/lobby/world/playerdata:/app/world/playerdata
       - ./save/lobby/lobby:/app/lobby
-  lgw:
+  azisaba-lgw:
     <<: *legacy
     image: openjdk:8
     volumes:
@@ -106,7 +78,7 @@ services:
     command: java -jar paper-1.12.2.jar
     depends_on:
       - azisaba-mariadb
-  life:
+  azisaba-life:
     <<: *legacy
     image: openjdk:14
     volumes:

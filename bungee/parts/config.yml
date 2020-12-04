@@ -10,23 +10,25 @@ listeners:
       - lobby
 
 servers:
+  # 公開サーバー
   lobby:
     motd: |2-
                  &4&nAzisaba Network&r &7[&a1.8.x-1.16.4&7]
               &fアジ鯖、たのしい。 &7| &oPowered by &bDDPS
     address: azisaba-lobby:25565
+  lgw:
+    address: azisaba-lgw:25565
+  life:
+    address: azisaba-life:25565
+
   parkour:
     address: parkour:25565
   event:
     address: event:25565
-  lgw:
-    address: lgw:25565
   rzh:
     address: rzh:25565
   pvp:
     address: pvp:25565
-  life:
-    address: life:25565
   chibi:
     address: chibi:25565
   afk:
