@@ -34,6 +34,8 @@ services:
     image: mariadb:10
     environment:
       MYSQL_RANDOM_ROOT_PASSWORD: 1 # rootパスワードを自動生成する
+    ports:
+      - 3306:3306
     volumes:
       - ./save/mariadb:/var/lib/mysql
       - ./assets/initdb.d:/docker-entrypoint-initdb.d
