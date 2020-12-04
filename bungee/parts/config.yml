@@ -53,8 +53,12 @@ servers:
     address: sclatsv5:25565
   sclattest:
     address: sclattest:25565
-  sclattutorial:
-    address: sclattutorial:25565
+  sclattutorial1:
+    address: sclattutorial1:25565
+  sclattutorial2:
+    address: sclattutorial2:25565
+  sclattutorial3:
+    address: sclattutorial3:25565
   lifebuild:
     address: lifebuild:25565
   mts:
