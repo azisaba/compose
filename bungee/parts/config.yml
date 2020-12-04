@@ -41,34 +41,35 @@ servers:
   sclattutorial3:
     address: azisaba-sclattutorial3:25565
 
+  # 鯖7
   parkour:
-    address: parkour:25565
+    address: 192.168.3.207:50001
   event:
-    address: event:25565
+    address: 192.168.3.207:50002
   rzh:
-    address: rzh:25565
+    address: 192.168.3.207:50003
   pvp:
-    address: pvp:25565
+    address: 192.168.3.207:50004
   chibi:
-    address: chibi:25565
+    address: 192.168.3.207:50005
   afk:
-    address: afk:25565
+    address: 192.168.3.207:50006
   fsw:
-    address: fsw:25565
+    address: 192.168.3.207:50007
   lgwf:
-    address: lgwf:25565
+    address: 192.168.3.207:50008
   coretol:
-    address: coretol:25565
+    address: 192.168.3.207:50009
   mksrv:
-    address: mksrv:25565
+    address: 192.168.3.207:50010
   lifebuild:
-    address: lifebuild:25565
+    address: 192.168.3.207:50011
   mts:
-    address: mts:25565
+    address: 192.168.3.207:50012
   conquest:
-    address: conquest:25565
+    address: 192.168.3.207:50013
   craft:
-    address: craft:25565
+    address: 192.168.3.207:50014
 
   casino:
     address: 192.168.3.101:25565
