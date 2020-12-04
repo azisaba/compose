@@ -63,6 +63,5 @@ $ docker-compose down
 | 保存が必要なパス | データを保存する理由 |
 | - | - |
 | ./save/mariadb | MariaDBデータベースの永続化 |
-| ./save/redis | Redisデータベースの永続化 |
 | ./save/lobby/world/playerdata | lobbyサーバーのプレイヤーデータ |
 | ./save/lobby/lobby | lobbyサーバーのlobbyワールド |

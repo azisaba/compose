@@ -43,8 +43,6 @@ services:
   azisaba-redis:
     <<: *global
     image: redis:6-alpine
-    volumes:
-      - ./save/redis:/data
 
   # マインクラフトサーバー
   azisaba-bungee1:
