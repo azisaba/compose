@@ -32,6 +32,16 @@ servers:
     address: azisaba-sclatsv4:25565
   sclatsv5:
     address: azisaba-sclatsv5:25565
+  sclatsv6:
+    address: azisaba-sclatsv6:25565
+  sclatsv7:
+    address: azisaba-sclatsv7:25565
+  sclatsv8:
+    address: azisaba-sclatsv8:25565
+  sclatsv9:
+    address: azisaba-sclatsv9:25565
+  sclatsv10:
+    address: azisaba-sclatsv10:25565
   sclattest:
     address: azisaba-sclattest:25565
   sclattutorial1:
