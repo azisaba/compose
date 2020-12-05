@@ -17,7 +17,7 @@ $ docker-compose build
 ## ⤴ 起動
 
 ```console
-$ docker-compose up -d --scale azisaba-bungee=3
+$ docker-compose up -d
 ```
 
 ✅ 起動が完了すると `localhost:25566` で開発用サーバーへの接続が可能になります！

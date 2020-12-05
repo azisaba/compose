@@ -20,9 +20,7 @@ services:
     <<: *global
     image: nginx:1-alpine
     ports:
-      - 8192:8192
-      - 25565:25565
-      - 25566:25566
+      - 25566:810
     volumes:
       - ./assets/nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
@@ -55,9 +53,11 @@ services:
         SOFTWARE_PORT: 25577
         SOFTWARE_STOP_COMMAND: end
         JAVA_VERSION: 15
+    ports:
+      - 8192:8192
+      - 25565:25577
     depends_on:
       - azisaba-mariadb
-      - azisaba-redis
   azisaba-lobby:
     <<: *global
     build:
