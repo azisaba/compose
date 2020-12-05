@@ -137,6 +137,46 @@ services:
     command: java -jar paper-1.13.2.jar
     depends_on:
       - azisaba-mariadb
+  azisaba-sclatsv6:
+    <<: *legacy
+    image: openjdk:13
+    volumes:
+      - /srv/sclatsv6:/legacyapp
+    command: java -jar paper-1.13.2.jar
+    depends_on:
+      - azisaba-mariadb
+  azisaba-sclatsv7:
+    <<: *legacy
+    image: openjdk:13
+    volumes:
+      - /srv/sclatsv7:/legacyapp
+    command: java -jar paper-1.13.2.jar
+    depends_on:
+      - azisaba-mariadb
+  azisaba-sclatsv8:
+    <<: *legacy
+    image: openjdk:13
+    volumes:
+      - /srv/sclatsv8:/legacyapp
+    command: java -jar paper-1.13.2.jar
+    depends_on:
+      - azisaba-mariadb
+  azisaba-sclatsv9:
+    <<: *legacy
+    image: openjdk:13
+    volumes:
+      - /srv/sclatsv9:/legacyapp
+    command: java -jar paper-1.13.2.jar
+    depends_on:
+      - azisaba-mariadb
+  azisaba-sclatsv10:
+    <<: *legacy
+    image: openjdk:13
+    volumes:
+      - /srv/sclatsv10:/legacyapp
+    command: java -jar paper-1.13.2.jar
+    depends_on:
+      - azisaba-mariadb
   azisaba-sclattest:
     <<: *legacy
     image: openjdk:13
