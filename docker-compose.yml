@@ -102,7 +102,7 @@ services:
     image: openjdk:13
     volumes:
       - /srv/sclatsv1:/legacyapp
-    command: java -XX:ActiveProcessorCount=4 -jar paper-1.13.2.jar
+    command: java -jar paper-1.13.2.jar
     depends_on:
       - azisaba-mariadb
   azisaba-sclatsv2:
@@ -110,7 +110,7 @@ services:
     image: openjdk:13
     volumes:
       - /srv/sclatsv2:/legacyapp
-    command: java -XX:ActiveProcessorCount=4 -jar paper-1.13.2.jar
+    command: java -jar paper-1.13.2.jar
     depends_on:
       - azisaba-mariadb
   azisaba-sclatsv3:
@@ -118,7 +118,7 @@ services:
     image: openjdk:13
     volumes:
       - /srv/sclatsv3:/legacyapp
-    command: java -XX:ActiveProcessorCount=4 -jar paper-1.13.2.jar
+    command: java -jar paper-1.13.2.jar
     depends_on:
       - azisaba-mariadb
   azisaba-sclatsv4:
@@ -126,7 +126,7 @@ services:
     image: openjdk:13
     volumes:
       - /srv/sclatsv4:/legacyapp
-    command: java -XX:ActiveProcessorCount=4 -jar paper-1.13.2.jar
+    command: java -jar paper-1.13.2.jar
     depends_on:
       - azisaba-mariadb
   azisaba-sclatsv5:
@@ -134,7 +134,7 @@ services:
     image: openjdk:13
     volumes:
       - /srv/sclatsv5:/legacyapp
-    command: java -XX:ActiveProcessorCount=4 -jar paper-1.13.2.jar
+    command: java -jar paper-1.13.2.jar
     depends_on:
       - azisaba-mariadb
   azisaba-sclatsv6:
@@ -142,7 +142,7 @@ services:
     image: openjdk:13
     volumes:
       - /srv/sclatsv6:/legacyapp
-    command: java -XX:ActiveProcessorCount=4 -jar paper-1.13.2.jar
+    command: java -jar paper-1.13.2.jar
     depends_on:
       - azisaba-mariadb
   azisaba-sclatsv7:
@@ -150,7 +150,7 @@ services:
     image: openjdk:13
     volumes:
       - /srv/sclatsv7:/legacyapp
-    command: java -XX:ActiveProcessorCount=4 -jar paper-1.13.2.jar
+    command: java -jar paper-1.13.2.jar
     depends_on:
       - azisaba-mariadb
   azisaba-sclatsv8:
@@ -158,7 +158,7 @@ services:
     image: openjdk:13
     volumes:
       - /srv/sclatsv8:/legacyapp
-    command: java -XX:ActiveProcessorCount=4 -jar paper-1.13.2.jar
+    command: java -jar paper-1.13.2.jar
     depends_on:
       - azisaba-mariadb
   azisaba-sclatsv9:
@@ -166,7 +166,7 @@ services:
     image: openjdk:13
     volumes:
       - /srv/sclatsv9:/legacyapp
-    command: java -XX:ActiveProcessorCount=4 -jar paper-1.13.2.jar
+    command: java -jar paper-1.13.2.jar
     depends_on:
       - azisaba-mariadb
   azisaba-sclatsv10:
@@ -174,7 +174,7 @@ services:
     image: openjdk:13
     volumes:
       - /srv/sclatsv10:/legacyapp
-    command: java -XX:ActiveProcessorCount=4 -jar paper-1.13.2.jar
+    command: java -jar paper-1.13.2.jar
     depends_on:
       - azisaba-mariadb
   azisaba-sclattest:
