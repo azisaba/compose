@@ -10,3 +10,5 @@ for service in $(docker-compose config --services | grep -vE 'nginx|azisaba-(mar
   ( sleep "$(shuf -i 60-300 -n 1)" && docker-compose up -d "$service" ) &
 done
 wait
+
+docker-compose logs -f
