@@ -2,3 +2,5 @@ locale: ja_JP
 
 custom-join-message: "&a⇨ &r{PLAYER} &7さんがロビーに参加しました！"
 custom-quit-message: "&c⇦ &r{PLAYER} &7さんがロビーから退出しました。"
+
+notify-no-new-mail: false
