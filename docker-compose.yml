@@ -80,15 +80,6 @@ services:
     command: java -jar paper-1.12.2.jar
     depends_on:
       - azisaba-mariadb
-  azisaba-life:
-    <<: *legacy
-    image: openjdk:14
-    volumes:
-      - /srv/life:/legacyapp
-    command: java -jar paper-1.15.2.jar
-    depends_on:
-      - azisaba-mariadb
-      - azisaba-redis
   azisaba-sclat:
     <<: *legacy
     image: openjdk:13
