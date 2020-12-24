@@ -19,7 +19,7 @@ servers:
   lgw:
     address: azisaba-lgw:25565
   life:
-    address: azisaba-life:25565
+    address: 192.168.3.208:49999
   sclat:
     address: azisaba-sclat:25565
   sclatsv1:
