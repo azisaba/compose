@@ -2,6 +2,9 @@
 
 set -e
 
+docker run -it -d --restart=always --name life -v /srv/life:/app -w /app \
+  -p 49999:25565 openjdk:14 java -jar paper-1.15.2.jar
+
 docker run -it -d --restart=always --name parkour -v /srv/parkour:/app -w /app \
   -p 50001:25565 openjdk:13 java -jar paper-1.13.2.jar
 
