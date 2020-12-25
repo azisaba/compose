@@ -74,7 +74,7 @@ services:
       - ./save/lobby/lobby:/app/lobby
   azisaba-lgw:
     <<: *legacy
-    image: openjdk:15
+    image: openjdk:8
     volumes:
       - /srv/lgw:/legacyapp
     command: java -jar paper-1.12.2.jar
