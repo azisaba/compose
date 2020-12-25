@@ -78,10 +78,6 @@ servers:
     address: 192.168.3.208:50012
   conquest:
     address: 192.168.3.208:50013
-  craft:
-    address: 192.168.3.208:50014
-  craftshigen:
-    address: 192.168.3.208:50015
 
   casino:
     address: 192.168.3.101:25565
