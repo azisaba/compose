@@ -1,0 +1,39 @@
+version: "3.7"
+
+x-legacyapp: &legacyapp
+  restart: always
+  working_dir: /app
+  tty: true
+  stop_grace_period: 1m
+  stop_signal: SIGINT
+
+services:
+  letsencrypt:
+    image: certbot/dns-cloudflare
+    volumes:
+      - ./load/cloudflare.ini:/cf
+      - ./save/letsencrypt:/etc/letsencrypt
+    command: certonly --dns-cloudflare --dns-cloudflare-credentials /cf -m ledlaggazi@gmail.com --agree-tos -n -d azisaba.net -d *.azisaba.net --keep
+  filebrowser:
+    image: filebrowser/filebrowser
+    volumes:
+      - /srv:/srv
+      - ./save/filebrowser.db:/database.db
+      - ./save/filebrowser.json:/.filebrowser.json
+  nginx:
+    image: nginx
+    ports:
+      - 443:443
+    volumes:
+      - ./load/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./save/letsencrypt:/ssl
+    depends_on:
+      - filebrowser
+  life:
+    <<: *legacyapp
+    image: openjdk:14
+    ports:
+      - 49999:25565
+    volumes:
+      - /srv/life:/app
+    command: java -jar paper-1.15.2.jar
