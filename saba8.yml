@@ -4,6 +4,8 @@ x-legacyapp: &legacyapp
   restart: always
   working_dir: /app
   tty: true
+  environment:
+    TZ: Asia/Tokyo
   stop_grace_period: 1m
   stop_signal: SIGINT
 
