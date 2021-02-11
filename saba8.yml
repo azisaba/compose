@@ -51,7 +51,7 @@ services:
     <<: *legacyapp
     image: openjdk:8
     ports:
-      - 50019:25565
+      - 50002:25565
     volumes:
       - /srv/event:/app
     command: java -jar paper-1.13.2.jar
