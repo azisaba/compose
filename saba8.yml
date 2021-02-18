@@ -31,6 +31,9 @@ services:
       - ./save/letsencrypt:/ssl
     depends_on:
       - filebrowser
+    networks:
+     - nginx_network
+     - default
   life:
     <<: *legacyapp
     image: openjdk:14
@@ -55,3 +58,15 @@ services:
     volumes:
       - /srv/event:/app
     command: java -jar paper-1.13.2.jar
+  leafpvp:
+    <<: *legacyapp
+    image: openjdk:8
+    ports:
+      - 50004:25565
+    volumes:
+      - /srv/leafpvp:/app
+    command: java -jar paper-1.12.2.jar
+
+networks:
+  nginx_network:
+    external: true
