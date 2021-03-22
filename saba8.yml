@@ -42,6 +42,14 @@ services:
     volumes:
       - /srv/life:/app
     command: java -jar paper-1.15.2.jar
+  lifebuild:
+    <<: *legacyapp
+    image: openjdk:14
+    ports:
+      - 50011:25565
+    volumes:
+      - /srv/lifebuild:/app
+    command: java -jar paper-1.15.2.jar
   coretol:
     <<: *legacyapp
     image: openjdk:8
