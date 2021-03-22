@@ -66,6 +66,14 @@ services:
     volumes:
       - /srv/leafpvp:/app
     command: java -jar paper-1.12.2.jar
+  conquest:
+    <<: *legacyapp
+    image: openjdk:8
+    ports:
+      - 50013:25565
+    volumes:
+      - /srv/conquest:/app
+    command: java -jar paper-1.14.4.jar 
 
 networks:
   nginx_network:
