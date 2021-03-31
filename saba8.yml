@@ -82,6 +82,14 @@ services:
     volumes:
       - /srv/conquest:/app
     command: java -jar paper-1.14.4.jar 
+  rms:
+    <<: *legacyapp
+    image: openjdk:8
+    ports:
+      - 50014:25565
+    volumes:
+      - /srv/rms:/app
+    command: java -jar paper-1.16.5.jar 
 
 networks:
   nginx_network:
