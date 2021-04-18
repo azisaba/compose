@@ -98,6 +98,14 @@ services:
     volumes:
       - /srv/rms:/app
     command: java -jar paper-1.16.5.jar 
+  mksrv:
+    <<: *legacyapp
+    image: openjdk:8
+    ports:
+      - 50010:25565
+    volumes:
+      - /srv/mksrv:/app
+    command: java -jar paper-1.16.5.jar 
 
 networks:
   nginx_network:
