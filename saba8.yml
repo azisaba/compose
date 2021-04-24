@@ -57,7 +57,7 @@ services:
       - 50009:25565
     volumes:
       - /srv/coretol:/app
-    command: java -jar season1/paper-1.15.2.jar
+    command: java -jar paper-1.15.2.jar
   event:
     <<: *legacyapp
     image: openjdk:8
