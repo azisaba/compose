@@ -66,13 +66,13 @@ services:
     volumes:
       - /srv/event:/app
     command: java -jar paper-1.13.2.jar
-  leafpvp:
+  asterpvp:
     <<: *legacyapp
     image: openjdk:8
     ports:
       - 50004:25565
     volumes:
-      - /srv/leafpvp:/app
+      - /srv/asterpvp:/app
     command: java -jar paper-1.12.2.jar
   conquest:
     <<: *legacyapp
@@ -97,7 +97,7 @@ services:
       - 50014:25565
     volumes:
       - /srv/rms:/app
-    command: java -jar paper-1.16.5.jar 
+    command: java -jar paper-1.16.5.jar
   mksrv:
     <<: *legacyapp
     image: openjdk:8
