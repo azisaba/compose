@@ -57,6 +57,7 @@ services:
       - 50009:25565
     volumes:
       - /srv/coretol:/app
+    working_dir: /app/season1
     command: java -jar paper-1.15.2.jar
   event:
     <<: *legacyapp
