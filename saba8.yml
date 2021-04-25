@@ -31,17 +31,9 @@ services:
       - ./save/letsencrypt:/ssl
     depends_on:
       - filebrowser
-      - wordpress
     networks:
      - nginx_network
      - default
-  wordpress:
-    image: wordpress:latest
-    restart: always
-    environment:
-      WORDPRESS_DB_HOST: 192.168.100.207:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
   life:
     <<: *legacyapp
     image: openjdk:14
