@@ -52,7 +52,7 @@ services:
     command: java -jar paper-1.15.2.jar
   coretol:
     <<: *legacyapp
-    image: openjdk:8
+    image: openjdk:11
     ports:
       - 50009:25565
     volumes:
