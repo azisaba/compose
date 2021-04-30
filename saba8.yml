@@ -115,6 +115,14 @@ services:
     volumes:
       - /srv/jg24:/app
     command: java -jar paper-1.16.5.jar
+  mkna:
+    <<: *legacyapp
+    image: openjdk:11
+    ports:
+      - 50016:25565
+    volumes:
+      - /srv/mkna:/app
+    command: java -jar paper-1.16.5.jar
 
 networks:
   nginx_network:
