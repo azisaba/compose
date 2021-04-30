@@ -93,7 +93,7 @@ services:
     command: java -jar paper-1.12.2.jar
   rms:
     <<: *legacyapp
-    image: openjdk:8
+    image: openjdk:11
     ports:
       - 50014:25565
     volumes:
@@ -101,15 +101,15 @@ services:
     command: java -jar paper-1.16.5.jar
   mksrv:
     <<: *legacyapp
-    image: openjdk:8
+    image: openjdk:11
     ports:
       - 50010:25565
     volumes:
       - /srv/mksrv:/app
     command: java -jar paper-1.16.5.jar 
- jg24:
+  jg24:
     <<: *legacyapp
-    image: openjdk:8
+    image: openjdk:11
     ports:
       - 50015:25565
     volumes:
