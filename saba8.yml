@@ -168,7 +168,7 @@ services:
     ports:
       - 50010:25565
     volumes:
-      - /srv/mksrv:/app
+      - /srv/tsl:/app
     command: java -jar paper-1.16.5.jar 
   jg24:
     <<: *legacyapp
