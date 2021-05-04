@@ -95,33 +95,33 @@ services:
       - /srv/coretol:/app
     working_dir: /app/season1_sv3
     command: java -jar paper-1.15.2.jar
-  coretol_season1_sv4:
-    <<: *legacyapp
-    image: openjdk:11
-    ports:
-      - 50024:25565
-    volumes:
-      - /srv/coretol:/app
-    working_dir: /app/season1_sv4
-    command: java -jar paper-1.15.2.jar
-  coretol_season1_sv5:
-    <<: *legacyapp
-    image: openjdk:11
-    ports:
-      - 50025:25565
-    volumes:
-      - /srv/coretol:/app
-    working_dir: /app/season1_sv5
-    command: java -jar paper-1.15.2.jar
-  coretol_season1_sv6:
-    <<: *legacyapp
-    image: openjdk:11
-    ports:
-      - 50026:25565
-    volumes:
-      - /srv/coretol:/app
-    working_dir: /app/season1_sv6
-    command: java -jar paper-1.15.2.jar
+#  coretol_season1_sv4:
+#    <<: *legacyapp
+#    image: openjdk:11
+#    ports:
+#      - 50024:25565
+#    volumes:
+#      - /srv/coretol:/app
+#    working_dir: /app/season1_sv4
+#    command: java -jar paper-1.15.2.jar
+#  coretol_season1_sv5:
+#    <<: *legacyapp
+#    image: openjdk:11
+#    ports:
+#      - 50025:25565
+#    volumes:
+#      - /srv/coretol:/app
+#    working_dir: /app/season1_sv5
+#    command: java -jar paper-1.15.2.jar
+#  coretol_season1_sv6:
+#    <<: *legacyapp
+#    image: openjdk:11
+#    ports:
+#      - 50026:25565
+#    volumes:
+#      - /srv/coretol:/app
+#    working_dir: /app/season1_sv6
+#    command: java -jar paper-1.15.2.jar
   event:
     <<: *legacyapp
     image: openjdk:8
