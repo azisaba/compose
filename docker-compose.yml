@@ -199,6 +199,8 @@ services:
       # needed for Paper versions before 1.14
       CONSOLE: "false"
       USE_AIKAR_FLAGS: "true"
+      UID: 0
+      GID: 1024
     volumes:
       - /srv/builders:/data
   builders-12:
@@ -214,6 +216,8 @@ services:
       # needed for Paper versions before 1.14
       CONSOLE: "false"
       USE_AIKAR_FLAGS: "true"
+      UID: 0
+      GID: 1025
     volumes:
       - /srv/builders12:/data
 
